@@ -16,8 +16,8 @@
             <Button x:Name="Center_Script_Btn" Content="Scriptien Asetukset" HorizontalAlignment="Left" VerticalAlignment="Top" Width="348" Canvas.Left="10" Canvas.Top="191" Height="31" Click="Center_Script_Btn_Click" Background="#FFDA9513"/>
             <Button x:Name="Center_Loading_Btn" Content="Latausruudun Asetukset" HorizontalAlignment="Left" VerticalAlignment="Top" Width="348" Canvas.Left="10" Canvas.Top="153" Height="33" Click="Center_Loading_Btn_Click" Background="#FFDA9513"/>
             <Button x:Name="Center_Mission_Btn" Content="Tehtävän Asetukset" HorizontalAlignment="Left" VerticalAlignment="Top" Width="348" Canvas.Left="10" Canvas.Top="115" Height="33" Click="Center_Mission_Btn_Click" Background="#FFDA9513"/>
-            <Button x:Name="Center_Install_Btn" Content="Asenna" HorizontalAlignment="Left" VerticalAlignment="Top" Width="348" RenderTransformOrigin="0.484,5.697" Canvas.Left="10" Canvas.Top="512" Height="34" Background="#FFDA9513"/>
-            <TextBlock x:Name="Center_Install_TextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Odottaa..." VerticalAlignment="Top" Width="348" Foreground="#FFDA9513" TextAlignment="Center" Height="34" Canvas.Left="10" Canvas.Top="551"/>
+            <Button x:Name="Center_Install_Btn" Content="Asenna" HorizontalAlignment="Left" VerticalAlignment="Top" Width="348" RenderTransformOrigin="0.484,5.697" Canvas.Left="10" Canvas.Top="530" Height="34" Background="#FFDA9513"/>
+            <TextBlock x:Name="Center_Install_TextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Odottaa..." VerticalAlignment="Top" Width="348" Foreground="#FFDA9513" TextAlignment="Center" Height="16" Canvas.Left="10" Canvas.Top="569"/>
         </Canvas>
         <Canvas x:Name="Code_Edit_Canvas" Height="639" Margin="713,1,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.514,0.46" Grid.Column="1" HorizontalAlignment="Left" Width="371">
             <Button x:Name="Code_Desc_Btn" Content="Description.ext" HorizontalAlignment="Left" VerticalAlignment="Top" Width="174" RenderTransformOrigin="0.484,5.697" Canvas.Left="187" Canvas.Top="67" Height="33" Click="Code_Desc_Btn_Click" Background="#FFDA9513"/>
@@ -51,7 +51,7 @@
             <TextBox x:Name="Loading_Author_TextBox" Canvas.Left="127" TextWrapping="Wrap" Canvas.Top="68" Width="211" Height="32" TextChanged="Loading_Author_TextBox_TextChanged"/>
             <TextBox x:Name="Loading_Name_TextBox" Canvas.Left="127" TextWrapping="Wrap" Canvas.Top="105" Width="211" Height="32" TextChanged="Loading_Name_TextBox_TextChanged"/>
             <TextBox x:Name="Loading_Info_TextBox" Canvas.Left="127" TextWrapping="Wrap" Canvas.Top="142" Width="211" Height="32" TextChanged="Loading_Info_TextBox_TextChanged"/>
-            <TextBox x:Name="Loading_Image_TextBox1" Canvas.Left="127" TextWrapping="Wrap" Canvas.Top="179" Width="172" Height="32"/>
+            <TextBox x:Name="Loading_Image_TextBox1" Canvas.Left="127" TextWrapping="Wrap" Canvas.Top="179" Width="172" Height="32" TextChanged="Loading_Image_TextBox1_TextChanged"/>
             <Button x:Name="Loading_Image_Btn" Content="..." HorizontalAlignment="Left" VerticalAlignment="Top" Width="39" Canvas.Left="299" Canvas.Top="179" Height="32" Padding="12,0,12,4" Background="#FFDA9513"/>
             <CheckBox x:Name="Loading_Image_CheckBox" Content="Käytä Kuikan Kilpeä" Canvas.Left="127" Canvas.Top="216" Width="211" Foreground="#FFDA9513" Checked="Loading_Image_CheckBox_Checked" Unchecked="Loading_Image_CheckBox_Unchecked"/>
         </Canvas>
