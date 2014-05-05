@@ -22,21 +22,22 @@ namespace Kuikka_Installer_GUI_2
     {
         InitSQF Code_Init;
         DescEXT Code_Desc;
+        Briefing Briefings;
+        VisibilityClass VisibilityHandler;
 
         string[] maps = { "Altis", "Stratis" };
         string[] gametypes = { "COOP", "TVT"};
-        string[] respawn = { "Aalto", "Ei Mitään" };
-        string[] medic = { "Kuikka Viikset", "Ei Mitään" };
+
 
         public MainWindow()
         {
             InitializeComponent();
 
-            Profile_Settings_Canvas.Visibility = Visibility.Visible;
-            Mission_Settings_Canvas.Visibility = Visibility.Hidden;
-            Loading_Settings_Canvas.Visibility = Visibility.Hidden;           
-            Script_Settings_Canvas.Visibility = Visibility.Hidden;
-            RespawnWave_Additional_Canvas.Visibility = Visibility.Hidden;
+            Code_Init = new InitSQF(this);
+            Code_Desc = new DescEXT(this);
+            Briefings = new Briefing(this);
+            VisibilityHandler = new VisibilityClass(this, Briefings);
+            VisibilityHandler.showProfileSettings();
 
             foreach (string text in maps)
             {
@@ -46,20 +47,16 @@ namespace Kuikka_Installer_GUI_2
             {
                 Mission_Gametype_ComboBox.Items.Add(text);
             }
-            foreach (string text in respawn)
+            foreach (string text in Code_Init.getRespawnSelections())
             {
                 Script_Respawn_ComboBox.Items.Add(text);
             }
-            foreach (string text in medic)
+            foreach (string text in Code_Init.getMedicSelections())
             {
                 Script_Medic_ComboBox.Items.Add(text);
             }
 
-            Code_Init = new InitSQF();
-            Code_Init_TextBox.Text = Code_Init.getText();
 
-            Code_Desc = new DescEXT();
-            Code_Desc_TextBox.Text = Code_Desc.getText();
 
             Code_Init_TextBox.Visibility = Visibility.Visible;
             Code_Desc_TextBox.Visibility = Visibility.Hidden;
@@ -67,129 +64,92 @@ namespace Kuikka_Installer_GUI_2
             Code_Desc_TextBox.IsReadOnly = false;
             Code_Init_TextBox.AcceptsReturn = true;
             Code_Desc_TextBox.AcceptsReturn = true;
-
         }
 
         private void Center_Profile_Btn_Click(object sender, RoutedEventArgs e)
         {
-            Profile_Settings_Canvas.Visibility = Visibility.Visible;
-            Mission_Settings_Canvas.Visibility = Visibility.Hidden;
-            Loading_Settings_Canvas.Visibility = Visibility.Hidden;
-            Script_Settings_Canvas.Visibility = Visibility.Hidden;
-            RespawnWave_Additional_Canvas.Visibility = Visibility.Hidden;
+            VisibilityHandler.showProfileSettings();
         }
 
         private void Center_Mission_Btn_Click(object sender, RoutedEventArgs e)
         {
-            Profile_Settings_Canvas.Visibility = Visibility.Hidden;
-            Mission_Settings_Canvas.Visibility = Visibility.Visible;
-            Loading_Settings_Canvas.Visibility = Visibility.Hidden;
-            Script_Settings_Canvas.Visibility = Visibility.Hidden;
-            RespawnWave_Additional_Canvas.Visibility = Visibility.Hidden;
+            VisibilityHandler.showMissionSettings();
         }
 
         private void Center_Loading_Btn_Click(object sender, RoutedEventArgs e)
         {
-            Profile_Settings_Canvas.Visibility = Visibility.Hidden;
-            Mission_Settings_Canvas.Visibility = Visibility.Hidden;
-            Loading_Settings_Canvas.Visibility = Visibility.Visible;
-            Script_Settings_Canvas.Visibility = Visibility.Hidden;
-            RespawnWave_Additional_Canvas.Visibility = Visibility.Hidden;
+            VisibilityHandler.showLoadingSettings();
         }
 
         private void Center_Script_Btn_Click(object sender, RoutedEventArgs e)
         {
-            Profile_Settings_Canvas.Visibility = Visibility.Hidden;
-            Mission_Settings_Canvas.Visibility = Visibility.Hidden;
-            Loading_Settings_Canvas.Visibility = Visibility.Hidden;
-            Script_Settings_Canvas.Visibility = Visibility.Visible;
-            RespawnWave_Additional_Canvas.Visibility = Visibility.Hidden;
+            VisibilityHandler.showScriptSettings();
+        }
+
+
+        private void Center_Briefing_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            VisibilityHandler.showBriefingSettings();
+            Briefing_Selection_ComboBox.Items.Clear();
+            foreach (string title in Briefings.GetTitles())
+            {
+                Briefing_Selection_ComboBox.Items.Add(title);
+            }
         }
 
         private void Script_Respawn_ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (Script_Respawn_ComboBox.SelectedItem.ToString() == "Aalto")
-            {
-                RespawnWave_Additional_Canvas.Visibility = Visibility.Visible;
-
-                Code_Init.updateWaveRespawnText(true);
-                Code_Init_TextBox.Text = Code_Init.getText();
-            }
-            else
-            {
-                RespawnWave_Additional_Canvas.Visibility = Visibility.Hidden;
-
-                Code_Init.updateWaveRespawnText(false);
-                Code_Init_TextBox.Text = Code_Init.getText();
-            }
+            Code_Init.updateRespawnText(Script_Respawn_ComboBox.SelectedItem.ToString());
         }
 
         private void Script_Medic_ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (Script_Medic_ComboBox.SelectedItem.ToString() == "Kuikka Viikset")
-            {
-                Code_Init.updateMedicText(true);
-                Code_Init_TextBox.Text = Code_Init.getText();
-            }
-            else
-            {
-                Code_Init.updateMedicText(false);
-                Code_Init_TextBox.Text = Code_Init.getText();
-            }
+            Code_Init.updateMedicText(Script_Medic_ComboBox.SelectedItem.ToString());
         }
 
         private void Code_Init_Btn_Click(object sender, RoutedEventArgs e)
         {
-            Code_Init_TextBox.Visibility = Visibility.Visible;
-            Code_Desc_TextBox.Visibility = Visibility.Hidden;
+            VisibilityHandler.showInitTextbox();
         }
 
         private void Code_Desc_Btn_Click(object sender, RoutedEventArgs e)
         {
-            Code_Init_TextBox.Visibility = Visibility.Hidden;
-            Code_Desc_TextBox.Visibility = Visibility.Visible;
+            VisibilityHandler.showDescTextbox();
         }
 
         private void WaveRespawn_Time_TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             Code_Init.updateWaveRespawnTime(WaveRespawn_Time_TextBox.Text);
-            Code_Init_TextBox.Text = Code_Init.getText();
         }
 
         private void Mission_Gametype_ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Code_Desc.updateMissionGameType(Mission_Gametype_ComboBox.SelectedItem.ToString());
-            Code_Desc_TextBox.Text = Code_Desc.getText();
         }
 
         private void Mission_PlayerAmount_TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             Code_Desc.updateMissionMaxPlayers(Mission_PlayerAmount_TextBox.Text);
-            Code_Desc_TextBox.Text = Code_Desc.getText();
         }
 
         private void Loading_Image_TextBox1_TextChanged(object sender, TextChangedEventArgs e)
         {
             Code_Desc.updateLoadingImage(Loading_Image_TextBox1.Text);
-            Code_Desc_TextBox.Text = Code_Desc.getText();
         }
 
         private void Loading_Author_TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             Code_Desc.updateLoadingAuthor(Loading_Author_TextBox.Text);
-            Code_Desc_TextBox.Text = Code_Desc.getText();
         }
 
         private void Loading_Name_TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             Code_Desc.updateLoadingName(Loading_Name_TextBox.Text);
-            Code_Desc_TextBox.Text = Code_Desc.getText();
         }
 
         private void Loading_Info_TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             Code_Desc.updateLoadingInfo(Loading_Info_TextBox.Text);
-            Code_Desc_TextBox.Text = Code_Desc.getText();
         }
 
         private void Loading_Image_CheckBox_Checked(object sender, RoutedEventArgs e)
@@ -203,5 +163,70 @@ namespace Kuikka_Installer_GUI_2
             Loading_Image_TextBox1.IsEnabled = true;
             Loading_Image_Btn.IsEnabled = true;
         }
+
+        private void Briefing_Settings_New_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            VisibilityHandler.showBriefingEdit("new");           
+        }
+
+        private void Briefing_Settings_Edit_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            if (Briefing_Selection_ComboBox.SelectedItem != null)
+            {
+                VisibilityHandler.showBriefingEdit("edit");
+            }
+            else
+            {
+                MessageBox.Show("Et ole valinnut muokattavaa briefingiä!");
+            }
+        }
+
+        private void Briefing_Save_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            Briefings.EditBriefing(Briefing_Selection_ComboBox.SelectedIndex,
+                                    Briefing_Title_TextBox.Text,
+                                    Briefing_Code_TextBox.Text);
+
+            VisibilityHandler.showBriefingSettings();
+            Briefing_Selection_ComboBox.Items.Clear();
+            foreach (string title in Briefings.GetTitles())
+            {
+                Briefing_Selection_ComboBox.Items.Add(title);
+            }
+        }
+
+        private void Briefing_MarkerSave_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            Briefings.EditMarker(Briefing_Selection_ComboBox.SelectedIndex,
+                                Briefing_Marker_ComboBox.SelectedIndex,
+                                Briefing_MarkerName_TextBox.Text,
+                                Briefing_MarkerText_TextBox.Text);
+
+            VisibilityHandler.showBriefingEdit("edit");
+        }
+
+        private void Briefing_Marker_New_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            Briefing_Marker_ComboBox.Items.Add("Marker " + Briefing_Marker_ComboBox.Items.Count.ToString());
+            Briefing_Marker_ComboBox.SelectedIndex = Briefing_Marker_ComboBox.Items.Count - 1;
+            Briefings.AddMarker(Briefing_Selection_ComboBox.SelectedIndex,
+                                "Marker " + Briefing_Marker_ComboBox.Items.Count.ToString(),
+                                "");
+
+            VisibilityHandler.showBriefingMarker();
+        }
+
+        private void Briefing_Marker_Edit_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            if (Briefing_Marker_ComboBox.SelectedItem != null)
+            {
+                VisibilityHandler.showBriefingMarker();
+            }
+            else
+            {
+                MessageBox.Show("Et ole valinnut muokattavaa markkeria!");
+            }            
+        }
+
     }
 }

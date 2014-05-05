@@ -8,71 +8,138 @@ namespace Kuikka_Installer_GUI_2
 {
     class InitSQF
     {        
-        public InitSQF()
+        public InitSQF(MainWindow windowIn)
         {
-            infoText = "// Tämä Init.sqf tiedosto on luotu Kuikan Missupohjan Asennusohjelmalla\n\n";
+            Respawn = new List<ScriptStruct>();
+            ScriptStruct temp = new ScriptStruct();
+            temp.Selection = "Aalto";
+            temp.Text = "// Aalto respawn\n" +
+                        "[] spawn KuikkaWave_fnc_Init;\n";
+            Respawn.Add( temp );
 
-            jipText = "// Odotamme JIP pelaajien saavan initialialisoinnin valmiiksi\n" +
-                      "if (!isServer && isNull player) then {waitUntil {!(isNull player)}};\n\n";
+            temp = new ScriptStruct();
+            temp.Selection = "Ei Mitään";
+            temp.Text = "";
+            Respawn.Add( temp );
 
-            waveRespawnText = "";
-            waveRespawnTime = "";
+            Medic = new List<ScriptStruct>();
+            temp = new ScriptStruct();
+            temp.Selection = "Viikset";
+            temp.Text = "// Kuikka lääkintäsysteemi\n" +
+                        "[] spawn KuikkaMedic_fnc_Init;\n";
+            Medic.Add( temp );
 
-            medicText = "";
+            temp = new ScriptStruct();
+            temp.Selection = "Ei Mitään";
+            temp.Text = "";
+            Medic.Add( temp );
 
-            allText = "";
+            InitText = new List<string>
+            {
+                "// Tämä Init.sqf tiedosto on luotu Kuikan Missupohjan Asennusohjelmalla \n",
+                "\n",
+                "// Odotamme JIP pelaajien saavan initialialisoinnin valmiiksi \n",
+                "if (!isServer && isNull player) then {waitUntil {!(isNull player)}}; \n",
+                "\n",
+                "", // Respawn #5
+                "\n",
+                "", // Medic #7
+            };
+
+            window = windowIn;
+            this.updateText();
         }
-        private string infoText { get; set; }
 
-        private string jipText { get; set; }
-
-        private string waveRespawnText { get; set; }
-        private string waveRespawnTime { get; set; }
-
-        private string medicText { get; set; }
-
-        private string allText { get; set; }
-
-        public void updateWaveRespawnText(bool visibility)
+        struct ScriptStruct
         {
-            if (visibility)
+            public string Selection;
+            public string Text;
+        };
+
+        private List<ScriptStruct> Respawn { get; set; }
+        private List<ScriptStruct> Medic { get; set; }
+        private List<string> InitText { get; set; }
+        private MainWindow window { get; set; }
+
+        public void updateRespawnText(string Selection)
+        {
+            foreach (ScriptStruct script in Respawn)
             {
-                waveRespawnText =   "// Aalto respawn\n" +
-                                    "[" + waveRespawnTime + "] spawn KuikkaWave_fnc_Init;\n\n";
-            }
-            else
-            {
-                waveRespawnText = "";
-            }
+                if (script.Selection == Selection)
+                {
+                    InitText[5] = script.Text;
+                }
+            };
+
+            this.updateText();
         }
 
         public void updateWaveRespawnTime(string time)
         {
-            waveRespawnTime = time;
-            updateWaveRespawnText(true);
+            int index = 0, IndexLoop = 0;
+            foreach (ScriptStruct script in Respawn)
+            {
+                if (script.Selection == "Aalto")
+                {
+                    index = IndexLoop;
+                }
+                IndexLoop++;
+            };
+
+            ScriptStruct temp = new ScriptStruct();
+            temp.Selection = "Aalto";
+            temp.Text = "// Aalto respawn\n" +
+                        "[" + time + "] spawn KuikkaWave_fnc_Init;\n";
+            Respawn[index] = temp;
+
+            this.updateText();
         }
 
-        public void updateMedicText(bool visibility)
+        public void updateMedicText(string Selection)
         {
-            if (visibility)
+            foreach (ScriptStruct script in Medic)
             {
-                medicText = "// Kuikka lääkintäsysteemi\n" +
-                            "[] spawn KuikkaMedic_fnc_Init;\n\n";
-            }
-            else
-            {
-                medicText = "";
-            }
+                if (script.Selection == Selection)
+                {
+                    InitText[7] = script.Text;
+                }
+            };
+
+            this.updateText();
         }
 
-        public string getText() 
+        public void updateText() 
         {
-            allText = infoText;
-            allText += jipText;
-            allText += waveRespawnText;
-            allText += medicText;
-            return allText;
+            string alltext = "";
+            foreach (String text in InitText)
+            {
+                alltext += text;
+            }
+            window.Code_Init_TextBox.Text = alltext;
         }
-    
+
+        public List<string> getRespawnSelections()
+        {
+            List<string> Selections = new List<string>();
+
+            foreach (ScriptStruct script in Respawn)
+            {
+                Selections.Add(script.Selection);
+            }
+
+            return Selections;
+        }
+
+        public List<string> getMedicSelections()
+        {
+            List<string> Selections = new List<string>();
+
+            foreach (ScriptStruct script in Medic)
+            {
+                Selections.Add(script.Selection);
+            }
+
+            return Selections;
+        }
     }
 }

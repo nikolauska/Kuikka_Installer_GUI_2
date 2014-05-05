@@ -3,155 +3,127 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Kuikka_Installer_GUI_2
 {
     class DescEXT
     {
-        public DescEXT()
+        public DescEXT(MainWindow windowIn)
         {
-            infoText = "// Tämä Description.ext tiedosto on luotu Kuikan Missupohjan Asennusohjelmalla";
+            DescText = new List<string>
+            {
+                "// Tämä Description.ext tiedosto on luotu Kuikan Missupohjan Asennusohjelmalla \n", // Info Text
+                "\n",
+                "// Tehtävän Asetukset \n",
+                "{ \n",
+                "", // Gametype #4
+                "", // Minimum player amount #5
+                "", // Maximum player amount #6
+                "} \n",
+                "\n",
+                "// Latausruudun Asetukset \n",
+                "", // Loading screen image #10
+                "", // Loading screen author #11
+                "", // Loading screen mission name #12
+                "", // Loading screen info text #13
+                "\n",
+                "// Respawn Asetukset \n",
+                "Respawn = BASE; \n",
+                "RespawnDelay = 3; \n",
+                "RespawnDialog = 0; \n",
+                "RespawnOnStart = 1; \n",
+                "RespawnTemplatesWest[] = {'Tickets','Counter','Wave','EndMission'}; \n",
+                "\n",
+                "\n// Muut Asetukset \n",
+                "onLoadIntroTime = false; \n",
+                "onLoadMissionTime = false; \n",
+                "disabledAI = 1; \n",
+                "debriefing = 1; \n",
+                "showGPS = 1; \n"
+            };
 
-            MissionSettingsText = "";
-            MissionGameTypeText = "";
-            MissionMinPlayersText = "";
-            MissionMaxPlayersText = "";
-            
-            LoadingSettingsText = "";
-            LoadingImageText = "";
-            LoadingAuthorText = "";
-            LoadingNameText = "";
-            LoadingInfoText = "";
-
-            RespawnSettingsText = "\n// Respawn Asetukset \n" +
-                                  "Respawn = BASE; \n" +
-                                  "RespawnDelay = 3; \n" +
-                                  "RespawnDialog = 0; \n" +
-                                  "RespawnOnStart = 1; \n" +
-                                  "RespawnTemplatesWest[] = {'Tickets','Counter','Wave','EndMission'}; \n";
-
-            OtherSettingsText = "\n// Muut Asetukset \n" +
-                                "onLoadIntroTime = false; \n" +
-                                "onLoadMissionTime = false; \n" +
-                                "disabledAI = 1; \n" +
-                                "debriefing = 1; \n" +
-                                "showGPS = 1; \n";
-
-            allText = "";
+            window = windowIn;
+            this.updateText();
         }
 
-        private string infoText { get; set; }
-
-        private string MissionSettingsText { get; set; }
-        private string MissionGameTypeText { get; set; }
-        private string MissionMinPlayersText { get; set; }
-        private string MissionMaxPlayersText { get; set; }
-
-        private string LoadingSettingsText { get; set; }
-        private string LoadingImageText { get; set; }
-        private string LoadingAuthorText { get; set; }
-        private string LoadingNameText { get; set; }
-        private string LoadingInfoText { get; set; }
-
-        private string RespawnSettingsText { get; set; }
-        private string OtherSettingsText { get; set; }
-
-        private string allText { get; set; }
+        private List<string> DescText { get; set; }
+        private MainWindow window { get; set; }
 
         public void updateMissionGameType(string type)
         {
-            MissionGameTypeText = "  GameType = " + type + "; \n";
-            MissionSettingsText = " \n\n// Tehtävän Asetukset \n" +
-                                "class Header \n" +
-                                "{ \n" +
-                                MissionGameTypeText +
-                                MissionMinPlayersText +
-                                MissionMaxPlayersText +
-                                "} \n";
+            DescText[4] = "  GameType = " + type + "; \n";
+            this.updateText();
         }
 
         public void updateMissionMaxPlayers(string Amount)
         {
-            MissionMinPlayersText = "  MinPlayers = 1; \n";
-            MissionMaxPlayersText = "  MaxPlayers = " + Amount + "; \n";
-            MissionSettingsText = " \n\n// Tehtävän Asetukset \n" +
-                                "class Header \n" +
-                                "{ \n" +
-                                MissionGameTypeText +
-                                MissionMinPlayersText +
-                                MissionMaxPlayersText +
-                                "} \n";
+            DescText[5] = "  MinPlayers = 1; \n";
+            DescText[6] = "  MaxPlayers = " + Amount + "; \n";
+            this.updateText();
         }
 
         public void updateLoadingImage(string Image)
         {
-            LoadingSettingsText = "\n// Latausruudun Asetukset \n";
-            LoadingImageText = @"LoadScreen = 'Images\" + Image + "'; \n";
+            DescText[10] = @"LoadScreen = 'Images\" + Image + "'; \n";
+            this.updateText();
         }
 
         public void updateLoadingAuthor(string Author)
         {
-            LoadingSettingsText = "\n// Latausruudun Asetukset \n";
-            LoadingAuthorText = "Author = " + Author + "; \n";          
+            DescText[11] = "Author = " + Author + "; \n";
+            this.updateText();
         }
 
         public void updateLoadingName(string Name)
         {
-            LoadingSettingsText = "\n// Latausruudun Asetukset \n";
-            LoadingNameText = "OnLoadName = " + Name + "; \n";        
+            DescText[12] = "OnLoadName = " + Name + "; \n";
+            this.updateText();
         }
 
         public void updateLoadingInfo(string Info)
         {
-            LoadingSettingsText = "\n// Latausruudun Asetukset \n";
-            LoadingInfoText = "OnLoadMission = " + Info + "; \n";
+            DescText[13] = "OnLoadMission = " + Info + "; \n";
+            this.updateText();
         }
 
-        public string getText()
+        public void updateText()
         {
-            allText = infoText;
-
-            allText += MissionSettingsText;
-
-            allText += LoadingSettingsText;
-            allText += LoadingImageText;
-            allText += LoadingAuthorText;
-            allText += LoadingNameText;
-            allText += LoadingInfoText;
-
-            allText += RespawnSettingsText;
-
-            allText += OtherSettingsText;
-            return allText;
+            string alltext = "";
+            foreach (String text in DescText)
+            {
+                alltext += text;
+            }
+            window.Code_Desc_TextBox.Text = alltext;
         }
 
         public string missingCheck()
         {
-            if (MissionGameTypeText == "")
+            if (DescText[4] == "")
             {
                 return "Gametype puuttuu";
             }
-            if (MissionMinPlayersText == "")
+            if (DescText[5] == "")
             {
                 return "Minimi pelaajamäärä puuttuu";
             }
-            if (MissionMaxPlayersText == "")
+            if (DescText[6] == "")
             {
                 return "Maksimi pelaajamäärä puuttuu";
             }
-            if (LoadingImageText == "")
+            if (DescText[10] == "")
             {
                 return "Latauskuva puuttuu";
             }
-            if (LoadingAuthorText == "")
+            if (DescText[11] == "")
             {
                 return "Tekijän nimi puuttuu";
             }
-            if (LoadingNameText == "")
+            if (DescText[12] == "")
             {
                 return "Tehtävän nimi puuttuu";
             }
-            if (LoadingInfoText == "")
+            if (DescText[13] == "")
             {
                 return "Infoteksti puuttuu";
             }
