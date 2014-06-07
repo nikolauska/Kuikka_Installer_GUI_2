@@ -28,9 +28,9 @@
             <Button x:Name="Code_Music_Btn" Content="Music.hpp" HorizontalAlignment="Left" VerticalAlignment="Top" Width="174" RenderTransformOrigin="0.484,5.697" Canvas.Left="187" Canvas.Top="105" Height="33" Click="Code_Desc_Btn_Click" Background="#FFDA9513"/>
             <Button x:Name="Code_Briefing_Btn" Content="Briefing.sqf" HorizontalAlignment="Left" VerticalAlignment="Top" Width="172" RenderTransformOrigin="0.484,5.697" Canvas.Left="10" Canvas.Top="105" Height="33" Click="Code_Init_Btn_Click" Background="#FFDA9513"/>
         </Canvas>
-        <Canvas x:Name="Profile_Settings_Canvas" HorizontalAlignment="Left" Height="363" VerticalAlignment="Top" Width="344" Margin="6,1,0,0" Grid.ColumnSpan="2" Visibility="Hidden">
+        <Canvas x:Name="Profile_Settings_Canvas" HorizontalAlignment="Left" Height="363" VerticalAlignment="Top" Width="344" Margin="6,1,0,0" Grid.ColumnSpan="2">
             <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Profiili Asetukset" VerticalAlignment="Top" Width="324" Foreground="#FFDA9513" TextAlignment="Center" Height="29" Canvas.Left="10" Canvas.Top="34" Background="Black"/>
-            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Profiilinimi" VerticalAlignment="Top" Width="117" Foreground="#FFDA9513" TextAlignment="Center" Height="33" Canvas.Left="10" Canvas.Top="68"/>
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="ArmA 3 Profiili" VerticalAlignment="Top" Width="117" Foreground="#FFDA9513" TextAlignment="Center" Height="33" Canvas.Left="10" Canvas.Top="68"/>
             <ComboBox x:Name="Profile_Name_ComboBox" Canvas.Left="132" Canvas.Top="68" Width="202" Height="33"/>
         </Canvas>
         <Canvas x:Name="Mission_Settings_Canvas" HorizontalAlignment="Left" Height="363" VerticalAlignment="Top" Width="344" Margin="6,1,0,0" Grid.ColumnSpan="2" Visibility="Hidden">
@@ -94,7 +94,7 @@
             <Button x:Name="Briefing_Save_Btn" Content="Tallenna" HorizontalAlignment="Left" VerticalAlignment="Top" Width="320" RenderTransformOrigin="0.484,5.697" Canvas.Left="10" Canvas.Top="342" Height="43" Background="#FFDA9513" Click="Briefing_Save_Btn_Click"/>
             <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Briefing Teksti" VerticalAlignment="Top" Width="319" Foreground="#FFDA9513" TextAlignment="Center" Height="18" Canvas.Top="1" Canvas.Left="10"/>
         </Canvas>
-        <Canvas x:Name="Briefing_Marker_Canvas" HorizontalAlignment="Right" Height="230" VerticalAlignment="Top" Width="340" Margin="0,10,643,0" Grid.ColumnSpan="2">
+        <Canvas x:Name="Briefing_Marker_Canvas" HorizontalAlignment="Right" Height="230" VerticalAlignment="Top" Width="340" Margin="0,10,643,0" Grid.ColumnSpan="2" Visibility="Hidden">
             <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Briefing Asetukset" VerticalAlignment="Top" Width="320" Foreground="#FFDA9513" TextAlignment="Center" Height="24" Canvas.Left="10" Canvas.Top="25"/>
             <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Markerin Nimi" VerticalAlignment="Top" Width="112" Foreground="#FFDA9513" TextAlignment="Center" Height="30" Canvas.Top="54" Canvas.Left="10"/>
             <TextBox x:Name="Briefing_MarkerName_TextBox" Height="30" Canvas.Left="127" TextWrapping="Wrap" Canvas.Top="54" Width="202"/>

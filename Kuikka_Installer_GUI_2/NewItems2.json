@@ -1,0 +1,3194 @@
+{
+  "items": [
+    {
+      "name": "acc_flashlight",
+      "displayname": "Flashlight"
+    },
+    {
+      "name": "acc_pointer_IR",
+      "displayname": "IR Laser Pointer"
+    },
+    {
+      "name": "B_UavTerminal",
+      "displayname": "UAV Terminal"
+    },
+    {
+      "name": "FirstAidKit",
+      "displayname": "First Aid Kit"
+    },
+    {
+      "name": "H_Bandanna_camo",
+      "displayname": "Bandanna (Camo)"
+    },
+    {
+      "name": "H_Bandanna_cbr",
+      "displayname": "Bandanna (Coyote)"
+    },
+    {
+      "name": "H_Bandanna_gry",
+      "displayname": "Bandanna (Gray)"
+    },
+    {
+      "name": "H_Bandanna_khk",
+      "displayname": "Bandanna (Khaki)"
+    },
+    {
+      "name": "H_Bandanna_khk_hs",
+      "displayname": "Bandanna (Headset)"
+    },
+    {
+      "name": "H_Bandanna_mcamo",
+      "displayname": "Bandanna (MTP)"
+    },
+    {
+      "name": "H_Bandanna_sgg",
+      "displayname": "Bandanna (Sage)"
+    },
+    {
+      "name": "H_Bandanna_surfer",
+      "displayname": "Bandanna (Surfer)"
+    },
+    {
+      "name": "H_BandMask_blk",
+      "displayname": "Bandanna Mask (Black)"
+    },
+    {
+      "name": "H_BandMask_demon",
+      "displayname": "Bandanna Mask (Demon)"
+    },
+    {
+      "name": "H_BandMask_khk",
+      "displayname": "Bandanna Mask (Khaki)"
+    },
+    {
+      "name": "H_BandMask_reaper",
+      "displayname": "Bandanna Mask (Reaper)"
+    },
+    {
+      "name": "H_Beret_02",
+      "displayname": "Beret [NATO]"
+    },
+    {
+      "name": "H_Beret_blk",
+      "displayname": "Beret (Black)"
+    },
+    {
+      "name": "H_Beret_blk_POLICE",
+      "displayname": "Beret (Police)"
+    },
+    {
+      "name": "H_Beret_brn_SF",
+      "displayname": "Beret (SAS)"
+    },
+    {
+      "name": "H_Beret_grn",
+      "displayname": "Beret (Green)"
+    },
+    {
+      "name": "H_Beret_grn_SF",
+      "displayname": "Beret (SF)"
+    },
+    {
+      "name": "H_Beret_ocamo",
+      "displayname": "Beret [CSAT]"
+    },
+    {
+      "name": "H_Beret_red",
+      "displayname": "Beret (Red)"
+    },
+    {
+      "name": "H_Booniehat_dgtl",
+      "displayname": "Booniehat [AAF]"
+    },
+    {
+      "name": "H_Booniehat_dirty",
+      "displayname": "Booniehat (Dirty)"
+    },
+    {
+      "name": "H_Booniehat_grn",
+      "displayname": "Booniehat (Green)"
+    },
+    {
+      "name": "H_Booniehat_indp",
+      "displayname": "Booniehat (Khaki)"
+    },
+    {
+      "name": "H_Booniehat_khk",
+      "displayname": "Booniehat (Hex)"
+    },
+    {
+      "name": "H_Booniehat_khk_hs",
+      "displayname": "Booniehat (Headset)"
+    },
+    {
+      "name": "H_Booniehat_mcamo",
+      "displayname": "Booniehat (MTP)"
+    },
+    {
+      "name": "H_Booniehat_tan",
+      "displayname": "Booniehat (Tan)"
+    },
+    {
+      "name": "H_Cap_blk",
+      "displayname": "Cap (Black)"
+    },
+    {
+      "name": "H_Cap_blk_CMMG",
+      "displayname": "Cap (CMMG)"
+    },
+    {
+      "name": "H_Cap_blk_ION",
+      "displayname": "Cap (ION)"
+    },
+    {
+      "name": "H_Cap_blk_Raven",
+      "displayname": "Cap (Raven Security)"
+    },
+    {
+      "name": "H_Cap_blu",
+      "displayname": "Cap (Blue)"
+    },
+    {
+      "name": "H_Cap_brn_SPECOPS",
+      "displayname": "Cap (SPECOPS)"
+    },
+    {
+      "name": "H_Cap_grn",
+      "displayname": "Cap (Green)"
+    },
+    {
+      "name": "H_Cap_grn_BI",
+      "displayname": "Cap (BI)"
+    },
+    {
+      "name": "H_Cap_headphones",
+      "displayname": "Rangemaster Cap"
+    },
+    {
+      "name": "H_Cap_khaki_specops_UK",
+      "displayname": "Cap (SAS)"
+    },
+    {
+      "name": "H_Cap_oli",
+      "displayname": "Cap (Green)"
+    },
+    {
+      "name": "H_Cap_oli_hs",
+      "displayname": "Cap (Olive, Headset)"
+    },
+    {
+      "name": "H_Cap_red",
+      "displayname": "Cap (Red)"
+    },
+    {
+      "name": "H_Cap_tan",
+      "displayname": "Cap (Tan)"
+    },
+    {
+      "name": "H_Cap_tan_specops_US",
+      "displayname": "Cap (SF)"
+    },
+    {
+      "name": "H_CrewHelmetHeli_B",
+      "displayname": "Heli Crew Helmet [NATO]"
+    },
+    {
+      "name": "H_CrewHelmetHeli_I",
+      "displayname": "Heli Crew Helmet [AAF]"
+    },
+    {
+      "name": "H_CrewHelmetHeli_O",
+      "displayname": "Heli Crew Helmet [CSAT]"
+    },
+    {
+      "name": "H_Hat_blue",
+      "displayname": "Hat (Blue)"
+    },
+    {
+      "name": "H_Hat_brown",
+      "displayname": "Hat (Brown)"
+    },
+    {
+      "name": "H_Hat_camo",
+      "displayname": "Hat (Camo)"
+    },
+    {
+      "name": "H_Hat_checker",
+      "displayname": "Hat (Checker)"
+    },
+    {
+      "name": "H_Hat_grey",
+      "displayname": "Hat (Gray)"
+    },
+    {
+      "name": "H_Hat_tan",
+      "displayname": "Hat (Tan)"
+    },
+    {
+      "name": "H_Helmet_Kerry",
+      "displayname": "Combat Helmet (Camo)"
+    },
+    {
+      "name": "H_HelmetB",
+      "displayname": "ECH"
+    },
+    {
+      "name": "H_HelmetB_black",
+      "displayname": "ECH (Black)"
+    },
+    {
+      "name": "H_HelmetB_camo",
+      "displayname": "ECH"
+    },
+    {
+      "name": "H_HelmetB_desert",
+      "displayname": "ECH (Desert)"
+    },
+    {
+      "name": "H_HelmetB_grass",
+      "displayname": "ECH (Grass)"
+    },
+    {
+      "name": "H_HelmetB_light",
+      "displayname": "ECH (Light)"
+    },
+    {
+      "name": "H_HelmetB_light_black",
+      "displayname": "ECH (Light, Black)"
+    },
+    {
+      "name": "H_HelmetB_light_desert",
+      "displayname": "ECH (Light, Desert)"
+    },
+    {
+      "name": "H_HelmetB_light_grass",
+      "displayname": "ECH (Light, Grass)"
+    },
+    {
+      "name": "H_HelmetB_light_sand",
+      "displayname": "ECH (Light, Sand)"
+    },
+    {
+      "name": "H_HelmetB_light_snakeskin",
+      "displayname": "ECH (Light, Snakeskin)"
+    },
+    {
+      "name": "H_HelmetB_paint",
+      "displayname": "ECH (Spraypaint)"
+    },
+    {
+      "name": "H_HelmetB_plain_blk",
+      "displayname": "Combat Helmet (Black)"
+    },
+    {
+      "name": "H_HelmetB_plain_mcamo",
+      "displayname": "Combat Helmet (Camo)"
+    },
+    {
+      "name": "H_HelmetB_sand",
+      "displayname": "ECH (Sand)"
+    },
+    {
+      "name": "H_HelmetB_snakeskin",
+      "displayname": "ECH (Snakeskin)"
+    },
+    {
+      "name": "H_HelmetCrew_B",
+      "displayname": "Crew Helmet"
+    },
+    {
+      "name": "H_HelmetCrew_I",
+      "displayname": "Crew Helmet [AAF]"
+    },
+    {
+      "name": "H_HelmetCrew_O",
+      "displayname": "Crew Helmet [CSAT]"
+    },
+    {
+      "name": "H_HelmetIA",
+      "displayname": "MICH"
+    },
+    {
+      "name": "H_HelmetIA_camo",
+      "displayname": "MICH2 (Camo)"
+    },
+    {
+      "name": "H_HelmetIA_net",
+      "displayname": "MICH (Camo)"
+    },
+    {
+      "name": "H_HelmetLeaderO_ocamo",
+      "displayname": "Defender Helmet (Hex)"
+    },
+    {
+      "name": "H_HelmetLeaderO_oucamo",
+      "displayname": "Defender Helmet (Urban)"
+    },
+    {
+      "name": "H_HelmetO_ocamo",
+      "displayname": "Protector Helmet (Hex)"
+    },
+    {
+      "name": "H_HelmetO_oucamo",
+      "displayname": "Protector Helmet (Urban)"
+    },
+    {
+      "name": "H_HelmetSpecB",
+      "displayname": "SF Helmet"
+    },
+    {
+      "name": "H_HelmetSpecB_blk",
+      "displayname": "SF Helmet (Black)"
+    },
+    {
+      "name": "H_HelmetSpecB_paint1",
+      "displayname": "SF Helmet (Lightpaint)"
+    },
+    {
+      "name": "H_HelmetSpecB_paint2",
+      "displayname": "SF Helmet (Darkpaint)"
+    },
+    {
+      "name": "H_HelmetSpecO_blk",
+      "displayname": "Assassin Helmet (Black)"
+    },
+    {
+      "name": "H_HelmetSpecO_ocamo",
+      "displayname": "Assassin Helmet (Hex)"
+    },
+    {
+      "name": "H_MilCap_blue",
+      "displayname": "Blue Cap"
+    },
+    {
+      "name": "H_MilCap_dgtl",
+      "displayname": "Military Cap [AAF]"
+    },
+    {
+      "name": "H_MilCap_gry",
+      "displayname": "Military Cap (Gray)"
+    },
+    {
+      "name": "H_MilCap_mcamo",
+      "displayname": "Military Cap (MTP)"
+    },
+    {
+      "name": "H_MilCap_ocamo",
+      "displayname": "Military Cap (Hex)"
+    },
+    {
+      "name": "H_MilCap_oucamo",
+      "displayname": "Military Cap (Urban)"
+    },
+    {
+      "name": "H_MilCap_rucamo",
+      "displayname": "Military Cap (Russia)"
+    },
+    {
+      "name": "H_PilotHelmetFighter_B",
+      "displayname": "Pilot Helmet [NATO]"
+    },
+    {
+      "name": "H_PilotHelmetFighter_I",
+      "displayname": "Pilot Helmet [AAF]"
+    },
+    {
+      "name": "H_PilotHelmetFighter_O",
+      "displayname": "Pilot Helmet [CSAT]"
+    },
+    {
+      "name": "H_PilotHelmetHeli_B",
+      "displayname": "Heli Pilot Helmet [NATO]"
+    },
+    {
+      "name": "H_PilotHelmetHeli_I",
+      "displayname": "Heli Pilot Helmet [AAF]"
+    },
+    {
+      "name": "H_PilotHelmetHeli_O",
+      "displayname": "Heli Pilot Helmet [CSAT]"
+    },
+    {
+      "name": "H_Shemag_khk",
+      "displayname": "Shemag mask (Khaki)"
+    },
+    {
+      "name": "H_Shemag_olive",
+      "displayname": "Shemag (Olive)"
+    },
+    {
+      "name": "H_Shemag_olive_hs",
+      "displayname": "Shemag (Olive, Headset)"
+    },
+    {
+      "name": "H_Shemag_tan",
+      "displayname": "Shemag mask (Tan)"
+    },
+    {
+      "name": "H_ShemagOpen_khk",
+      "displayname": "Shemag (Khaki)"
+    },
+    {
+      "name": "H_ShemagOpen_tan",
+      "displayname": "Shemag (Tan)"
+    },
+    {
+      "name": "H_StrawHat",
+      "displayname": "Straw Hat"
+    },
+    {
+      "name": "H_StrawHat_dark",
+      "displayname": "Straw hat (Dark)"
+    },
+    {
+      "name": "H_TurbanO_blk",
+      "displayname": "Black Turban"
+    },
+    {
+      "name": "H_Watchcap_blk",
+      "displayname": "Beanie"
+    },
+    {
+      "name": "H_Watchcap_camo",
+      "displayname": "Beanie (Camo)"
+    },
+    {
+      "name": "H_Watchcap_khk",
+      "displayname": "Beanie (Khaki)"
+    },
+    {
+      "name": "H_Watchcap_sgg",
+      "displayname": "Beanie (Sage)"
+    },
+    {
+      "name": "I_UavTerminal",
+      "displayname": "UAV Terminal"
+    },
+    {
+      "name": "ItemCompass",
+      "displayname": "Compass"
+    },
+    {
+      "name": "ItemGPS",
+      "displayname": "GPS"
+    },
+    {
+      "name": "ItemMap",
+      "displayname": "Map"
+    },
+    {
+      "name": "ItemRadio",
+      "displayname": "Radio"
+    },
+    {
+      "name": "ItemWatch",
+      "displayname": "Watch"
+    },
+    {
+      "name": "Medikit",
+      "displayname": "Medikit"
+    },
+    {
+      "name": "muzzle_snds_acp",
+      "displayname": "Sound Suppressor (.45 ACP)"
+    },
+    {
+      "name": "muzzle_snds_B",
+      "displayname": "Sound Suppressor (7.62mm)"
+    },
+    {
+      "name": "muzzle_snds_H",
+      "displayname": "Sound Suppressor (6.5mm)"
+    },
+    {
+      "name": "muzzle_snds_H_MG",
+      "displayname": "Sound Suppressor LMG (6.5mm)"
+    },
+    {
+      "name": "muzzle_snds_L",
+      "displayname": "Sound Suppressor (9mm)"
+    },
+    {
+      "name": "muzzle_snds_M",
+      "displayname": "Sound Suppressor (5.56 mm)"
+    },
+    {
+      "name": "O_UavTerminal",
+      "displayname": "UAV Terminal"
+    },
+    {
+      "name": "optic_Aco",
+      "displayname": "ACO (Red)"
+    },
+    {
+      "name": "optic_ACO_grn",
+      "displayname": "ACO (Green)"
+    },
+    {
+      "name": "optic_ACO_grn_smg",
+      "displayname": "ACO SMG (Green)"
+    },
+    {
+      "name": "optic_Aco_smg",
+      "displayname": "ACO SMG (Red)"
+    },
+    {
+      "name": "optic_Arco",
+      "displayname": "ARCO"
+    },
+    {
+      "name": "optic_DMS",
+      "displayname": "DMS"
+    },
+    {
+      "name": "optic_Hamr",
+      "displayname": "RCO"
+    },
+    {
+      "name": "optic_Holosight",
+      "displayname": "Holosight"
+    },
+    {
+      "name": "optic_Holosight_smg",
+      "displayname": "Mk17 Holosight SMG"
+    },
+    {
+      "name": "optic_LRPS",
+      "displayname": "LRPS"
+    },
+    {
+      "name": "optic_MRCO",
+      "displayname": "MRCO"
+    },
+    {
+      "name": "optic_MRD",
+      "displayname": "MRD"
+    },
+    {
+      "name": "optic_Nightstalker",
+      "displayname": "Nightstalker"
+    },
+    {
+      "name": "optic_NVS",
+      "displayname": "NVS"
+    },
+    {
+      "name": "optic_SOS",
+      "displayname": "SOS"
+    },
+    {
+      "name": "optic_tws",
+      "displayname": "TWS"
+    },
+    {
+      "name": "optic_tws_mg",
+      "displayname": "TWS MG"
+    },
+    {
+      "name": "optic_Yorris",
+      "displayname": "Yorris J2"
+    },
+    {
+      "name": "ToolKit",
+      "displayname": "Toolkit"
+    },
+    {
+      "name": "U_AntigonaBody",
+      "displayname": "Underwear 5"
+    },
+    {
+      "name": "U_AttisBody",
+      "displayname": "Underwear 4"
+    },
+    {
+      "name": "U_B_CombatUniform_mcam",
+      "displayname": "Combat Fatigues (MTP)"
+    },
+    {
+      "name": "U_B_CombatUniform_mcam_tshirt",
+      "displayname": "Combat Fatigues (MTP) (Tee)"
+    },
+    {
+      "name": "U_B_CombatUniform_mcam_vest",
+      "displayname": "Recon Fatigues (MTP)"
+    },
+    {
+      "name": "U_B_CombatUniform_mcam_worn",
+      "displayname": "Worn Combat Fatigues (MTP)"
+    },
+    {
+      "name": "U_B_CombatUniform_sgg",
+      "displayname": "Combat Fatigues (MTP)"
+    },
+    {
+      "name": "U_B_CombatUniform_sgg_tshirt",
+      "displayname": "Combat Fatigues (MTP) (Tee)"
+    },
+    {
+      "name": "U_B_CombatUniform_sgg_vest",
+      "displayname": "Recon Fatigues (MTP)"
+    },
+    {
+      "name": "U_B_CombatUniform_wdl",
+      "displayname": "Combat Fatigues (MTP)"
+    },
+    {
+      "name": "U_B_CombatUniform_wdl_tshirt",
+      "displayname": "Combat Fatigues (MTP) (Tee)"
+    },
+    {
+      "name": "U_B_CombatUniform_wdl_vest",
+      "displayname": "Recon Fatigues (MTP)"
+    },
+    {
+      "name": "U_B_CTRG_1",
+      "displayname": "CTRG Combat Uniform (UBACS)"
+    },
+    {
+      "name": "U_B_CTRG_2",
+      "displayname": "CTRG Combat Uniform (UBACS2)"
+    },
+    {
+      "name": "U_B_CTRG_3",
+      "displayname": "CTRG Combat Uniform (Tee)"
+    },
+    {
+      "name": "U_B_GhillieSuit",
+      "displayname": "Ghillie Suit [NATO]"
+    },
+    {
+      "name": "U_B_HeliPilotCoveralls",
+      "displayname": "Heli Pilot Coveralls"
+    },
+    {
+      "name": "U_B_PilotCoveralls",
+      "displayname": "Pilot Coveralls [NATO]"
+    },
+    {
+      "name": "U_B_SpecopsUniform_sgg",
+      "displayname": "Specop Fatigues (Sage)"
+    },
+    {
+      "name": "U_B_survival_uniform",
+      "displayname": "Survival Fatigues"
+    },
+    {
+      "name": "U_B_Wetsuit",
+      "displayname": "Wetsuit [NATO]"
+    },
+    {
+      "name": "U_BasicBody",
+      "displayname": "Underwear"
+    },
+    {
+      "name": "U_BG_Guerilla1_1",
+      "displayname": "Guerilla Smocks 1"
+    },
+    {
+      "name": "U_BG_Guerilla2_1",
+      "displayname": "Guerilla Smocks 1"
+    },
+    {
+      "name": "U_BG_Guerilla2_2",
+      "displayname": "Guerilla Smocks 1"
+    },
+    {
+      "name": "U_BG_Guerilla2_3",
+      "displayname": "Guerilla Smocks 1"
+    },
+    {
+      "name": "U_BG_Guerilla3_1",
+      "displayname": "Guerilla Smocks 1"
+    },
+    {
+      "name": "U_BG_Guerilla3_2",
+      "displayname": "Guerilla Smocks 1"
+    },
+    {
+      "name": "U_BG_leader",
+      "displayname": "Guerilla Smocks 1"
+    },
+    {
+      "name": "U_C_Commoner1_1",
+      "displayname": "Commoner Clothes 1"
+    },
+    {
+      "name": "U_C_Commoner1_2",
+      "displayname": "Commoner Clothes 2"
+    },
+    {
+      "name": "U_C_Commoner1_3",
+      "displayname": "Commoner Clothes 3"
+    },
+    {
+      "name": "U_C_Commoner2_1",
+      "displayname": "Commoner Clothes 4"
+    },
+    {
+      "name": "U_C_Commoner2_2",
+      "displayname": "Commoner Clothes 5"
+    },
+    {
+      "name": "U_C_Commoner2_3",
+      "displayname": "Commoner Clothes 6"
+    },
+    {
+      "name": "U_C_Commoner_shorts",
+      "displayname": "Commoner Shorts"
+    },
+    {
+      "name": "U_C_Farmer",
+      "displayname": "Farmer Clothes"
+    },
+    {
+      "name": "U_C_Fisherman",
+      "displayname": "Fishing Clothes"
+    },
+    {
+      "name": "U_C_FishermanOveralls",
+      "displayname": "Fishing Overalls"
+    },
+    {
+      "name": "U_C_HunterBody_brn",
+      "displayname": "Hunting Clothes (Brown)"
+    },
+    {
+      "name": "U_C_HunterBody_grn",
+      "displayname": "Hunting Clothes (Green)"
+    },
+    {
+      "name": "U_C_Novak",
+      "displayname": "Novak's Leisure Suit"
+    },
+    {
+      "name": "U_C_Poloshirt_blue",
+      "displayname": "Commoner Clothes 1"
+    },
+    {
+      "name": "U_C_Poloshirt_burgundy",
+      "displayname": "Commoner Clothes 1"
+    },
+    {
+      "name": "U_C_Poloshirt_redwhite",
+      "displayname": "Commoner Clothes 1"
+    },
+    {
+      "name": "U_C_Poloshirt_salmon",
+      "displayname": "Commoner Clothes 1"
+    },
+    {
+      "name": "U_C_Poloshirt_stripped",
+      "displayname": "Commoner Clothes 1"
+    },
+    {
+      "name": "U_C_Poloshirt_tricolour",
+      "displayname": "Commoner Clothes 1"
+    },
+    {
+      "name": "U_C_Poor_1",
+      "displayname": "Worn Clothes"
+    },
+    {
+      "name": "U_C_Poor_2",
+      "displayname": "Worn Clothes"
+    },
+    {
+      "name": "U_C_Poor_shorts_1",
+      "displayname": "Worn Shorts 1"
+    },
+    {
+      "name": "U_C_Poor_shorts_2",
+      "displayname": "Worn Shorts 2"
+    },
+    {
+      "name": "U_C_PriestBody",
+      "displayname": "Clerical Robes"
+    },
+    {
+      "name": "U_C_Scavenger_1",
+      "displayname": "Scavenger Clothes (Light)"
+    },
+    {
+      "name": "U_C_Scavenger_2",
+      "displayname": "Scavenger Clothes (Dark)"
+    },
+    {
+      "name": "U_C_ShirtSurfer_shorts",
+      "displayname": "Surfer Outfit 1"
+    },
+    {
+      "name": "U_C_TeeSurfer_shorts_1",
+      "displayname": "Surfer Outfit 2"
+    },
+    {
+      "name": "U_C_TeeSurfer_shorts_2",
+      "displayname": "Surfer Outfit 3"
+    },
+    {
+      "name": "U_C_WorkerCoveralls",
+      "displayname": "Worker Coveralls"
+    },
+    {
+      "name": "U_C_WorkerOveralls",
+      "displayname": "Worker Clothes"
+    },
+    {
+      "name": "U_Competitor",
+      "displayname": "Competitor Suit"
+    },
+    {
+      "name": "U_I_CombatUniform",
+      "displayname": "Combat Fatigues [AAF]"
+    },
+    {
+      "name": "U_I_CombatUniform_shortsleeve",
+      "displayname": "Combat Fatigues [AAF]"
+    },
+    {
+      "name": "U_I_CombatUniform_tshirt",
+      "displayname": "Combat Fatigues [AAF] (Tee)"
+    },
+    {
+      "name": "U_I_G_resistanceLeader_F",
+      "displayname": "Combat Fatigues (Stavrou)"
+    },
+    {
+      "name": "U_I_G_Story_Protagonist_F",
+      "displayname": "Worn Combat Fatigues (Kerry)"
+    },
+    {
+      "name": "U_I_GhillieSuit",
+      "displayname": "Ghillie Suit [AAF]"
+    },
+    {
+      "name": "U_I_HeliPilotCoveralls",
+      "displayname": "Heli Pilot Coveralls"
+    },
+    {
+      "name": "U_I_OfficerUniform",
+      "displayname": "Combat Fatigues [AAF] (Tee)"
+    },
+    {
+      "name": "U_I_pilotCoveralls",
+      "displayname": "Pilot Coveralls [AAF]"
+    },
+    {
+      "name": "U_I_Wetsuit",
+      "displayname": "Wetsuit [AAF]"
+    },
+    {
+      "name": "U_IG_Guerilla1_1",
+      "displayname": "Guerilla Smocks 1"
+    },
+    {
+      "name": "U_IG_Guerilla2_1",
+      "displayname": "Guerilla Smocks 1"
+    },
+    {
+      "name": "U_IG_Guerilla2_2",
+      "displayname": "Guerilla Smocks 1"
+    },
+    {
+      "name": "U_IG_Guerilla2_3",
+      "displayname": "Guerilla Smocks 1"
+    },
+    {
+      "name": "U_IG_Guerilla3_1",
+      "displayname": "Guerilla Smocks 1"
+    },
+    {
+      "name": "U_IG_Guerilla3_2",
+      "displayname": "Guerilla Smocks 1"
+    },
+    {
+      "name": "U_IG_leader",
+      "displayname": "Guerilla Smocks 1"
+    },
+    {
+      "name": "U_IG_Menelaos",
+      "displayname": "Kabeiroi Leader's Outfit"
+    },
+    {
+      "name": "U_KerryBody",
+      "displayname": "Underwear 3"
+    },
+    {
+      "name": "U_MillerBody",
+      "displayname": "Underwear 2"
+    },
+    {
+      "name": "U_NikosBody",
+      "displayname": "Underwear 1"
+    },
+    {
+      "name": "U_O_CombatUniform_ocamo",
+      "displayname": "Fatigues (Hex) [CSAT]"
+    },
+    {
+      "name": "U_O_CombatUniform_oucamo",
+      "displayname": "Fatigues (Urban) [CSAT]"
+    },
+    {
+      "name": "U_O_GhillieSuit",
+      "displayname": "Ghillie Suit [CSAT]"
+    },
+    {
+      "name": "U_O_OfficerUniform_ocamo",
+      "displayname": "Officer Fatigues (Hex)"
+    },
+    {
+      "name": "U_O_PilotCoveralls",
+      "displayname": "Pilot Coveralls [CSAT]"
+    },
+    {
+      "name": "U_O_SpecopsUniform_blk",
+      "displayname": "Recon Fatigues (Black)"
+    },
+    {
+      "name": "U_O_SpecopsUniform_ocamo",
+      "displayname": "Recon Fatigues (Hex)"
+    },
+    {
+      "name": "U_O_Wetsuit",
+      "displayname": "Wetsuit [CSAT]"
+    },
+    {
+      "name": "U_OG_Guerilla1_1",
+      "displayname": "Guerilla Smocks 1"
+    },
+    {
+      "name": "U_OG_Guerilla2_1",
+      "displayname": "Guerilla Smocks 1"
+    },
+    {
+      "name": "U_OG_Guerilla2_2",
+      "displayname": "Guerilla Smocks 1"
+    },
+    {
+      "name": "U_OG_Guerilla2_3",
+      "displayname": "Guerilla Smocks 1"
+    },
+    {
+      "name": "U_OG_Guerilla3_1",
+      "displayname": "Guerilla Smocks 1"
+    },
+    {
+      "name": "U_OG_Guerilla3_2",
+      "displayname": "Guerilla Smocks 1"
+    },
+    {
+      "name": "U_OG_leader",
+      "displayname": "Guerilla Smocks 1"
+    },
+    {
+      "name": "U_OI_Scientist",
+      "displayname": "Scientist Suit"
+    },
+    {
+      "name": "U_OrestesBody",
+      "displayname": "Jacket and Shorts"
+    },
+    {
+      "name": "U_Rangemaster",
+      "displayname": "Rangemaster_Suit"
+    },
+    {
+      "name": "V_BandollierB_blk",
+      "displayname": "Slash Bandolier (Black)"
+    },
+    {
+      "name": "V_BandollierB_cbr",
+      "displayname": "Slash Bandolier (Coyote)"
+    },
+    {
+      "name": "V_BandollierB_khk",
+      "displayname": "Slash Bandolier (Khaki)"
+    },
+    {
+      "name": "V_BandollierB_oli",
+      "displayname": "Slash Bandolier (Olive)"
+    },
+    {
+      "name": "V_BandollierB_rgr",
+      "displayname": "Slash Bandolier (Green)"
+    },
+    {
+      "name": "V_Chestrig_blk",
+      "displayname": "Fighter Chestrig (Black)"
+    },
+    {
+      "name": "V_Chestrig_khk",
+      "displayname": "Chest rig (Khaki)"
+    },
+    {
+      "name": "V_Chestrig_oli",
+      "displayname": "Fighter Chestrig (Olive)"
+    },
+    {
+      "name": "V_Chestrig_rgr",
+      "displayname": "Chest rig (Khaki)"
+    },
+    {
+      "name": "V_HarnessO_brn",
+      "displayname": "LBV Harness"
+    },
+    {
+      "name": "V_HarnessO_gry",
+      "displayname": "LBV Harness (Gray)"
+    },
+    {
+      "name": "V_HarnessOGL_brn",
+      "displayname": "LBV Grenadier Harness"
+    },
+    {
+      "name": "V_HarnessOGL_gry",
+      "displayname": "LBV Grenadier Harness (Gray)"
+    },
+    {
+      "name": "V_HarnessOSpec_brn",
+      "displayname": "ELBV Harness"
+    },
+    {
+      "name": "V_HarnessOSpec_gry",
+      "displayname": "ELBV Harness (Gray)"
+    },
+    {
+      "name": "V_I_G_resistanceLeader_F",
+      "displayname": "Tactical Vest (Stavrou)"
+    },
+    {
+      "name": "V_PlateCarrier1_blk",
+      "displayname": "Carrier Lite (Black)"
+    },
+    {
+      "name": "V_PlateCarrier1_rgr",
+      "displayname": "Carrier Lite (Green)"
+    },
+    {
+      "name": "V_PlateCarrier2_rgr",
+      "displayname": "Carrier Rig (Green)"
+    },
+    {
+      "name": "V_PlateCarrier3_rgr",
+      "displayname": "Carrier Rig (Green)"
+    },
+    {
+      "name": "V_PlateCarrier_Kerry",
+      "displayname": "US Plate Carrier Rig (Kerry)"
+    },
+    {
+      "name": "V_PlateCarrierGL_rgr",
+      "displayname": "Carrier GL Rig (Green)"
+    },
+    {
+      "name": "V_PlateCarrierH_CTRG",
+      "displayname": "CTRG Plate Carrier Rig Mk.2 (Heavy)"
+    },
+    {
+      "name": "V_PlateCarrierIA1_dgtl",
+      "displayname": "GA Carrier Lite (Digi)"
+    },
+    {
+      "name": "V_PlateCarrierIA2_dgtl",
+      "displayname": "GA Carrier Rig (Digi)"
+    },
+    {
+      "name": "V_PlateCarrierIAGL_dgtl",
+      "displayname": "GA Carrier GL Rig (Digi)"
+    },
+    {
+      "name": "V_PlateCarrierL_CTRG",
+      "displayname": "CTRG Plate Carrier Rig Mk.1 (Light)"
+    },
+    {
+      "name": "V_PlateCarrierSpec_rgr",
+      "displayname": "Carrier Special Rig (Green)"
+    },
+    {
+      "name": "V_Rangemaster_belt",
+      "displayname": "Rangemaster Belt"
+    },
+    {
+      "name": "V_RebreatherB",
+      "displayname": "Rebreather"
+    },
+    {
+      "name": "V_RebreatherIA",
+      "displayname": "Rebreather"
+    },
+    {
+      "name": "V_RebreatherIR",
+      "displayname": "Rebreather"
+    },
+    {
+      "name": "V_TacVest_blk",
+      "displayname": "Tactical Vest (Black)"
+    },
+    {
+      "name": "V_TacVest_blk_POLICE",
+      "displayname": "Tactical Vest (Police)"
+    },
+    {
+      "name": "V_TacVest_brn",
+      "displayname": "Tactical Vest (Brown)"
+    },
+    {
+      "name": "V_TacVest_camo",
+      "displayname": "Tactical Vest (Camo)"
+    },
+    {
+      "name": "V_TacVest_khk",
+      "displayname": "Tactical Vest (Khaki)"
+    },
+    {
+      "name": "V_TacVest_oli",
+      "displayname": "Tactical Vest (Olive)"
+    },
+    {
+      "name": "V_TacVestCamo_khk",
+      "displayname": "Camouflaged Vest"
+    },
+    {
+      "name": "V_TacVestIR_blk",
+      "displayname": "Raven Vest"
+    },
+    {
+      "name": "Zasleh2",
+      "displayname": ""
+    }
+  ],
+  "rifles": [
+    {
+      "name": "arifle_Katiba_ACO_F",
+      "displayname": "Katiba 6.5 mm",
+      "magazines": [
+        {
+          "name": "30Rnd_65x39_caseless_green",
+          "displayname": "30Rnd 65x39 caseless green"
+        },
+        {
+          "name": "30Rnd_65x39_caseless_green_mag_Tracer",
+          "displayname": "30Rnd 65x39 caseless green mag Tracer"
+        }
+      ]
+    },
+    {
+      "name": "arifle_Katiba_ACO_pointer_F",
+      "displayname": "Katiba 6.5 mm",
+      "magazines": [
+        {
+          "name": "30Rnd_65x39_caseless_green",
+          "displayname": "30Rnd 65x39 caseless green"
+        },
+        {
+          "name": "30Rnd_65x39_caseless_green_mag_Tracer",
+          "displayname": "30Rnd 65x39 caseless green mag Tracer"
+        }
+      ]
+    },
+    {
+      "name": "arifle_Katiba_ACO_pointer_snds_F",
+      "displayname": "Katiba 6.5 mm",
+      "magazines": [
+        {
+          "name": "30Rnd_65x39_caseless_green",
+          "displayname": "30Rnd 65x39 caseless green"
+        },
+        {
+          "name": "30Rnd_65x39_caseless_green_mag_Tracer",
+          "displayname": "30Rnd 65x39 caseless green mag Tracer"
+        }
+      ]
+    },
+    {
+      "name": "arifle_Katiba_ARCO_F",
+      "displayname": "Katiba 6.5 mm",
+      "magazines": [
+        {
+          "name": "30Rnd_65x39_caseless_green",
+          "displayname": "30Rnd 65x39 caseless green"
+        },
+        {
+          "name": "30Rnd_65x39_caseless_green_mag_Tracer",
+          "displayname": "30Rnd 65x39 caseless green mag Tracer"
+        }
+      ]
+    },
+    {
+      "name": "arifle_Katiba_ARCO_pointer_F",
+      "displayname": "Katiba 6.5 mm",
+      "magazines": [
+        {
+          "name": "30Rnd_65x39_caseless_green",
+          "displayname": "30Rnd 65x39 caseless green"
+        },
+        {
+          "name": "30Rnd_65x39_caseless_green_mag_Tracer",
+          "displayname": "30Rnd 65x39 caseless green mag Tracer"
+        }
+      ]
+    },
+    {
+      "name": "arifle_Katiba_ARCO_pointer_snds_F",
+      "displayname": "Katiba 6.5 mm",
+      "magazines": [
+        {
+          "name": "30Rnd_65x39_caseless_green",
+          "displayname": "30Rnd 65x39 caseless green"
+        },
+        {
+          "name": "30Rnd_65x39_caseless_green_mag_Tracer",
+          "displayname": "30Rnd 65x39 caseless green mag Tracer"
+        }
+      ]
+    },
+    {
+      "name": "arifle_Katiba_C_ACO_F",
+      "displayname": "Katiba Carbine 6.5 mm",
+      "magazines": [
+        {
+          "name": "30Rnd_65x39_caseless_green",
+          "displayname": "30Rnd 65x39 caseless green"
+        },
+        {
+          "name": "30Rnd_65x39_caseless_green_mag_Tracer",
+          "displayname": "30Rnd 65x39 caseless green mag Tracer"
+        }
+      ]
+    },
+    {
+      "name": "arifle_Katiba_C_ACO_pointer_F",
+      "displayname": "Katiba Carbine 6.5 mm",
+      "magazines": [
+        {
+          "name": "30Rnd_65x39_caseless_green",
+          "displayname": "30Rnd 65x39 caseless green"
+        },
+        {
+          "name": "30Rnd_65x39_caseless_green_mag_Tracer",
+          "displayname": "30Rnd 65x39 caseless green mag Tracer"
+        }
+      ]
+    },
+    {
+      "name": "arifle_Katiba_C_ACO_pointer_snds_F",
+      "displayname": "Katiba Carbine 6.5 mm",
+      "magazines": [
+        {
+          "name": "30Rnd_65x39_caseless_green",
+          "displayname": "30Rnd 65x39 caseless green"
+        },
+        {
+          "name": "30Rnd_65x39_caseless_green_mag_Tracer",
+          "displayname": "30Rnd 65x39 caseless green mag Tracer"
+        }
+      ]
+    },
+    {
+      "name": "arifle_Katiba_C_F",
+      "displayname": "Katiba Carbine 6.5 mm",
+      "magazines": [
+        {
+          "name": "30Rnd_65x39_caseless_green",
+          "displayname": "30Rnd 65x39 caseless green"
+        },
+        {
+          "name": "30Rnd_65x39_caseless_green_mag_Tracer",
+          "displayname": "30Rnd 65x39 caseless green mag Tracer"
+        }
+      ]
+    },
+    {
+      "name": "arifle_Katiba_F",
+      "displayname": "Katiba 6.5 mm",
+      "magazines": [
+        {
+          "name": "30Rnd_65x39_caseless_green",
+          "displayname": "30Rnd 65x39 caseless green"
+        },
+        {
+          "name": "30Rnd_65x39_caseless_green_mag_Tracer",
+          "displayname": "30Rnd 65x39 caseless green mag Tracer"
+        }
+      ]
+    },
+    {
+      "name": "arifle_Katiba_GL_ACO_F",
+      "displayname": "Katiba GL 6.5 mm",
+      "magazines": [
+        {
+          "name": "30Rnd_65x39_caseless_green",
+          "displayname": "30Rnd 65x39 caseless green"
+        },
+        {
+          "name": "30Rnd_65x39_caseless_green_mag_Tracer",
+          "displayname": "30Rnd 65x39 caseless green mag Tracer"
+        }
+      ]
+    },
+    {
+      "name": "arifle_Katiba_GL_ACO_pointer_F",
+      "displayname": "Katiba GL 6.5 mm",
+      "magazines": [
+        {
+          "name": "30Rnd_65x39_caseless_green",
+          "displayname": "30Rnd 65x39 caseless green"
+        },
+        {
+          "name": "30Rnd_65x39_caseless_green_mag_Tracer",
+          "displayname": "30Rnd 65x39 caseless green mag Tracer"
+        }
+      ]
+    },
+    {
+      "name": "arifle_Katiba_GL_ACO_pointer_snds_F",
+      "displayname": "Katiba GL 6.5 mm",
+      "magazines": [
+        {
+          "name": "30Rnd_65x39_caseless_green",
+          "displayname": "30Rnd 65x39 caseless green"
+        },
+        {
+          "name": "30Rnd_65x39_caseless_green_mag_Tracer",
+          "displayname": "30Rnd 65x39 caseless green mag Tracer"
+        }
+      ]
+    },
+    {
+      "name": "arifle_Katiba_GL_ARCO_pointer_F",
+      "displayname": "Katiba GL 6.5 mm",
+      "magazines": [
+        {
+          "name": "30Rnd_65x39_caseless_green",
+          "displayname": "30Rnd 65x39 caseless green"
+        },
+        {
+          "name": "30Rnd_65x39_caseless_green_mag_Tracer",
+          "displayname": "30Rnd 65x39 caseless green mag Tracer"
+        }
+      ]
+    },
+    {
+      "name": "arifle_Katiba_GL_F",
+      "displayname": "Katiba GL 6.5 mm",
+      "magazines": [
+        {
+          "name": "30Rnd_65x39_caseless_green",
+          "displayname": "30Rnd 65x39 caseless green"
+        },
+        {
+          "name": "30Rnd_65x39_caseless_green_mag_Tracer",
+          "displayname": "30Rnd 65x39 caseless green mag Tracer"
+        }
+      ]
+    },
+    {
+      "name": "arifle_Katiba_GL_Nstalker_pointer_F",
+      "displayname": "Katiba GL 6.5 mm",
+      "magazines": [
+        {
+          "name": "30Rnd_65x39_caseless_green",
+          "displayname": "30Rnd 65x39 caseless green"
+        },
+        {
+          "name": "30Rnd_65x39_caseless_green_mag_Tracer",
+          "displayname": "30Rnd 65x39 caseless green mag Tracer"
+        }
+      ]
+    },
+    {
+      "name": "arifle_Mk20_ACO_F",
+      "displayname": "Mk20 5.56mm (C)",
+      "magazines": [
+        {
+          "name": "30Rnd_556x45_Stanag",
+          "displayname": "30Rnd 556x45 Stanag"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Green",
+          "displayname": "30Rnd 556x45 Stanag Tracer Green"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Red",
+          "displayname": "30Rnd 556x45 Stanag Tracer Red"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Yellow",
+          "displayname": "30Rnd 556x45 Stanag Tracer Yellow"
+        }
+      ]
+    },
+    {
+      "name": "arifle_Mk20_ACO_pointer_F",
+      "displayname": "Mk20 5.56mm (C)",
+      "magazines": [
+        {
+          "name": "30Rnd_556x45_Stanag",
+          "displayname": "30Rnd 556x45 Stanag"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Green",
+          "displayname": "30Rnd 556x45 Stanag Tracer Green"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Red",
+          "displayname": "30Rnd 556x45 Stanag Tracer Red"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Yellow",
+          "displayname": "30Rnd 556x45 Stanag Tracer Yellow"
+        }
+      ]
+    },
+    {
+      "name": "arifle_Mk20_F",
+      "displayname": "Mk20 5.56mm (C)",
+      "magazines": [
+        {
+          "name": "30Rnd_556x45_Stanag",
+          "displayname": "30Rnd 556x45 Stanag"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Green",
+          "displayname": "30Rnd 556x45 Stanag Tracer Green"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Red",
+          "displayname": "30Rnd 556x45 Stanag Tracer Red"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Yellow",
+          "displayname": "30Rnd 556x45 Stanag Tracer Yellow"
+        }
+      ]
+    },
+    {
+      "name": "arifle_Mk20_GL_ACO_F",
+      "displayname": "Mk20 EGLM 5.56mm (C)",
+      "magazines": [
+        {
+          "name": "30Rnd_556x45_Stanag",
+          "displayname": "30Rnd 556x45 Stanag"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Green",
+          "displayname": "30Rnd 556x45 Stanag Tracer Green"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Red",
+          "displayname": "30Rnd 556x45 Stanag Tracer Red"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Yellow",
+          "displayname": "30Rnd 556x45 Stanag Tracer Yellow"
+        }
+      ]
+    },
+    {
+      "name": "arifle_Mk20_GL_F",
+      "displayname": "Mk20 EGLM 5.56mm (C)",
+      "magazines": [
+        {
+          "name": "30Rnd_556x45_Stanag",
+          "displayname": "30Rnd 556x45 Stanag"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Green",
+          "displayname": "30Rnd 556x45 Stanag Tracer Green"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Red",
+          "displayname": "30Rnd 556x45 Stanag Tracer Red"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Yellow",
+          "displayname": "30Rnd 556x45 Stanag Tracer Yellow"
+        }
+      ]
+    },
+    {
+      "name": "arifle_Mk20_GL_MRCO_pointer_F",
+      "displayname": "Mk20 EGLM 5.56mm (C)",
+      "magazines": [
+        {
+          "name": "30Rnd_556x45_Stanag",
+          "displayname": "30Rnd 556x45 Stanag"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Green",
+          "displayname": "30Rnd 556x45 Stanag Tracer Green"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Red",
+          "displayname": "30Rnd 556x45 Stanag Tracer Red"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Yellow",
+          "displayname": "30Rnd 556x45 Stanag Tracer Yellow"
+        }
+      ]
+    },
+    {
+      "name": "arifle_Mk20_GL_plain_F",
+      "displayname": "Mk20 EGLM 5.56mm",
+      "magazines": [
+        {
+          "name": "30Rnd_556x45_Stanag",
+          "displayname": "30Rnd 556x45 Stanag"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Green",
+          "displayname": "30Rnd 556x45 Stanag Tracer Green"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Red",
+          "displayname": "30Rnd 556x45 Stanag Tracer Red"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Yellow",
+          "displayname": "30Rnd 556x45 Stanag Tracer Yellow"
+        }
+      ]
+    },
+    {
+      "name": "arifle_Mk20_Holo_F",
+      "displayname": "Mk20 5.56mm (C)",
+      "magazines": [
+        {
+          "name": "30Rnd_556x45_Stanag",
+          "displayname": "30Rnd 556x45 Stanag"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Green",
+          "displayname": "30Rnd 556x45 Stanag Tracer Green"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Red",
+          "displayname": "30Rnd 556x45 Stanag Tracer Red"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Yellow",
+          "displayname": "30Rnd 556x45 Stanag Tracer Yellow"
+        }
+      ]
+    },
+    {
+      "name": "arifle_Mk20_MRCO_F",
+      "displayname": "Mk20 5.56mm (C)",
+      "magazines": [
+        {
+          "name": "30Rnd_556x45_Stanag",
+          "displayname": "30Rnd 556x45 Stanag"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Green",
+          "displayname": "30Rnd 556x45 Stanag Tracer Green"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Red",
+          "displayname": "30Rnd 556x45 Stanag Tracer Red"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Yellow",
+          "displayname": "30Rnd 556x45 Stanag Tracer Yellow"
+        }
+      ]
+    },
+    {
+      "name": "arifle_Mk20_MRCO_plain_F",
+      "displayname": "Mk20 5.56mm",
+      "magazines": [
+        {
+          "name": "30Rnd_556x45_Stanag",
+          "displayname": "30Rnd 556x45 Stanag"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Green",
+          "displayname": "30Rnd 556x45 Stanag Tracer Green"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Red",
+          "displayname": "30Rnd 556x45 Stanag Tracer Red"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Yellow",
+          "displayname": "30Rnd 556x45 Stanag Tracer Yellow"
+        }
+      ]
+    },
+    {
+      "name": "arifle_Mk20_MRCO_pointer_F",
+      "displayname": "Mk20 5.56mm (C)",
+      "magazines": [
+        {
+          "name": "30Rnd_556x45_Stanag",
+          "displayname": "30Rnd 556x45 Stanag"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Green",
+          "displayname": "30Rnd 556x45 Stanag Tracer Green"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Red",
+          "displayname": "30Rnd 556x45 Stanag Tracer Red"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Yellow",
+          "displayname": "30Rnd 556x45 Stanag Tracer Yellow"
+        }
+      ]
+    },
+    {
+      "name": "arifle_Mk20_plain_F",
+      "displayname": "Mk20 5.56mm",
+      "magazines": [
+        {
+          "name": "30Rnd_556x45_Stanag",
+          "displayname": "30Rnd 556x45 Stanag"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Green",
+          "displayname": "30Rnd 556x45 Stanag Tracer Green"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Red",
+          "displayname": "30Rnd 556x45 Stanag Tracer Red"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Yellow",
+          "displayname": "30Rnd 556x45 Stanag Tracer Yellow"
+        }
+      ]
+    },
+    {
+      "name": "arifle_Mk20_pointer_F",
+      "displayname": "Mk20 5.56mm (C)",
+      "magazines": [
+        {
+          "name": "30Rnd_556x45_Stanag",
+          "displayname": "30Rnd 556x45 Stanag"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Green",
+          "displayname": "30Rnd 556x45 Stanag Tracer Green"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Red",
+          "displayname": "30Rnd 556x45 Stanag Tracer Red"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Yellow",
+          "displayname": "30Rnd 556x45 Stanag Tracer Yellow"
+        }
+      ]
+    },
+    {
+      "name": "arifle_Mk20C_ACO_F",
+      "displayname": "Mk20C 5.56mm (C)",
+      "magazines": [
+        {
+          "name": "30Rnd_556x45_Stanag",
+          "displayname": "30Rnd 556x45 Stanag"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Green",
+          "displayname": "30Rnd 556x45 Stanag Tracer Green"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Red",
+          "displayname": "30Rnd 556x45 Stanag Tracer Red"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Yellow",
+          "displayname": "30Rnd 556x45 Stanag Tracer Yellow"
+        }
+      ]
+    },
+    {
+      "name": "arifle_Mk20C_ACO_pointer_F",
+      "displayname": "Mk20C 5.56mm (C)",
+      "magazines": [
+        {
+          "name": "30Rnd_556x45_Stanag",
+          "displayname": "30Rnd 556x45 Stanag"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Green",
+          "displayname": "30Rnd 556x45 Stanag Tracer Green"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Red",
+          "displayname": "30Rnd 556x45 Stanag Tracer Red"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Yellow",
+          "displayname": "30Rnd 556x45 Stanag Tracer Yellow"
+        }
+      ]
+    },
+    {
+      "name": "arifle_Mk20C_F",
+      "displayname": "Mk20C 5.56mm (C)",
+      "magazines": [
+        {
+          "name": "30Rnd_556x45_Stanag",
+          "displayname": "30Rnd 556x45 Stanag"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Green",
+          "displayname": "30Rnd 556x45 Stanag Tracer Green"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Red",
+          "displayname": "30Rnd 556x45 Stanag Tracer Red"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Yellow",
+          "displayname": "30Rnd 556x45 Stanag Tracer Yellow"
+        }
+      ]
+    },
+    {
+      "name": "arifle_Mk20C_plain_F",
+      "displayname": "Mk20C 5.56mm",
+      "magazines": [
+        {
+          "name": "30Rnd_556x45_Stanag",
+          "displayname": "30Rnd 556x45 Stanag"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Green",
+          "displayname": "30Rnd 556x45 Stanag Tracer Green"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Red",
+          "displayname": "30Rnd 556x45 Stanag Tracer Red"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Yellow",
+          "displayname": "30Rnd 556x45 Stanag Tracer Yellow"
+        }
+      ]
+    },
+    {
+      "name": "arifle_MX_ACO_F",
+      "displayname": "MX 6.5mm",
+      "magazines": [
+        {
+          "name": "30Rnd_65x39_caseless_mag",
+          "displayname": "30Rnd 65x39 caseless mag"
+        },
+        {
+          "name": "30Rnd_65x39_caseless_mag_Tracer",
+          "displayname": "30Rnd 65x39 caseless mag Tracer"
+        }
+      ]
+    },
+    {
+      "name": "arifle_MX_ACO_pointer_F",
+      "displayname": "MX 6.5mm",
+      "magazines": [
+        {
+          "name": "30Rnd_65x39_caseless_mag",
+          "displayname": "30Rnd 65x39 caseless mag"
+        },
+        {
+          "name": "30Rnd_65x39_caseless_mag_Tracer",
+          "displayname": "30Rnd 65x39 caseless mag Tracer"
+        }
+      ]
+    },
+    {
+      "name": "arifle_MX_ACO_pointer_snds_F",
+      "displayname": "MX 6.5mm",
+      "magazines": [
+        {
+          "name": "30Rnd_65x39_caseless_mag",
+          "displayname": "30Rnd 65x39 caseless mag"
+        },
+        {
+          "name": "30Rnd_65x39_caseless_mag_Tracer",
+          "displayname": "30Rnd 65x39 caseless mag Tracer"
+        }
+      ]
+    },
+    {
+      "name": "arifle_MX_Black_F",
+      "displayname": "MX 6.5 mm (Black)",
+      "magazines": [
+        {
+          "name": "30Rnd_65x39_caseless_mag",
+          "displayname": "30Rnd 65x39 caseless mag"
+        },
+        {
+          "name": "30Rnd_65x39_caseless_mag_Tracer",
+          "displayname": "30Rnd 65x39 caseless mag Tracer"
+        }
+      ]
+    },
+    {
+      "name": "arifle_MX_Black_Hamr_pointer_F",
+      "displayname": "MX 6.5 mm (Black)",
+      "magazines": [
+        {
+          "name": "30Rnd_65x39_caseless_mag",
+          "displayname": "30Rnd 65x39 caseless mag"
+        },
+        {
+          "name": "30Rnd_65x39_caseless_mag_Tracer",
+          "displayname": "30Rnd 65x39 caseless mag Tracer"
+        }
+      ]
+    },
+    {
+      "name": "arifle_MX_F",
+      "displayname": "MX 6.5mm",
+      "magazines": [
+        {
+          "name": "30Rnd_65x39_caseless_mag",
+          "displayname": "30Rnd 65x39 caseless mag"
+        },
+        {
+          "name": "30Rnd_65x39_caseless_mag_Tracer",
+          "displayname": "30Rnd 65x39 caseless mag Tracer"
+        }
+      ]
+    },
+    {
+      "name": "arifle_MX_GL_ACO_F",
+      "displayname": "MX 3GL 6.5mm",
+      "magazines": [
+        {
+          "name": "30Rnd_65x39_caseless_mag",
+          "displayname": "30Rnd 65x39 caseless mag"
+        },
+        {
+          "name": "30Rnd_65x39_caseless_mag_Tracer",
+          "displayname": "30Rnd 65x39 caseless mag Tracer"
+        }
+      ]
+    },
+    {
+      "name": "arifle_MX_GL_ACO_pointer_F",
+      "displayname": "MX 3GL 6.5mm",
+      "magazines": [
+        {
+          "name": "30Rnd_65x39_caseless_mag",
+          "displayname": "30Rnd 65x39 caseless mag"
+        },
+        {
+          "name": "30Rnd_65x39_caseless_mag_Tracer",
+          "displayname": "30Rnd 65x39 caseless mag Tracer"
+        }
+      ]
+    },
+    {
+      "name": "arifle_MX_GL_Black_F",
+      "displayname": "MX 3GL 6.5 mm (Black)",
+      "magazines": [
+        {
+          "name": "30Rnd_65x39_caseless_mag",
+          "displayname": "30Rnd 65x39 caseless mag"
+        },
+        {
+          "name": "30Rnd_65x39_caseless_mag_Tracer",
+          "displayname": "30Rnd 65x39 caseless mag Tracer"
+        }
+      ]
+    },
+    {
+      "name": "arifle_MX_GL_Black_Hamr_pointer_F",
+      "displayname": "MX 3GL 6.5 mm (Black)",
+      "magazines": [
+        {
+          "name": "30Rnd_65x39_caseless_mag",
+          "displayname": "30Rnd 65x39 caseless mag"
+        },
+        {
+          "name": "30Rnd_65x39_caseless_mag_Tracer",
+          "displayname": "30Rnd 65x39 caseless mag Tracer"
+        }
+      ]
+    },
+    {
+      "name": "arifle_MX_GL_F",
+      "displayname": "MX 3GL 6.5mm",
+      "magazines": [
+        {
+          "name": "30Rnd_65x39_caseless_mag",
+          "displayname": "30Rnd 65x39 caseless mag"
+        },
+        {
+          "name": "30Rnd_65x39_caseless_mag_Tracer",
+          "displayname": "30Rnd 65x39 caseless mag Tracer"
+        }
+      ]
+    },
+    {
+      "name": "arifle_MX_GL_Hamr_pointer_F",
+      "displayname": "MX 3GL 6.5mm",
+      "magazines": [
+        {
+          "name": "30Rnd_65x39_caseless_mag",
+          "displayname": "30Rnd 65x39 caseless mag"
+        },
+        {
+          "name": "30Rnd_65x39_caseless_mag_Tracer",
+          "displayname": "30Rnd 65x39 caseless mag Tracer"
+        }
+      ]
+    },
+    {
+      "name": "arifle_MX_GL_Holo_pointer_snds_F",
+      "displayname": "MX 3GL 6.5mm",
+      "magazines": [
+        {
+          "name": "30Rnd_65x39_caseless_mag",
+          "displayname": "30Rnd 65x39 caseless mag"
+        },
+        {
+          "name": "30Rnd_65x39_caseless_mag_Tracer",
+          "displayname": "30Rnd 65x39 caseless mag Tracer"
+        }
+      ]
+    },
+    {
+      "name": "arifle_MX_Hamr_pointer_F",
+      "displayname": "MX 6.5mm",
+      "magazines": [
+        {
+          "name": "30Rnd_65x39_caseless_mag",
+          "displayname": "30Rnd 65x39 caseless mag"
+        },
+        {
+          "name": "30Rnd_65x39_caseless_mag_Tracer",
+          "displayname": "30Rnd 65x39 caseless mag Tracer"
+        }
+      ]
+    },
+    {
+      "name": "arifle_MX_Holo_pointer_F",
+      "displayname": "MX 6.5mm",
+      "magazines": [
+        {
+          "name": "30Rnd_65x39_caseless_mag",
+          "displayname": "30Rnd 65x39 caseless mag"
+        },
+        {
+          "name": "30Rnd_65x39_caseless_mag_Tracer",
+          "displayname": "30Rnd 65x39 caseless mag Tracer"
+        }
+      ]
+    },
+    {
+      "name": "arifle_MX_pointer_F",
+      "displayname": "MX 6.5mm",
+      "magazines": [
+        {
+          "name": "30Rnd_65x39_caseless_mag",
+          "displayname": "30Rnd 65x39 caseless mag"
+        },
+        {
+          "name": "30Rnd_65x39_caseless_mag_Tracer",
+          "displayname": "30Rnd 65x39 caseless mag Tracer"
+        }
+      ]
+    },
+    {
+      "name": "arifle_MX_RCO_pointer_snds_F",
+      "displayname": "MX 6.5mm",
+      "magazines": [
+        {
+          "name": "30Rnd_65x39_caseless_mag",
+          "displayname": "30Rnd 65x39 caseless mag"
+        },
+        {
+          "name": "30Rnd_65x39_caseless_mag_Tracer",
+          "displayname": "30Rnd 65x39 caseless mag Tracer"
+        }
+      ]
+    },
+    {
+      "name": "arifle_MX_SW_Black_F",
+      "displayname": "MX SW 6.5 mm (Black)",
+      "magazines": [
+        {
+          "name": "100Rnd_65x39_caseless_mag",
+          "displayname": "100Rnd 65x39 caseless mag"
+        },
+        {
+          "name": "100Rnd_65x39_caseless_mag_Tracer",
+          "displayname": "100Rnd 65x39 caseless mag Tracer"
+        },
+        {
+          "name": "30Rnd_65x39_caseless_mag",
+          "displayname": "30Rnd 65x39 caseless mag"
+        },
+        {
+          "name": "30Rnd_65x39_caseless_mag_Tracer",
+          "displayname": "30Rnd 65x39 caseless mag Tracer"
+        }
+      ]
+    },
+    {
+      "name": "arifle_MX_SW_Black_Hamr_pointer_F",
+      "displayname": "MX SW 6.5 mm (Black)",
+      "magazines": [
+        {
+          "name": "100Rnd_65x39_caseless_mag",
+          "displayname": "100Rnd 65x39 caseless mag"
+        },
+        {
+          "name": "100Rnd_65x39_caseless_mag_Tracer",
+          "displayname": "100Rnd 65x39 caseless mag Tracer"
+        },
+        {
+          "name": "30Rnd_65x39_caseless_mag",
+          "displayname": "30Rnd 65x39 caseless mag"
+        },
+        {
+          "name": "30Rnd_65x39_caseless_mag_Tracer",
+          "displayname": "30Rnd 65x39 caseless mag Tracer"
+        }
+      ]
+    },
+    {
+      "name": "arifle_MX_SW_F",
+      "displayname": "MX SW 6.5mm",
+      "magazines": [
+        {
+          "name": "100Rnd_65x39_caseless_mag",
+          "displayname": "100Rnd 65x39 caseless mag"
+        },
+        {
+          "name": "100Rnd_65x39_caseless_mag_Tracer",
+          "displayname": "100Rnd 65x39 caseless mag Tracer"
+        },
+        {
+          "name": "30Rnd_65x39_caseless_mag",
+          "displayname": "30Rnd 65x39 caseless mag"
+        },
+        {
+          "name": "30Rnd_65x39_caseless_mag_Tracer",
+          "displayname": "30Rnd 65x39 caseless mag Tracer"
+        }
+      ]
+    },
+    {
+      "name": "arifle_MX_SW_Hamr_pointer_F",
+      "displayname": "MX SW 6.5mm",
+      "magazines": [
+        {
+          "name": "100Rnd_65x39_caseless_mag",
+          "displayname": "100Rnd 65x39 caseless mag"
+        },
+        {
+          "name": "100Rnd_65x39_caseless_mag_Tracer",
+          "displayname": "100Rnd 65x39 caseless mag Tracer"
+        },
+        {
+          "name": "30Rnd_65x39_caseless_mag",
+          "displayname": "30Rnd 65x39 caseless mag"
+        },
+        {
+          "name": "30Rnd_65x39_caseless_mag_Tracer",
+          "displayname": "30Rnd 65x39 caseless mag Tracer"
+        }
+      ]
+    },
+    {
+      "name": "arifle_MX_SW_pointer_F",
+      "displayname": "MX SW 6.5mm",
+      "magazines": [
+        {
+          "name": "100Rnd_65x39_caseless_mag",
+          "displayname": "100Rnd 65x39 caseless mag"
+        },
+        {
+          "name": "100Rnd_65x39_caseless_mag_Tracer",
+          "displayname": "100Rnd 65x39 caseless mag Tracer"
+        },
+        {
+          "name": "30Rnd_65x39_caseless_mag",
+          "displayname": "30Rnd 65x39 caseless mag"
+        },
+        {
+          "name": "30Rnd_65x39_caseless_mag_Tracer",
+          "displayname": "30Rnd 65x39 caseless mag Tracer"
+        }
+      ]
+    },
+    {
+      "name": "arifle_MXC_ACO_F",
+      "displayname": "MXC 6.5mm",
+      "magazines": [
+        {
+          "name": "30Rnd_65x39_caseless_mag",
+          "displayname": "30Rnd 65x39 caseless mag"
+        },
+        {
+          "name": "30Rnd_65x39_caseless_mag_Tracer",
+          "displayname": "30Rnd 65x39 caseless mag Tracer"
+        }
+      ]
+    },
+    {
+      "name": "arifle_MXC_ACO_pointer_F",
+      "displayname": "MXC 6.5mm",
+      "magazines": [
+        {
+          "name": "30Rnd_65x39_caseless_mag",
+          "displayname": "30Rnd 65x39 caseless mag"
+        },
+        {
+          "name": "30Rnd_65x39_caseless_mag_Tracer",
+          "displayname": "30Rnd 65x39 caseless mag Tracer"
+        }
+      ]
+    },
+    {
+      "name": "arifle_MXC_ACO_pointer_snds_F",
+      "displayname": "MXC 6.5mm",
+      "magazines": [
+        {
+          "name": "30Rnd_65x39_caseless_mag",
+          "displayname": "30Rnd 65x39 caseless mag"
+        },
+        {
+          "name": "30Rnd_65x39_caseless_mag_Tracer",
+          "displayname": "30Rnd 65x39 caseless mag Tracer"
+        }
+      ]
+    },
+    {
+      "name": "arifle_MXC_Black_F",
+      "displayname": "MXC 6.5 mm (Black)",
+      "magazines": [
+        {
+          "name": "30Rnd_65x39_caseless_mag",
+          "displayname": "30Rnd 65x39 caseless mag"
+        },
+        {
+          "name": "30Rnd_65x39_caseless_mag_Tracer",
+          "displayname": "30Rnd 65x39 caseless mag Tracer"
+        }
+      ]
+    },
+    {
+      "name": "arifle_MXC_F",
+      "displayname": "MXC 6.5mm",
+      "magazines": [
+        {
+          "name": "30Rnd_65x39_caseless_mag",
+          "displayname": "30Rnd 65x39 caseless mag"
+        },
+        {
+          "name": "30Rnd_65x39_caseless_mag_Tracer",
+          "displayname": "30Rnd 65x39 caseless mag Tracer"
+        }
+      ]
+    },
+    {
+      "name": "arifle_MXC_Holo_F",
+      "displayname": "MXC 6.5mm",
+      "magazines": [
+        {
+          "name": "30Rnd_65x39_caseless_mag",
+          "displayname": "30Rnd 65x39 caseless mag"
+        },
+        {
+          "name": "30Rnd_65x39_caseless_mag_Tracer",
+          "displayname": "30Rnd 65x39 caseless mag Tracer"
+        }
+      ]
+    },
+    {
+      "name": "arifle_MXC_Holo_pointer_F",
+      "displayname": "MXC 6.5mm",
+      "magazines": [
+        {
+          "name": "30Rnd_65x39_caseless_mag",
+          "displayname": "30Rnd 65x39 caseless mag"
+        },
+        {
+          "name": "30Rnd_65x39_caseless_mag_Tracer",
+          "displayname": "30Rnd 65x39 caseless mag Tracer"
+        }
+      ]
+    },
+    {
+      "name": "arifle_MXC_Holo_pointer_snds_F",
+      "displayname": "MXC 6.5mm",
+      "magazines": [
+        {
+          "name": "30Rnd_65x39_caseless_mag",
+          "displayname": "30Rnd 65x39 caseless mag"
+        },
+        {
+          "name": "30Rnd_65x39_caseless_mag_Tracer",
+          "displayname": "30Rnd 65x39 caseless mag Tracer"
+        }
+      ]
+    },
+    {
+      "name": "arifle_MXC_SOS_point_snds_F",
+      "displayname": "MXC 6.5mm",
+      "magazines": [
+        {
+          "name": "30Rnd_65x39_caseless_mag",
+          "displayname": "30Rnd 65x39 caseless mag"
+        },
+        {
+          "name": "30Rnd_65x39_caseless_mag_Tracer",
+          "displayname": "30Rnd 65x39 caseless mag Tracer"
+        }
+      ]
+    },
+    {
+      "name": "arifle_MXM_Black_F",
+      "displayname": "MXM 6.5 mm (Black)",
+      "magazines": [
+        {
+          "name": "30Rnd_65x39_caseless_mag",
+          "displayname": "30Rnd 65x39 caseless mag"
+        },
+        {
+          "name": "30Rnd_65x39_caseless_mag_Tracer",
+          "displayname": "30Rnd 65x39 caseless mag Tracer"
+        }
+      ]
+    },
+    {
+      "name": "arifle_MXM_DMS_F",
+      "displayname": "MXM 6.5mm",
+      "magazines": [
+        {
+          "name": "30Rnd_65x39_caseless_mag",
+          "displayname": "30Rnd 65x39 caseless mag"
+        },
+        {
+          "name": "30Rnd_65x39_caseless_mag_Tracer",
+          "displayname": "30Rnd 65x39 caseless mag Tracer"
+        }
+      ]
+    },
+    {
+      "name": "arifle_MXM_F",
+      "displayname": "MXM 6.5mm",
+      "magazines": [
+        {
+          "name": "30Rnd_65x39_caseless_mag",
+          "displayname": "30Rnd 65x39 caseless mag"
+        },
+        {
+          "name": "30Rnd_65x39_caseless_mag_Tracer",
+          "displayname": "30Rnd 65x39 caseless mag Tracer"
+        }
+      ]
+    },
+    {
+      "name": "arifle_MXM_Hamr_pointer_F",
+      "displayname": "MXM 6.5mm",
+      "magazines": [
+        {
+          "name": "30Rnd_65x39_caseless_mag",
+          "displayname": "30Rnd 65x39 caseless mag"
+        },
+        {
+          "name": "30Rnd_65x39_caseless_mag_Tracer",
+          "displayname": "30Rnd 65x39 caseless mag Tracer"
+        }
+      ]
+    },
+    {
+      "name": "arifle_MXM_RCO_pointer_snds_F",
+      "displayname": "MXM 6.5mm",
+      "magazines": [
+        {
+          "name": "30Rnd_65x39_caseless_mag",
+          "displayname": "30Rnd 65x39 caseless mag"
+        },
+        {
+          "name": "30Rnd_65x39_caseless_mag_Tracer",
+          "displayname": "30Rnd 65x39 caseless mag Tracer"
+        }
+      ]
+    },
+    {
+      "name": "arifle_MXM_SOS_pointer_F",
+      "displayname": "MXM 6.5mm",
+      "magazines": [
+        {
+          "name": "30Rnd_65x39_caseless_mag",
+          "displayname": "30Rnd 65x39 caseless mag"
+        },
+        {
+          "name": "30Rnd_65x39_caseless_mag_Tracer",
+          "displayname": "30Rnd 65x39 caseless mag Tracer"
+        }
+      ]
+    },
+    {
+      "name": "arifle_SDAR_F",
+      "displayname": "SDAR 5.56mm",
+      "magazines": [
+        {
+          "name": "20Rnd_556x45_UW_mag",
+          "displayname": "20Rnd 556x45 UW mag"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag",
+          "displayname": "30Rnd 556x45 Stanag"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Green",
+          "displayname": "30Rnd 556x45 Stanag Tracer Green"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Red",
+          "displayname": "30Rnd 556x45 Stanag Tracer Red"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Yellow",
+          "displayname": "30Rnd 556x45 Stanag Tracer Yellow"
+        }
+      ]
+    },
+    {
+      "name": "arifle_TRG20_ACO_F",
+      "displayname": "TRG-20 5.56 mm",
+      "magazines": [
+        {
+          "name": "30Rnd_556x45_Stanag",
+          "displayname": "30Rnd 556x45 Stanag"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Green",
+          "displayname": "30Rnd 556x45 Stanag Tracer Green"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Red",
+          "displayname": "30Rnd 556x45 Stanag Tracer Red"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Yellow",
+          "displayname": "30Rnd 556x45 Stanag Tracer Yellow"
+        }
+      ]
+    },
+    {
+      "name": "arifle_TRG20_ACO_Flash_F",
+      "displayname": "TRG-20 5.56 mm",
+      "magazines": [
+        {
+          "name": "30Rnd_556x45_Stanag",
+          "displayname": "30Rnd 556x45 Stanag"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Green",
+          "displayname": "30Rnd 556x45 Stanag Tracer Green"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Red",
+          "displayname": "30Rnd 556x45 Stanag Tracer Red"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Yellow",
+          "displayname": "30Rnd 556x45 Stanag Tracer Yellow"
+        }
+      ]
+    },
+    {
+      "name": "arifle_TRG20_ACO_pointer_F",
+      "displayname": "TRG-20 5.56 mm",
+      "magazines": [
+        {
+          "name": "30Rnd_556x45_Stanag",
+          "displayname": "30Rnd 556x45 Stanag"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Green",
+          "displayname": "30Rnd 556x45 Stanag Tracer Green"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Red",
+          "displayname": "30Rnd 556x45 Stanag Tracer Red"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Yellow",
+          "displayname": "30Rnd 556x45 Stanag Tracer Yellow"
+        }
+      ]
+    },
+    {
+      "name": "arifle_TRG20_F",
+      "displayname": "TRG-20 5.56 mm",
+      "magazines": [
+        {
+          "name": "30Rnd_556x45_Stanag",
+          "displayname": "30Rnd 556x45 Stanag"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Green",
+          "displayname": "30Rnd 556x45 Stanag Tracer Green"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Red",
+          "displayname": "30Rnd 556x45 Stanag Tracer Red"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Yellow",
+          "displayname": "30Rnd 556x45 Stanag Tracer Yellow"
+        }
+      ]
+    },
+    {
+      "name": "arifle_TRG20_Holo_F",
+      "displayname": "TRG-20 5.56 mm",
+      "magazines": [
+        {
+          "name": "30Rnd_556x45_Stanag",
+          "displayname": "30Rnd 556x45 Stanag"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Green",
+          "displayname": "30Rnd 556x45 Stanag Tracer Green"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Red",
+          "displayname": "30Rnd 556x45 Stanag Tracer Red"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Yellow",
+          "displayname": "30Rnd 556x45 Stanag Tracer Yellow"
+        }
+      ]
+    },
+    {
+      "name": "arifle_TRG21_ACO_pointer_F",
+      "displayname": "TRG-21 5.56 mm",
+      "magazines": [
+        {
+          "name": "30Rnd_556x45_Stanag",
+          "displayname": "30Rnd 556x45 Stanag"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Green",
+          "displayname": "30Rnd 556x45 Stanag Tracer Green"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Red",
+          "displayname": "30Rnd 556x45 Stanag Tracer Red"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Yellow",
+          "displayname": "30Rnd 556x45 Stanag Tracer Yellow"
+        }
+      ]
+    },
+    {
+      "name": "arifle_TRG21_ARCO_pointer_F",
+      "displayname": "TRG-21 5.56 mm",
+      "magazines": [
+        {
+          "name": "30Rnd_556x45_Stanag",
+          "displayname": "30Rnd 556x45 Stanag"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Green",
+          "displayname": "30Rnd 556x45 Stanag Tracer Green"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Red",
+          "displayname": "30Rnd 556x45 Stanag Tracer Red"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Yellow",
+          "displayname": "30Rnd 556x45 Stanag Tracer Yellow"
+        }
+      ]
+    },
+    {
+      "name": "arifle_TRG21_F",
+      "displayname": "TRG-21 5.56 mm",
+      "magazines": [
+        {
+          "name": "30Rnd_556x45_Stanag",
+          "displayname": "30Rnd 556x45 Stanag"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Green",
+          "displayname": "30Rnd 556x45 Stanag Tracer Green"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Red",
+          "displayname": "30Rnd 556x45 Stanag Tracer Red"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Yellow",
+          "displayname": "30Rnd 556x45 Stanag Tracer Yellow"
+        }
+      ]
+    },
+    {
+      "name": "arifle_TRG21_GL_ACO_pointer_F",
+      "displayname": "TRG-21 EGLM 5.56 mm",
+      "magazines": [
+        {
+          "name": "30Rnd_556x45_Stanag",
+          "displayname": "30Rnd 556x45 Stanag"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Green",
+          "displayname": "30Rnd 556x45 Stanag Tracer Green"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Red",
+          "displayname": "30Rnd 556x45 Stanag Tracer Red"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Yellow",
+          "displayname": "30Rnd 556x45 Stanag Tracer Yellow"
+        }
+      ]
+    },
+    {
+      "name": "arifle_TRG21_GL_F",
+      "displayname": "TRG-21 EGLM 5.56 mm",
+      "magazines": [
+        {
+          "name": "30Rnd_556x45_Stanag",
+          "displayname": "30Rnd 556x45 Stanag"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Green",
+          "displayname": "30Rnd 556x45 Stanag Tracer Green"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Red",
+          "displayname": "30Rnd 556x45 Stanag Tracer Red"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Yellow",
+          "displayname": "30Rnd 556x45 Stanag Tracer Yellow"
+        }
+      ]
+    },
+    {
+      "name": "arifle_TRG21_GL_MRCO_F",
+      "displayname": "TRG-21 EGLM 5.56 mm",
+      "magazines": [
+        {
+          "name": "30Rnd_556x45_Stanag",
+          "displayname": "30Rnd 556x45 Stanag"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Green",
+          "displayname": "30Rnd 556x45 Stanag Tracer Green"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Red",
+          "displayname": "30Rnd 556x45 Stanag Tracer Red"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Yellow",
+          "displayname": "30Rnd 556x45 Stanag Tracer Yellow"
+        }
+      ]
+    },
+    {
+      "name": "arifle_TRG21_MRCO_F",
+      "displayname": "TRG-21 5.56 mm",
+      "magazines": [
+        {
+          "name": "30Rnd_556x45_Stanag",
+          "displayname": "30Rnd 556x45 Stanag"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Green",
+          "displayname": "30Rnd 556x45 Stanag Tracer Green"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Red",
+          "displayname": "30Rnd 556x45 Stanag Tracer Red"
+        },
+        {
+          "name": "30Rnd_556x45_Stanag_Tracer_Yellow",
+          "displayname": "30Rnd 556x45 Stanag Tracer Yellow"
+        }
+      ]
+    },
+    {
+      "name": "hgun_PDW2000_F",
+      "displayname": "PDW2000 9mm",
+      "magazines": [
+        {
+          "name": "16Rnd_9x21_Mag",
+          "displayname": "16Rnd 9x21 Mag"
+        },
+        {
+          "name": "30Rnd_9x21_Mag",
+          "displayname": "30Rnd 9x21 Mag"
+        }
+      ]
+    },
+    {
+      "name": "hgun_PDW2000_Holo_F",
+      "displayname": "PDW2000 9mm",
+      "magazines": [
+        {
+          "name": "16Rnd_9x21_Mag",
+          "displayname": "16Rnd 9x21 Mag"
+        },
+        {
+          "name": "30Rnd_9x21_Mag",
+          "displayname": "30Rnd 9x21 Mag"
+        }
+      ]
+    },
+    {
+      "name": "hgun_PDW2000_Holo_snds_F",
+      "displayname": "PDW2000 9mm",
+      "magazines": [
+        {
+          "name": "16Rnd_9x21_Mag",
+          "displayname": "16Rnd 9x21 Mag"
+        },
+        {
+          "name": "30Rnd_9x21_Mag",
+          "displayname": "30Rnd 9x21 Mag"
+        }
+      ]
+    },
+    {
+      "name": "hgun_PDW2000_snds_F",
+      "displayname": "PDW2000 9mm",
+      "magazines": [
+        {
+          "name": "16Rnd_9x21_Mag",
+          "displayname": "16Rnd 9x21 Mag"
+        },
+        {
+          "name": "30Rnd_9x21_Mag",
+          "displayname": "30Rnd 9x21 Mag"
+        }
+      ]
+    },
+    {
+      "name": "LMG_Mk200_F",
+      "displayname": "Mk200 6.5mm",
+      "magazines": [
+        {
+          "name": "200Rnd_65x39_cased_Box",
+          "displayname": "200Rnd 65x39 cased Box"
+        },
+        {
+          "name": "200Rnd_65x39_cased_Box_Tracer",
+          "displayname": "200Rnd 65x39 cased Box Tracer"
+        }
+      ]
+    },
+    {
+      "name": "LMG_Mk200_MRCO_F",
+      "displayname": "Mk200 6.5mm",
+      "magazines": [
+        {
+          "name": "200Rnd_65x39_cased_Box",
+          "displayname": "200Rnd 65x39 cased Box"
+        },
+        {
+          "name": "200Rnd_65x39_cased_Box_Tracer",
+          "displayname": "200Rnd 65x39 cased Box Tracer"
+        }
+      ]
+    },
+    {
+      "name": "LMG_Mk200_pointer_F",
+      "displayname": "Mk200 6.5mm",
+      "magazines": [
+        {
+          "name": "200Rnd_65x39_cased_Box",
+          "displayname": "200Rnd 65x39 cased Box"
+        },
+        {
+          "name": "200Rnd_65x39_cased_Box_Tracer",
+          "displayname": "200Rnd 65x39 cased Box Tracer"
+        }
+      ]
+    },
+    {
+      "name": "LMG_Zafir_F",
+      "displayname": "Zafir 7.62 mm",
+      "magazines": [
+        {
+          "name": "150Rnd_762x51_Box",
+          "displayname": "150Rnd 762x51 Box"
+        },
+        {
+          "name": "150Rnd_762x51_Box_Tracer",
+          "displayname": "150Rnd 762x51 Box Tracer"
+        }
+      ]
+    },
+    {
+      "name": "LMG_Zafir_pointer_F",
+      "displayname": "Zafir 7.62 mm",
+      "magazines": [
+        {
+          "name": "150Rnd_762x51_Box",
+          "displayname": "150Rnd 762x51 Box"
+        },
+        {
+          "name": "150Rnd_762x51_Box_Tracer",
+          "displayname": "150Rnd 762x51 Box Tracer"
+        }
+      ]
+    },
+    {
+      "name": "SMG_01_ACO_F",
+      "displayname": "Vermin SMG .45 ACP",
+      "magazines": [
+        {
+          "name": "30Rnd_45ACP_Mag_SMG_01",
+          "displayname": "30Rnd 45ACP Mag SMG 01"
+        },
+        {
+          "name": "30Rnd_45ACP_Mag_SMG_01_Tracer_Green",
+          "displayname": "30Rnd 45ACP Mag SMG 01 Tracer Green"
+        }
+      ]
+    },
+    {
+      "name": "SMG_01_F",
+      "displayname": "Vermin SMG .45 ACP",
+      "magazines": [
+        {
+          "name": "30Rnd_45ACP_Mag_SMG_01",
+          "displayname": "30Rnd 45ACP Mag SMG 01"
+        },
+        {
+          "name": "30Rnd_45ACP_Mag_SMG_01_Tracer_Green",
+          "displayname": "30Rnd 45ACP Mag SMG 01 Tracer Green"
+        }
+      ]
+    },
+    {
+      "name": "SMG_01_Holo_F",
+      "displayname": "Vermin SMG .45 ACP",
+      "magazines": [
+        {
+          "name": "30Rnd_45ACP_Mag_SMG_01",
+          "displayname": "30Rnd 45ACP Mag SMG 01"
+        },
+        {
+          "name": "30Rnd_45ACP_Mag_SMG_01_Tracer_Green",
+          "displayname": "30Rnd 45ACP Mag SMG 01 Tracer Green"
+        }
+      ]
+    },
+    {
+      "name": "SMG_01_Holo_pointer_snds_F",
+      "displayname": "Vermin SMG .45 ACP",
+      "magazines": [
+        {
+          "name": "30Rnd_45ACP_Mag_SMG_01",
+          "displayname": "30Rnd 45ACP Mag SMG 01"
+        },
+        {
+          "name": "30Rnd_45ACP_Mag_SMG_01_Tracer_Green",
+          "displayname": "30Rnd 45ACP Mag SMG 01 Tracer Green"
+        }
+      ]
+    },
+    {
+      "name": "SMG_02_ACO_F",
+      "displayname": "Sting 9mm",
+      "magazines": [
+        {
+          "name": "30Rnd_9x21_Mag",
+          "displayname": "30Rnd 9x21 Mag"
+        }
+      ]
+    },
+    {
+      "name": "SMG_02_ARCO_pointg_F",
+      "displayname": "Sting 9mm",
+      "magazines": [
+        {
+          "name": "30Rnd_9x21_Mag",
+          "displayname": "30Rnd 9x21 Mag"
+        }
+      ]
+    },
+    {
+      "name": "SMG_02_F",
+      "displayname": "Sting 9mm",
+      "magazines": [
+        {
+          "name": "30Rnd_9x21_Mag",
+          "displayname": "30Rnd 9x21 Mag"
+        }
+      ]
+    },
+    {
+      "name": "srifle_DMR_01_ACO_F",
+      "displayname": "Rahim 7.62 mm",
+      "magazines": [
+        {
+          "name": "10Rnd_762x51_Mag",
+          "displayname": "10Rnd 762x51 Mag"
+        }
+      ]
+    },
+    {
+      "name": "srifle_DMR_01_ARCO_pointer_F",
+      "displayname": "Rahim 7.62 mm",
+      "magazines": [
+        {
+          "name": "10Rnd_762x51_Mag",
+          "displayname": "10Rnd 762x51 Mag"
+        }
+      ]
+    },
+    {
+      "name": "srifle_DMR_01_DMS_F",
+      "displayname": "Rahim 7.62 mm",
+      "magazines": [
+        {
+          "name": "10Rnd_762x51_Mag",
+          "displayname": "10Rnd 762x51 Mag"
+        }
+      ]
+    },
+    {
+      "name": "srifle_DMR_01_DMS_pointer_snds_F",
+      "displayname": "Rahim 7.62 mm",
+      "magazines": [
+        {
+          "name": "10Rnd_762x51_Mag",
+          "displayname": "10Rnd 762x51 Mag"
+        }
+      ]
+    },
+    {
+      "name": "srifle_DMR_01_F",
+      "displayname": "Rahim 7.62 mm",
+      "magazines": [
+        {
+          "name": "10Rnd_762x51_Mag",
+          "displayname": "10Rnd 762x51 Mag"
+        }
+      ]
+    },
+    {
+      "name": "srifle_DMR_01_MRCO_pointer_F",
+      "displayname": "Rahim 7.62 mm",
+      "magazines": [
+        {
+          "name": "10Rnd_762x51_Mag",
+          "displayname": "10Rnd 762x51 Mag"
+        }
+      ]
+    },
+    {
+      "name": "srifle_DMR_01_SOS_F",
+      "displayname": "Rahim 7.62 mm",
+      "magazines": [
+        {
+          "name": "10Rnd_762x51_Mag",
+          "displayname": "10Rnd 762x51 Mag"
+        }
+      ]
+    },
+    {
+      "name": "srifle_EBR_ACO_F",
+      "displayname": "Mk18 ABR 7.62mm",
+      "magazines": [
+        {
+          "name": "20Rnd_762x51_Mag",
+          "displayname": "20Rnd 762x51 Mag"
+        }
+      ]
+    },
+    {
+      "name": "srifle_EBR_ARCO_pointer_F",
+      "displayname": "Mk18 ABR 7.62mm",
+      "magazines": [
+        {
+          "name": "20Rnd_762x51_Mag",
+          "displayname": "20Rnd 762x51 Mag"
+        }
+      ]
+    },
+    {
+      "name": "srifle_EBR_ARCO_pointer_snds_F",
+      "displayname": "Mk18 ABR 7.62mm",
+      "magazines": [
+        {
+          "name": "20Rnd_762x51_Mag",
+          "displayname": "20Rnd 762x51 Mag"
+        }
+      ]
+    },
+    {
+      "name": "srifle_EBR_DMS_F",
+      "displayname": "Mk18 ABR 7.62mm",
+      "magazines": [
+        {
+          "name": "20Rnd_762x51_Mag",
+          "displayname": "20Rnd 762x51 Mag"
+        }
+      ]
+    },
+    {
+      "name": "srifle_EBR_DMS_pointer_snds_F",
+      "displayname": "Mk18 ABR 7.62mm",
+      "magazines": [
+        {
+          "name": "20Rnd_762x51_Mag",
+          "displayname": "20Rnd 762x51 Mag"
+        }
+      ]
+    },
+    {
+      "name": "srifle_EBR_F",
+      "displayname": "Mk18 ABR 7.62mm",
+      "magazines": [
+        {
+          "name": "20Rnd_762x51_Mag",
+          "displayname": "20Rnd 762x51 Mag"
+        }
+      ]
+    },
+    {
+      "name": "srifle_EBR_Hamr_pointer_F",
+      "displayname": "Mk18 ABR 7.62mm",
+      "magazines": [
+        {
+          "name": "20Rnd_762x51_Mag",
+          "displayname": "20Rnd 762x51 Mag"
+        }
+      ]
+    },
+    {
+      "name": "srifle_EBR_MRCO_pointer_F",
+      "displayname": "Mk18 ABR 7.62mm",
+      "magazines": [
+        {
+          "name": "20Rnd_762x51_Mag",
+          "displayname": "20Rnd 762x51 Mag"
+        }
+      ]
+    },
+    {
+      "name": "srifle_EBR_SOS_F",
+      "displayname": "Mk18 ABR 7.62mm",
+      "magazines": [
+        {
+          "name": "20Rnd_762x51_Mag",
+          "displayname": "20Rnd 762x51 Mag"
+        }
+      ]
+    },
+    {
+      "name": "srifle_GM6_F",
+      "displayname": "GM6 Lynx 12.7mm",
+      "magazines": [
+        {
+          "name": "5Rnd_127x108_APDS_Mag",
+          "displayname": "5Rnd 127x108 APDS Mag"
+        },
+        {
+          "name": "5Rnd_127x108_Mag",
+          "displayname": "5Rnd 127x108 Mag"
+        }
+      ]
+    },
+    {
+      "name": "srifle_GM6_LRPS_F",
+      "displayname": "GM6 Lynx 12.7mm",
+      "magazines": [
+        {
+          "name": "5Rnd_127x108_APDS_Mag",
+          "displayname": "5Rnd 127x108 APDS Mag"
+        },
+        {
+          "name": "5Rnd_127x108_Mag",
+          "displayname": "5Rnd 127x108 Mag"
+        }
+      ]
+    },
+    {
+      "name": "srifle_GM6_SOS_F",
+      "displayname": "GM6 Lynx 12.7mm",
+      "magazines": [
+        {
+          "name": "5Rnd_127x108_APDS_Mag",
+          "displayname": "5Rnd 127x108 APDS Mag"
+        },
+        {
+          "name": "5Rnd_127x108_Mag",
+          "displayname": "5Rnd 127x108 Mag"
+        }
+      ]
+    },
+    {
+      "name": "srifle_LRR_F",
+      "displayname": "M320 LRR .408",
+      "magazines": [
+        {
+          "name": "7Rnd_408_Mag",
+          "displayname": "7Rnd 408 Mag"
+        }
+      ]
+    },
+    {
+      "name": "srifle_LRR_LRPS_F",
+      "displayname": "M320 LRR .408",
+      "magazines": [
+        {
+          "name": "7Rnd_408_Mag",
+          "displayname": "7Rnd 408 Mag"
+        }
+      ]
+    },
+    {
+      "name": "srifle_LRR_SOS_F",
+      "displayname": "M320 LRR .408",
+      "magazines": [
+        {
+          "name": "7Rnd_408_Mag",
+          "displayname": "7Rnd 408 Mag"
+        }
+      ]
+    }
+  ],
+  "pistols": [
+    {
+      "name": "hgun_ACPC2_F",
+      "displayname": "ACP-C2 .45",
+      "magazines": [
+        {
+          "name": "9Rnd_45ACP_Mag",
+          "displayname": "9Rnd 45ACP Mag"
+        }
+      ]
+    },
+    {
+      "name": "hgun_ACPC2_snds_F",
+      "displayname": "ACP-C2 .45",
+      "magazines": [
+        {
+          "name": "9Rnd_45ACP_Mag",
+          "displayname": "9Rnd 45ACP Mag"
+        }
+      ]
+    },
+    {
+      "name": "hgun_P07_F",
+      "displayname": "P07 9mm",
+      "magazines": [
+        {
+          "name": "16Rnd_9x21_Mag",
+          "displayname": "16Rnd 9x21 Mag"
+        },
+        {
+          "name": "30Rnd_9x21_Mag",
+          "displayname": "30Rnd 9x21 Mag"
+        }
+      ]
+    },
+    {
+      "name": "hgun_P07_snds_F",
+      "displayname": "P07 9mm",
+      "magazines": [
+        {
+          "name": "16Rnd_9x21_Mag",
+          "displayname": "16Rnd 9x21 Mag"
+        },
+        {
+          "name": "30Rnd_9x21_Mag",
+          "displayname": "30Rnd 9x21 Mag"
+        }
+      ]
+    },
+    {
+      "name": "hgun_Pistol_heavy_01_F",
+      "displayname": "4-five .45",
+      "magazines": [
+        {
+          "name": "11Rnd_45ACP_Mag",
+          "displayname": "11Rnd 45ACP Mag"
+        }
+      ]
+    },
+    {
+      "name": "hgun_Pistol_heavy_01_MRD_F",
+      "displayname": "4-five .45",
+      "magazines": [
+        {
+          "name": "11Rnd_45ACP_Mag",
+          "displayname": "11Rnd 45ACP Mag"
+        }
+      ]
+    },
+    {
+      "name": "hgun_Pistol_heavy_01_snds_F",
+      "displayname": "4-five .45",
+      "magazines": [
+        {
+          "name": "11Rnd_45ACP_Mag",
+          "displayname": "11Rnd 45ACP Mag"
+        }
+      ]
+    },
+    {
+      "name": "hgun_Pistol_heavy_02_F",
+      "displayname": "Zubr .45",
+      "magazines": [
+        {
+          "name": "6Rnd_45ACP_Cylinder",
+          "displayname": "6Rnd 45ACP Cylinder"
+        }
+      ]
+    },
+    {
+      "name": "hgun_Pistol_heavy_02_Yorris_F",
+      "displayname": "Zubr .45",
+      "magazines": [
+        {
+          "name": "6Rnd_45ACP_Cylinder",
+          "displayname": "6Rnd 45ACP Cylinder"
+        }
+      ]
+    },
+    {
+      "name": "hgun_Rook40_F",
+      "displayname": "Rook-40 9 mm",
+      "magazines": [
+        {
+          "name": "16Rnd_9x21_Mag",
+          "displayname": "16Rnd 9x21 Mag"
+        },
+        {
+          "name": "30Rnd_9x21_Mag",
+          "displayname": "30Rnd 9x21 Mag"
+        }
+      ]
+    },
+    {
+      "name": "hgun_Rook40_snds_F",
+      "displayname": "Rook-40 9 mm",
+      "magazines": [
+        {
+          "name": "16Rnd_9x21_Mag",
+          "displayname": "16Rnd 9x21 Mag"
+        },
+        {
+          "name": "30Rnd_9x21_Mag",
+          "displayname": "30Rnd 9x21 Mag"
+        }
+      ]
+    }
+  ]
+}

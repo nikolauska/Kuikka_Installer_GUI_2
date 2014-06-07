@@ -64,6 +64,8 @@ namespace Kuikka_Installer_GUI_2
             Code_Desc_TextBox.IsReadOnly = false;
             Code_Init_TextBox.AcceptsReturn = true;
             Code_Desc_TextBox.AcceptsReturn = true;
+
+            LoadoutItems loadout = new LoadoutItems();
         }
 
         private void Center_Profile_Btn_Click(object sender, RoutedEventArgs e)
