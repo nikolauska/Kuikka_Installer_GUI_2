@@ -7,16 +7,16 @@ using System.Windows;
 
 namespace Kuikka_Installer_GUI_2
 {
-    class VisibilityClass
+    class VisibilityHandler
     {
-        public VisibilityClass(MainWindow windowIn, Briefing BriefingIn)
+        public VisibilityHandler(MainWindow windowIn, BriefingHandler BriefingIn)
         {
             window = windowIn;
             Briefings = BriefingIn;
         }
 
         private MainWindow window { get; set; }
-        private Briefing Briefings { get; set; }
+        private BriefingHandler Briefings { get; set; }
 
         public void showProfileSettings()
         {
@@ -45,7 +45,6 @@ namespace Kuikka_Installer_GUI_2
         public void showRespawnWaveAdditional()
         {
             this.hideAll();
-            window.RespawnWave_Additional_Canvas.Visibility = Visibility.Visible;
         }
 
         public void showBriefingSettings()
@@ -91,16 +90,10 @@ namespace Kuikka_Installer_GUI_2
             window.Briefing_MarkerText_TextBox.Text = Briefings.getMarkerText(window.Briefing_Marker_ComboBox.SelectedIndex);
         }
 
-        public void showInitTextbox()
+        public void showCodeEditCanvas()
         {
-            window.Code_Desc_TextBox.Visibility = Visibility.Hidden;
-            window.Code_Init_TextBox.Visibility = Visibility.Visible;
-        }
-
-        public void showDescTextbox()
-        {
-            window.Code_Desc_TextBox.Visibility = Visibility.Visible;
-            window.Code_Init_TextBox.Visibility = Visibility.Hidden;
+            this.hideAll();
+            window.Code_Edit_Canvas.Visibility = Visibility.Visible;
         }
 
         private void hideAll()
@@ -109,11 +102,11 @@ namespace Kuikka_Installer_GUI_2
             window.Mission_Settings_Canvas.Visibility = Visibility.Hidden;
             window.Loading_Settings_Canvas.Visibility = Visibility.Hidden;
             window.Script_Settings_Canvas.Visibility = Visibility.Hidden;
-            window.RespawnWave_Additional_Canvas.Visibility = Visibility.Hidden;
             window.Briefing_Settings_Canvas.Visibility = Visibility.Hidden;
             window.Briefing_Edit_Canvas.Visibility = Visibility.Hidden;
             window.Briefing_Code_Canvas.Visibility = Visibility.Hidden;
             window.Briefing_Marker_Canvas.Visibility = Visibility.Hidden;
+            window.Code_Edit_Canvas.Visibility = Visibility.Hidden;
         }
     }
 }

@@ -20,10 +20,10 @@ namespace Kuikka_Installer_GUI_2
     /// </summary>
     public partial class MainWindow : Window
     {
-        InitSQF Code_Init;
-        DescEXT Code_Desc;
-        Briefing Briefings;
-        VisibilityClass VisibilityHandler;
+        InitHandler Code_Init;
+        DescriptionHandler Code_Desc;
+        BriefingHandler Briefings;
+        VisibilityHandler VisibilityHandler;
 
         string[] maps = { "Altis", "Stratis" };
         string[] gametypes = { "COOP", "TVT"};
@@ -33,11 +33,12 @@ namespace Kuikka_Installer_GUI_2
         {
             InitializeComponent();
 
-            Code_Init = new InitSQF(this);
-            Code_Desc = new DescEXT(this);
-            Briefings = new Briefing(this);
-            VisibilityHandler = new VisibilityClass(this, Briefings);
+            Code_Init = new InitHandler(this);
+            Code_Desc = new DescriptionHandler(this);
+            Briefings = new BriefingHandler(this);
+            VisibilityHandler = new VisibilityHandler(this, Briefings);
             VisibilityHandler.showProfileSettings();
+            
 
             foreach (string text in maps)
             {
@@ -47,7 +48,7 @@ namespace Kuikka_Installer_GUI_2
             {
                 Mission_Gametype_ComboBox.Items.Add(text);
             }
-            foreach (string text in Code_Init.getRespawnSelections())
+            /*foreach (string text in Code_Init.getRespawnSelections())
             {
                 Script_Respawn_ComboBox.Items.Add(text);
             }
@@ -55,17 +56,11 @@ namespace Kuikka_Installer_GUI_2
             {
                 Script_Medic_ComboBox.Items.Add(text);
             }
+            */
 
-
-
-            Code_Init_TextBox.Visibility = Visibility.Visible;
-            Code_Desc_TextBox.Visibility = Visibility.Hidden;
-            Code_Init_TextBox.IsReadOnly = false;
-            Code_Desc_TextBox.IsReadOnly = false;
-            Code_Init_TextBox.AcceptsReturn = true;
-            Code_Desc_TextBox.AcceptsReturn = true;
-
-            LoadoutItems loadout = new LoadoutItems();
+            Code_TextBox.IsReadOnly = false;
+            Code_TextBox.AcceptsReturn = true;
+            Code_TextBox.Text = Code_Init.ReturnInitText();
         }
 
         private void Center_Profile_Btn_Click(object sender, RoutedEventArgs e)
@@ -101,27 +96,37 @@ namespace Kuikka_Installer_GUI_2
 
         private void Script_Respawn_ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Code_Init.updateRespawnText(Script_Respawn_ComboBox.SelectedItem.ToString());
+            //Code_Init.updateRespawnText(Script_Respawn_ComboBox.SelectedItem.ToString());
         }
 
         private void Script_Medic_ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Code_Init.updateMedicText(Script_Medic_ComboBox.SelectedItem.ToString());
+            //Code_Init.updateMedicText(Script_Medic_ComboBox.SelectedItem.ToString());
         }
 
         private void Code_Init_Btn_Click(object sender, RoutedEventArgs e)
         {
-            VisibilityHandler.showInitTextbox();
+            Code_TextBox.Text = Code_Init.ReturnInitText();
         }
 
         private void Code_Desc_Btn_Click(object sender, RoutedEventArgs e)
         {
-            VisibilityHandler.showDescTextbox();
+            Code_TextBox.Text = Code_Desc.ReturnDescriptionText();
+        }
+
+        private void Code_Briefing_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            Code_TextBox.Text = "Not yet implemented!";
+        }
+
+        private void Code_Music_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            Code_TextBox.Text = "Not yet implemented!";
         }
 
         private void WaveRespawn_Time_TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            Code_Init.updateWaveRespawnTime(WaveRespawn_Time_TextBox.Text);
+            //Code_Init.updateWaveRespawnTime(WaveRespawn_Time_TextBox.Text);
         }
 
         private void Mission_Gametype_ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -230,5 +235,9 @@ namespace Kuikka_Installer_GUI_2
             }            
         }
 
+        private void Center_HandEdit_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            VisibilityHandler.showCodeEditCanvas();
+        }
     }
 }

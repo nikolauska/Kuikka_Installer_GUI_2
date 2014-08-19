@@ -10,8 +10,11 @@ using System.Windows;
 
 namespace Kuikka_Installer_GUI_2
 {
-    class LoadoutItems
+    class LoadoutHandler
     {
+        /**************************************************************
+         * Variables
+        ***************************************************************/
         private class Magazine
         {
             public string name { get; set; }
@@ -48,15 +51,18 @@ namespace Kuikka_Installer_GUI_2
         private All allitems { get; set; }
         private MainWindow window { get; set; }
 
-        public LoadoutItems(MainWindow windowIn)
+        /**************************************************************
+         * Initialization
+        ***************************************************************/
+        public LoadoutHandler(MainWindow windowIn)
         {
             allitems = JsonConvert.DeserializeObject<All>(File.ReadAllText(@"c:\UDK\NewItems2.json"));
 
             window = windowIn;
-
-
         }
 
-
+        /**************************************************************
+         * Functions
+         ***************************************************************/
     }
 }

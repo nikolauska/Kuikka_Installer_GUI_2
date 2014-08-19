@@ -7,10 +7,20 @@ using System.Windows;
 
 namespace Kuikka_Installer_GUI_2
 {
-    class DescEXT
+    class DescriptionHandler
     {
-        public DescEXT(MainWindow windowIn)
+        /**************************************************************
+         * Variables
+         ***************************************************************/
+        private List<string> DescText { get; set; }
+        private MainWindow window { get; set; }
+
+        /**************************************************************
+         * Initialization
+        ***************************************************************/
+        public DescriptionHandler(MainWindow windowIn)
         {
+            // Default text to be used in Description.ext
             DescText = new List<string>
             {
                 "// Tämä Description.ext tiedosto on luotu Kuikan Missupohjan Asennusohjelmalla \n", // Info Text
@@ -43,60 +53,62 @@ namespace Kuikka_Installer_GUI_2
                 "showGPS = 1; \n"
             };
 
+            // Save main window
             window = windowIn;
-            this.updateText();
         }
 
-        private List<string> DescText { get; set; }
-        private MainWindow window { get; set; }
-
+        /**************************************************************
+         * Functions
+         ***************************************************************/
+        // Update gametype
         public void updateMissionGameType(string type)
         {
             DescText[4] = "  GameType = " + type + "; \n";
-            this.updateText();
         }
 
+        // Update max players
         public void updateMissionMaxPlayers(string Amount)
         {
             DescText[5] = "  MinPlayers = 1; \n";
             DescText[6] = "  MaxPlayers = " + Amount + "; \n";
-            this.updateText();
         }
 
+        // Update loading screen image
         public void updateLoadingImage(string Image)
         {
             DescText[10] = @"LoadScreen = 'Images\" + Image + "'; \n";
-            this.updateText();
         }
 
+        // Update loading screen author
         public void updateLoadingAuthor(string Author)
         {
             DescText[11] = "Author = " + Author + "; \n";
-            this.updateText();
         }
 
+        // Update loading screen name
         public void updateLoadingName(string Name)
         {
             DescText[12] = "OnLoadName = " + Name + "; \n";
-            this.updateText();
         }
 
+        // Update loading screen info text
         public void updateLoadingInfo(string Info)
         {
             DescText[13] = "OnLoadMission = " + Info + "; \n";
-            this.updateText();
         }
 
-        public void updateText()
+        // Update text to main windows
+        public string ReturnDescriptionText()
         {
             string alltext = "";
             foreach (String text in DescText)
             {
                 alltext += text;
             }
-            window.Code_Desc_TextBox.Text = alltext;
+            return alltext;
         }
 
+        // Check if anything is missing in description.ext
         public string missingCheck()
         {
             if (DescText[4] == "")

@@ -6,23 +6,11 @@ using System.Threading.Tasks;
 
 namespace Kuikka_Installer_GUI_2
 {
-    class Briefing
+    class BriefingHandler
     {
-        public Briefing(MainWindow windowIn)
-        {
-            Briefings = new List<BriefingStruct>();
-            PictureData = new List<PictureStruct>();
-            MarkerData = new List<MarkerStruct>();
-
-            window = windowIn;
-        }
-
-        private List<BriefingStruct> Briefings { get; set; }
-        private List<PictureStruct> PictureData { get; set; }
-        private List<MarkerStruct> MarkerData { get; set; }
-        private MainWindow window { get; set; }
-        
-
+        /**************************************************************
+         * Variables
+         ***************************************************************/
         private struct BriefingStruct
         {
             public string Title;
@@ -43,9 +31,27 @@ namespace Kuikka_Installer_GUI_2
             public string ID;
         }
 
-        /*
-         * Add Functions
-         */ 
+        private List<BriefingStruct> Briefings { get; set; }
+        private List<PictureStruct> PictureData { get; set; }
+        private List<MarkerStruct> MarkerData { get; set; }
+        private MainWindow window { get; set; }
+
+        /**************************************************************
+         * Initialization
+        ***************************************************************/
+        public BriefingHandler(MainWindow windowIn)
+        {
+            Briefings = new List<BriefingStruct>();
+            PictureData = new List<PictureStruct>();
+            MarkerData = new List<MarkerStruct>();
+
+            window = windowIn;
+        }
+
+        /**************************************************************
+         * Functions
+         ***************************************************************/
+        // Add new briefing
         public void AddBriefing(string Title, string Text) 
         {
             BriefingStruct temp = new BriefingStruct();
@@ -57,6 +63,7 @@ namespace Kuikka_Installer_GUI_2
             window.Briefing_Code_TextBox.Text = temp.Text;
         }
 
+        // Edit existing Briefing
         public void EditBriefing(int index, string Title, string Text)
         {
             BriefingStruct temp = new BriefingStruct();
@@ -68,12 +75,14 @@ namespace Kuikka_Installer_GUI_2
             window.Briefing_Code_TextBox.Text = temp.Text;
         }
 
+        // Get selected briefing text
         public void GetBriefing(int index)
         {
             window.Briefing_Title_TextBox.Text = Briefings[index].Title;
             window.Briefing_Code_TextBox.Text = Briefings[index].Text;
         }
 
+        // Add picture to briefing
         public void AddPicture(int BriefingIndex, string Location, string FileName)
         {
             PictureStruct picture = new PictureStruct();
@@ -88,6 +97,7 @@ namespace Kuikka_Installer_GUI_2
             Briefings[BriefingIndex] = briefing;
         }
 
+        // Edit existing picture
         public void EditPicture(int BriefingIndex, int PictureIndex, string Location, string FileName)
         {          
             PictureStruct picture = new PictureStruct();
@@ -103,7 +113,7 @@ namespace Kuikka_Installer_GUI_2
             PictureData[PictureIndex] = picture;
         }
 
-
+        // Add new marker
         public void AddMarker(int BriefingIndex, string MarkerName, string MarkerText)
         {
             MarkerStruct marker = new MarkerStruct();
@@ -118,16 +128,19 @@ namespace Kuikka_Installer_GUI_2
             Briefings[BriefingIndex] = briefing;
         }
 
+        // Get name of selected marker
         public string getMarkerName(int MarkerIndex)
         {
             return MarkerData[MarkerIndex].MarkerName;
         }
 
+        // Get text of selected marker
         public string getMarkerText(int MarkerIndex)
         {
             return MarkerData[MarkerIndex].MarkerText;
         }
 
+        // Edit existing marker
         public void EditMarker(int BriefingIndex, int MarkerIndex, string MarkerName, string MarkerText)
         {
             MarkerStruct marker = new MarkerStruct();
@@ -143,9 +156,7 @@ namespace Kuikka_Installer_GUI_2
             MarkerData[MarkerIndex] = marker;
         }
 
-        /*
-         * Remove Functions
-         */
+       // Remove existing picture
         public void RemovePicture(int BriefingIndex, int PictureIndex)
         {
             BriefingStruct briefing = new BriefingStruct();
@@ -156,6 +167,7 @@ namespace Kuikka_Installer_GUI_2
             PictureData.RemoveAt(PictureIndex);
         }
 
+        // Remove existing marker
         public void RemoveMarker(int BriefingIndex, int MarkerIndex)
         {
             BriefingStruct briefing = new BriefingStruct();
@@ -166,9 +178,7 @@ namespace Kuikka_Installer_GUI_2
             MarkerData.RemoveAt(MarkerIndex);
         }
 
-        /*
-         * Return Functions
-         */ 
+        // Return briefing titles
         public List<string> GetTitles()
         {
             List<string> Titles = new List<string>();
@@ -181,6 +191,7 @@ namespace Kuikka_Installer_GUI_2
             return Titles;
         }
 
+        // Return picture locations
         public List<string> GetPictureLocations()
         {
             List<string> PictureLocations = new List<string>();
@@ -193,6 +204,7 @@ namespace Kuikka_Installer_GUI_2
             return PictureLocations;
         }
 
+        // Return picture names
         public List<string> GetPictureNames()
         {
             List<string> PictureNames = new List<string>();
@@ -205,6 +217,7 @@ namespace Kuikka_Installer_GUI_2
             return PictureNames;
         }
 
+        // Return Marker names
         public List<string> GetMarkerNames()
         {
             List<string> MarkerNames = new List<string>();
@@ -217,12 +230,14 @@ namespace Kuikka_Installer_GUI_2
             return MarkerNames;
         }
 
+        // Get raw code (used in program)
         public string GetRawCode(int BriefingIndex)
         {
             window.Briefing_Code_TextBox.Text = Briefings[BriefingIndex].Text;
             return Briefings[BriefingIndex].Text;
         }
 
+        // Get Processed code (when creating sqf)
         /*
         public string GetProcessedCode()
         {
