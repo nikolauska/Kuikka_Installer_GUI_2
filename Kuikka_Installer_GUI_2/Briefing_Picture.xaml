@@ -1,0 +1,12 @@
+﻿<Window x:Class="Kuikka_Installer_GUI_2.Briefing_Picture"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Picture" Height="175" Width="267">
+    <Grid Background="Black">
+        <Button x:Name="Button_Picture_OK" Content="OK" HorizontalAlignment="Left" Margin="10,98,0,0" VerticalAlignment="Top" Width="119" Click="Button_Picture_OK_Click" Foreground="Black" Background="#FFDA9513"/>
+        <Button x:Name="Button_Picture_Cancel" Content="Peruuta" HorizontalAlignment="Left" Margin="134,98,0,0" VerticalAlignment="Top" Width="117" RenderTransformOrigin="0.173,-0.2" Click="Button_Picture_Cancel_Click" Foreground="Black" Background="#FFDA9513"/>
+        <TextBox x:Name="TextBox_Picture_Loc" HorizontalAlignment="Left" Height="23" Margin="10,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="241"/>
+        <Label x:Name="Label_Picture_Loc" Content="Kuvan Nimi (Kopioi kuva Kuvat kansioon)" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.395,-0.038" Width="241" Foreground="#FFDA9513"/>
+        <Button x:Name="Button_Picture_Find" Content="Etsi Kuva" HorizontalAlignment="Left" Margin="10,69,0,0" VerticalAlignment="Top" Width="239" Foreground="Black" Background="#FFDA9513" Click="Button_Picture_Find_Click"/>
+    </Grid>
+</Window>

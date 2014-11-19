@@ -1,4 +1,9 @@
 ﻿using System;
+using System.IO;
+using System.IO.Compression;
+using System.Net;
+using System.Threading;
+using System.Drawing;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,225 +24,293 @@ namespace Kuikka_Installer_GUI_2
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
-    {
-        InitHandler Code_Init;
-        DescriptionHandler Code_Desc;
-        BriefingHandler Briefings;
+    {       
+        Briefing briefing;
         VisibilityHandler VisibilityHandler;
-
-        string[] maps = { "Altis", "Stratis" };
-        string[] gametypes = { "COOP", "TVT"};
-
+        InstallHandler installHandler;
 
         public MainWindow()
         {
             InitializeComponent();
 
-            Code_Init = new InitHandler(this);
-            Code_Desc = new DescriptionHandler(this);
-            Briefings = new BriefingHandler(this);
-            VisibilityHandler = new VisibilityHandler(this, Briefings);
+            briefing = new Briefing();
+            VisibilityHandler = new VisibilityHandler(this);
+            installHandler = new InstallHandler(this, briefing);
             VisibilityHandler.showProfileSettings();
+
+            TextBox_Briefing_Text.IsReadOnly = false;
+            TextBox_Briefing_Text.AcceptsReturn = true;
+
+            String arma3Folder = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\Arma 3";
+            String arma3OtherFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\Arma 3 - Other Profiles";
+
+            if (Directory.Exists(arma3Folder))
+            {
+                string[] files = Directory.GetFiles(arma3Folder, "*.Arma3Profile");
+
+                string filename = new DirectoryInfo(files[0]).Name;
+                string[] names = filename.Split('.');
+
+                Combobox_Profile_Name.Items.Add(names[0]);
+            }
+
+            if (Directory.Exists(arma3OtherFolder))
+            {
+                string[] subdirectoryEntries = Directory.GetDirectories(arma3OtherFolder);
+                foreach (string subdirectory in subdirectoryEntries)
+                {
+                    Combobox_Profile_Name.Items.Add(new DirectoryInfo(subdirectory).Name);
+                }
+
+            }
+
+            ComboBox_Briefing_Side.SelectedIndex = 0;
+            ComboBox_Briefing_Title.SelectedIndex = 0;
+            Combobox_Mission_Gametype.SelectedIndex = 0;
+            Combobox_Profile_Name.SelectedIndex = 0;
+            Combobox_Mission_Map.SelectedIndex = 0;
             
-
-            foreach (string text in maps)
-            {
-                Mission_Map_ComboBox.Items.Add(text);
-            }
-            foreach (string text in gametypes)
-            {
-                Mission_Gametype_ComboBox.Items.Add(text);
-            }
-            /*foreach (string text in Code_Init.getRespawnSelections())
-            {
-                Script_Respawn_ComboBox.Items.Add(text);
-            }
-            foreach (string text in Code_Init.getMedicSelections())
-            {
-                Script_Medic_ComboBox.Items.Add(text);
-            }
-            */
-
-            Code_TextBox.IsReadOnly = false;
-            Code_TextBox.AcceptsReturn = true;
-            Code_TextBox.Text = Code_Init.ReturnInitText();
         }
 
-        private void Center_Profile_Btn_Click(object sender, RoutedEventArgs e)
+        private void Button_Center_Profile_Click(object sender, RoutedEventArgs e)
         {
             VisibilityHandler.showProfileSettings();
         }
 
-        private void Center_Mission_Btn_Click(object sender, RoutedEventArgs e)
+        private void Button_Center_Mission_Click(object sender, RoutedEventArgs e)
         {
             VisibilityHandler.showMissionSettings();
         }
 
-        private void Center_Loading_Btn_Click(object sender, RoutedEventArgs e)
+        private void Button_Center_Loading_Click(object sender, RoutedEventArgs e)
         {
             VisibilityHandler.showLoadingSettings();
         }
 
-        private void Center_Script_Btn_Click(object sender, RoutedEventArgs e)
-        {
-            VisibilityHandler.showScriptSettings();
-        }
-
-
         private void Center_Briefing_Btn_Click(object sender, RoutedEventArgs e)
         {
             VisibilityHandler.showBriefingSettings();
-            Briefing_Selection_ComboBox.Items.Clear();
-            foreach (string title in Briefings.GetTitles())
+        }
+
+        private void TextBox_Briefing_Text_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            this.BriefingTextEdit("SET"); 
+        }
+
+        private void ComboBox_Briefing_Title_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (ComboBox_Briefing_Title.SelectedValue != null && ComboBox_Briefing_Side.SelectedValue != null)
+                this.BriefingTextEdit("GET");
+        }
+
+        private void ComboBox_Briefing_Side_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (ComboBox_Briefing_Title.SelectedValue != null && ComboBox_Briefing_Side.SelectedValue != null)
+                this.BriefingTextEdit("GET"); 
+        }
+
+        private void Combobox_Mission_Gametype_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBoxItem typeCombo = (ComboBoxItem)Combobox_Mission_Gametype.SelectedItem;
+
+            switch (typeCombo.Content.ToString())
             {
-                Briefing_Selection_ComboBox.Items.Add(title);
+                case "COOP":
+                    Label_Mision_Gametype.Content = "Cooperative Mission";
+                    break;
+                case "DM":
+                    Label_Mision_Gametype.Content = "Deathmatch";
+                    break;
+                case "TDM":
+                    Label_Mision_Gametype.Content = "Team Deathmatch";
+                    break;
+                case "CTF":
+                    Label_Mision_Gametype.Content = "Capture The Flag";
+                    break;              
+                case "SC":
+                    Label_Mision_Gametype.Content = "Sector Control";
+                    break;
+                case "CTI":
+                    Label_Mision_Gametype.Content = "Capture The Island";
+                    break;
+                case "RPG":
+                    Label_Mision_Gametype.Content = "Role-Playing Game";
+                    break;
+                case "SANDBOX":
+                    Label_Mision_Gametype.Content = "Sandbox";
+                    break;
+                case "SEIZE":
+                    Label_Mision_Gametype.Content = "Seize";
+                    break;
+                case "DEFEND":
+                    Label_Mision_Gametype.Content = "Defend";
+                    break;
+                case "ZDM":
+                    Label_Mision_Gametype.Content = "Zeus - Deathmatch";
+                    break;
+                case "ZCTF":
+                    Label_Mision_Gametype.Content = "Zeus - Capture The Flag";
+                    break;
+                case "ZCOOP":
+                    Label_Mision_Gametype.Content = "Zeus - Cooperative Mission";
+                    break;
+                case "ZSC":
+                    Label_Mision_Gametype.Content = "Zeus - Sector Control";
+                    break;
+                case "ZCTI":
+                    Label_Mision_Gametype.Content = "Zeus - Capture The Island";
+                    break;
+                case "ZTDM":
+                    Label_Mision_Gametype.Content = "Zeus - Team Deathmatch";
+                    break;
+                case "ZRPG":
+                    Label_Mision_Gametype.Content = "Zeus - Role Playing Game";
+                    break;
+                case "ZGM":
+                    Label_Mision_Gametype.Content = "Zeus - Game Master";
+                    break;
+                case "ZVZ":
+                    Label_Mision_Gametype.Content = "Zeus vs. Zeus";
+                    break;
+                case "ZVP":
+                    Label_Mision_Gametype.Content = "Zeus vs. Players";
+                    break;
             }
+
+            installHandler.gameType = typeCombo.Content.ToString();
         }
 
-        private void Script_Respawn_ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void Combobox_Mission_Map_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //Code_Init.updateRespawnText(Script_Respawn_ComboBox.SelectedItem.ToString());
-        }
+            ComboBoxItem typeCombo = (ComboBoxItem)Combobox_Mission_Map.SelectedItem;
 
-        private void Script_Medic_ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            //Code_Init.updateMedicText(Script_Medic_ComboBox.SelectedItem.ToString());
-        }
-
-        private void Code_Init_Btn_Click(object sender, RoutedEventArgs e)
-        {
-            Code_TextBox.Text = Code_Init.ReturnInitText();
-        }
-
-        private void Code_Desc_Btn_Click(object sender, RoutedEventArgs e)
-        {
-            Code_TextBox.Text = Code_Desc.ReturnDescriptionText();
-        }
-
-        private void Code_Briefing_Btn_Click(object sender, RoutedEventArgs e)
-        {
-            Code_TextBox.Text = "Not yet implemented!";
-        }
-
-        private void Code_Music_Btn_Click(object sender, RoutedEventArgs e)
-        {
-            Code_TextBox.Text = "Not yet implemented!";
-        }
-
-        private void WaveRespawn_Time_TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            //Code_Init.updateWaveRespawnTime(WaveRespawn_Time_TextBox.Text);
-        }
-
-        private void Mission_Gametype_ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            Code_Desc.updateMissionGameType(Mission_Gametype_ComboBox.SelectedItem.ToString());
-        }
-
-        private void Mission_PlayerAmount_TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            Code_Desc.updateMissionMaxPlayers(Mission_PlayerAmount_TextBox.Text);
-        }
-
-        private void Loading_Image_TextBox1_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            Code_Desc.updateLoadingImage(Loading_Image_TextBox1.Text);
-        }
-
-        private void Loading_Author_TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            Code_Desc.updateLoadingAuthor(Loading_Author_TextBox.Text);
-        }
-
-        private void Loading_Name_TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            Code_Desc.updateLoadingName(Loading_Name_TextBox.Text);
-        }
-
-        private void Loading_Info_TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            Code_Desc.updateLoadingInfo(Loading_Info_TextBox.Text);
-        }
-
-        private void Loading_Image_CheckBox_Checked(object sender, RoutedEventArgs e)
-        {
-            Loading_Image_TextBox1.IsEnabled = false;
-            Loading_Image_Btn.IsEnabled = false;
-        }
-
-        private void Loading_Image_CheckBox_Unchecked(object sender, RoutedEventArgs e)
-        {
-            Loading_Image_TextBox1.IsEnabled = true;
-            Loading_Image_Btn.IsEnabled = true;
-        }
-
-        private void Briefing_Settings_New_Btn_Click(object sender, RoutedEventArgs e)
-        {
-            VisibilityHandler.showBriefingEdit("new");           
-        }
-
-        private void Briefing_Settings_Edit_Btn_Click(object sender, RoutedEventArgs e)
-        {
-            if (Briefing_Selection_ComboBox.SelectedItem != null)
+            String Map = "";
+            switch (typeCombo.Content.ToString())
             {
-                VisibilityHandler.showBriefingEdit("edit");
+                case "Altis":
+                    Map = "Altis";
+                    break;
+                case "Stratis":
+                    Map = "Stratis";
+                    break;
+                case "Chernarus":
+                    Map = "Chernarus";
+                    break;
+                case "Chernarus Summer":
+                    Map = "Chernarus Summer";
+                    break;
+                case "Utes":
+                    Map = "Utes";
+                    break;
+                case "Takistan":
+                    Map = "Takistan";
+                    break;
             }
-            else
+
+            installHandler.MissionMap = Map;
+        }
+
+        private void BriefingTextEdit(String type)
+        {
+
+            ComboBoxItem sideCombo = (ComboBoxItem)ComboBox_Briefing_Side.SelectedItem;
+            ComboBoxItem briefingCombo = (ComboBoxItem)ComboBox_Briefing_Title.SelectedItem;
+
+            if (type.Equals("GET"))
             {
-                MessageBox.Show("Et ole valinnut muokattavaa briefingiä!");
-            }
-        }
-
-        private void Briefing_Save_Btn_Click(object sender, RoutedEventArgs e)
-        {
-            Briefings.EditBriefing(Briefing_Selection_ComboBox.SelectedIndex,
-                                    Briefing_Title_TextBox.Text,
-                                    Briefing_Code_TextBox.Text);
-
-            VisibilityHandler.showBriefingSettings();
-            Briefing_Selection_ComboBox.Items.Clear();
-            foreach (string title in Briefings.GetTitles())
-            {
-                Briefing_Selection_ComboBox.Items.Add(title);
-            }
-        }
-
-        private void Briefing_MarkerSave_Btn_Click(object sender, RoutedEventArgs e)
-        {
-            Briefings.EditMarker(Briefing_Selection_ComboBox.SelectedIndex,
-                                Briefing_Marker_ComboBox.SelectedIndex,
-                                Briefing_MarkerName_TextBox.Text,
-                                Briefing_MarkerText_TextBox.Text);
-
-            VisibilityHandler.showBriefingEdit("edit");
-        }
-
-        private void Briefing_Marker_New_Btn_Click(object sender, RoutedEventArgs e)
-        {
-            Briefing_Marker_ComboBox.Items.Add("Marker " + Briefing_Marker_ComboBox.Items.Count.ToString());
-            Briefing_Marker_ComboBox.SelectedIndex = Briefing_Marker_ComboBox.Items.Count - 1;
-            Briefings.AddMarker(Briefing_Selection_ComboBox.SelectedIndex,
-                                "Marker " + Briefing_Marker_ComboBox.Items.Count.ToString(),
-                                "");
-
-            VisibilityHandler.showBriefingMarker();
-        }
-
-        private void Briefing_Marker_Edit_Btn_Click(object sender, RoutedEventArgs e)
-        {
-            if (Briefing_Marker_ComboBox.SelectedItem != null)
-            {
-                VisibilityHandler.showBriefingMarker();
+                TextBox_Briefing_Text.Text = briefing.getText(sideCombo.Content.ToString(), briefingCombo.Content.ToString());
             }
             else
             {
-                MessageBox.Show("Et ole valinnut muokattavaa markkeria!");
-            }            
+                briefing.setText(sideCombo.Content.ToString(), briefingCombo.Content.ToString(), TextBox_Briefing_Text.Text);
+            }
         }
 
-        private void Center_HandEdit_Btn_Click(object sender, RoutedEventArgs e)
+        private void Button_Briefing_Marker_Click(object sender, RoutedEventArgs e)
         {
-            VisibilityHandler.showCodeEditCanvas();
+            var dialog = new Briefing_Marker();
+            if (dialog.ShowDialog() == true)
+            {
+                briefing.AddMarker(ComboBox_Briefing_Side.Text, ComboBox_Briefing_Title.Text, dialog.MarkerName, dialog.MarkerText);
+                this.BriefingTextEdit("GET");
+            }
+        }
+
+        private void Button_Briefing_Picture_Click(object sender, RoutedEventArgs e)
+        {
+            var dialog = new Briefing_Picture();
+            if (dialog.ShowDialog() == true)
+            {
+                briefing.AddPicture(ComboBox_Briefing_Side.Text, ComboBox_Briefing_Title.Text, dialog.PictureLoc);
+                this.BriefingTextEdit("GET");
+            }
+        }
+
+        private void Center_Install_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            VisibilityHandler.showSetup();
+            TextBox_Setup_Text.Text = "";
+
+            installHandler.StartInstall();
+        }
+
+        private void Button_Loading_Picture_Click(object sender, RoutedEventArgs e)
+        {
+            var ofd = new Microsoft.Win32.OpenFileDialog() { Filter = "JPG Files (*.jpg)|*.jpg|PNG Files (*.png)|*.png" };
+            var result = ofd.ShowDialog();
+            if (result == false) return;
+
+            BitmapImage img = new BitmapImage(new Uri(ofd.FileName));
+
+            var imageHeight = img.Height;
+            var imageWidth = img.Width;
+
+            if (imageHeight == imageWidth)
+            {
+                if (imageHeight % 2 == 0 && imageWidth % 2 == 0)
+                {
+                    TextBox_Loading_Image.Text = ofd.FileName;
+                }
+                else
+                {
+                    MessageBox.Show("Kuvan korkeus ja leveys pitää olla kahdella jaollinen! Esim 128x128, 256x256, 512x512");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Kuvan korkeus ja leveys pitää olla sama! Esim 128x128, 256x256, 512x512");
+            }
+        }
+
+        private void TextBox_Mission_Name_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            installHandler.missionName = TextBox_Mission_Name.Text;
+        }
+
+        private void Combobox_Profile_Name_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            installHandler.NameIndex = Combobox_Profile_Name.SelectedIndex;
+            installHandler.profileName = Combobox_Profile_Name.SelectedItem.ToString();
+        }
+
+        private void TextBox_Mission_PlayerMax_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            installHandler.MaxPlayers = TextBox_Mission_PlayerMax.Text;
+        }
+
+        private void TextBox_Loading_Text_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            installHandler.LoadingText = TextBox_Loading_Text.Text;
+        }
+
+        private void TextBox_Loading_Author_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            installHandler.LoadingAuthor = TextBox_Loading_Author.Text;
+        }
+
+        private void TextBox_Loading_Image_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            installHandler.LoadingImage = TextBox_Loading_Image.Text;
         }
     }
 }

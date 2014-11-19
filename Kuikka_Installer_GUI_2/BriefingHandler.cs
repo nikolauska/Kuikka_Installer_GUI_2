@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,257 +7,243 @@ using System.Threading.Tasks;
 
 namespace Kuikka_Installer_GUI_2
 {
-    class BriefingHandler
+    class Briefing
     {
-        /**************************************************************
-         * Variables
-         ***************************************************************/
-        private struct BriefingStruct
+        private Side west;
+        private Side east;
+        private Side independent;
+        private Side Civilian;
+        private BriefingGenerator generator;
+        private List<String> Images;
+
+        public Briefing()
         {
-            public string Title;
-            public string Text;
+            west = new Side();
+            east = new Side();
+            independent = new Side();
+            Civilian = new Side();
+            generator = new BriefingGenerator();
+            Images = new List<String>();
         }
 
-        private struct PictureStruct
+        public void setText(String Side, String Title, String Text)
         {
-            public string Location;
-            public string FileName;
-            public string ID;
-        }
-
-        private struct MarkerStruct
-        {
-            public string MarkerName;
-            public string MarkerText;
-            public string ID;
-        }
-
-        private List<BriefingStruct> Briefings { get; set; }
-        private List<PictureStruct> PictureData { get; set; }
-        private List<MarkerStruct> MarkerData { get; set; }
-        private MainWindow window { get; set; }
-
-        /**************************************************************
-         * Initialization
-        ***************************************************************/
-        public BriefingHandler(MainWindow windowIn)
-        {
-            Briefings = new List<BriefingStruct>();
-            PictureData = new List<PictureStruct>();
-            MarkerData = new List<MarkerStruct>();
-
-            window = windowIn;
-        }
-
-        /**************************************************************
-         * Functions
-         ***************************************************************/
-        // Add new briefing
-        public void AddBriefing(string Title, string Text) 
-        {
-            BriefingStruct temp = new BriefingStruct();
-            temp.Title = Title;
-            temp.Text = Text;
-            Briefings.Add(temp);
-
-            window.Briefing_Title_TextBox.Text = temp.Title;
-            window.Briefing_Code_TextBox.Text = temp.Text;
-        }
-
-        // Edit existing Briefing
-        public void EditBriefing(int index, string Title, string Text)
-        {
-            BriefingStruct temp = new BriefingStruct();
-            temp.Title = Title;
-            temp.Text = Text;
-            Briefings[index] = temp;
-
-            window.Briefing_Title_TextBox.Text = temp.Title;
-            window.Briefing_Code_TextBox.Text = temp.Text;
-        }
-
-        // Get selected briefing text
-        public void GetBriefing(int index)
-        {
-            window.Briefing_Title_TextBox.Text = Briefings[index].Title;
-            window.Briefing_Code_TextBox.Text = Briefings[index].Text;
-        }
-
-        // Add picture to briefing
-        public void AddPicture(int BriefingIndex, string Location, string FileName)
-        {
-            PictureStruct picture = new PictureStruct();
-            picture.Location = Location;
-            picture.FileName = FileName;
-            picture.ID = " {picture " + FileName + "} ";
-            PictureData.Add(picture);
-
-            BriefingStruct briefing = new BriefingStruct();
-            briefing.Title = Briefings[BriefingIndex].Title;
-            briefing.Text += picture.ID;
-            Briefings[BriefingIndex] = briefing;
-        }
-
-        // Edit existing picture
-        public void EditPicture(int BriefingIndex, int PictureIndex, string Location, string FileName)
-        {          
-            PictureStruct picture = new PictureStruct();
-            picture.Location = Location;
-            picture.FileName = FileName;
-            picture.ID = " {picture " + FileName + "} ";
-
-            BriefingStruct briefing = new BriefingStruct();
-            briefing.Title = Briefings[BriefingIndex].Title;
-            briefing.Text.Replace(PictureData[PictureIndex].ID, picture.ID);
-            Briefings[BriefingIndex] = briefing;
-
-            PictureData[PictureIndex] = picture;
-        }
-
-        // Add new marker
-        public void AddMarker(int BriefingIndex, string MarkerName, string MarkerText)
-        {
-            MarkerStruct marker = new MarkerStruct();
-            marker.MarkerName = MarkerName;
-            marker.MarkerText = MarkerText;
-            marker.ID = " {marker " + MarkerName + "} ";
-            MarkerData.Add(marker);
-
-            BriefingStruct briefing = new BriefingStruct();
-            briefing.Title = Briefings[BriefingIndex].Title;
-            briefing.Text = Briefings[BriefingIndex].Text + " {marker " + MarkerName + "} ";
-            Briefings[BriefingIndex] = briefing;
-        }
-
-        // Get name of selected marker
-        public string getMarkerName(int MarkerIndex)
-        {
-            return MarkerData[MarkerIndex].MarkerName;
-        }
-
-        // Get text of selected marker
-        public string getMarkerText(int MarkerIndex)
-        {
-            return MarkerData[MarkerIndex].MarkerText;
-        }
-
-        // Edit existing marker
-        public void EditMarker(int BriefingIndex, int MarkerIndex, string MarkerName, string MarkerText)
-        {
-            MarkerStruct marker = new MarkerStruct();
-            marker.MarkerName = MarkerName;
-            marker.MarkerText = MarkerText;
-            marker.ID = " {marker " + MarkerName + "} ";
-
-            BriefingStruct briefing = new BriefingStruct();
-            briefing.Title = Briefings[BriefingIndex].Title;
-            briefing.Text = MarkerData[MarkerIndex].MarkerText.Replace(MarkerData[MarkerIndex].ID, " {marker " + MarkerName + "} ");
-            Briefings[BriefingIndex] = briefing;
-
-            MarkerData[MarkerIndex] = marker;
-        }
-
-       // Remove existing picture
-        public void RemovePicture(int BriefingIndex, int PictureIndex)
-        {
-            BriefingStruct briefing = new BriefingStruct();
-            briefing.Title = Briefings[BriefingIndex].Title;
-            briefing.Text.Replace(PictureData[PictureIndex].ID, " ");
-            Briefings[BriefingIndex] = briefing;
-
-            PictureData.RemoveAt(PictureIndex);
-        }
-
-        // Remove existing marker
-        public void RemoveMarker(int BriefingIndex, int MarkerIndex)
-        {
-            BriefingStruct briefing = new BriefingStruct();
-            briefing.Title = Briefings[BriefingIndex].Title;
-            briefing.Text.Replace(MarkerData[MarkerIndex].ID, " ");
-            Briefings[BriefingIndex] = briefing;
-
-            MarkerData.RemoveAt(MarkerIndex);
-        }
-
-        // Return briefing titles
-        public List<string> GetTitles()
-        {
-            List<string> Titles = new List<string>();
-
-            foreach (BriefingStruct briefing in Briefings)
+            switch (Side)
             {
-                Titles.Add(briefing.Title);
+                case "WEST":
+                    {
+                        switch (Title)
+                        {
+                            case "Tech/Info":
+                                west.Tech = Text;
+                                break;
+                            case "Tiedustelu":
+                                west.Tiedustelu = Text;
+                                break;
+                            case "Tehtävät":
+                                west.Tehtavat = Text;
+                                break;
+                            case "Tilanne":
+                                west.Tilanne = Text;
+                                break;
+                        }
+                        break;
+                    }
+                case "EAST":
+                    {
+                        switch (Title)
+                        {
+                            case "Tech/Info":
+                                east.Tech = Text;
+                                break;
+                            case "Tiedustelu":
+                                east.Tiedustelu = Text;
+                                break;
+                            case "Tehtävät":
+                                east.Tehtavat = Text;
+                                break;
+                            case "Tilanne":
+                                east.Tilanne = Text;
+                                break;
+                        }
+                        break;
+                    }
+                case "INDEPENDENT":
+                    {
+                        switch (Title)
+                        {
+                            case "Tech/Info":
+                                independent.Tech = Text;
+                                break;
+                            case "Tiedustelu":
+                                independent.Tiedustelu = Text;
+                                break;
+                            case "Tehtävät":
+                                independent.Tehtavat = Text;
+                                break;
+                            case "Tilanne":
+                                independent.Tilanne = Text;
+                                break;
+                        }
+                        break;
+                    }
+                case "CIVILIAN":
+                    {
+                        switch (Title)
+                        {
+                            case "Tech/Info":
+                                Civilian.Tech = Text;
+                                break;
+                            case "Tiedustelu":
+                                Civilian.Tiedustelu = Text;
+                                break;
+                            case "Tehtävät":
+                                Civilian.Tehtavat = Text;
+                                break;
+                            case "Tilanne":
+                                Civilian.Tilanne = Text;
+                                break;
+                        }
+                        break;
+                    }
+            }
+        }
+
+        public String getText(String Side, String Title)
+        {
+            switch (Side)
+            {
+                case "WEST":
+                    {
+                        switch (Title)
+                        {
+                            case "Tech/Info":
+                                return west.Tech;
+                            case "Tiedustelu":
+                                return west.Tiedustelu;
+                            case "Tehtävät":
+                                return west.Tehtavat;
+                            case "Tilanne":
+                                return west.Tilanne;
+                        }
+                        break;
+                    }
+                case "EAST":
+                    {
+                        switch (Title)
+                        {
+                            case "Tech/Info":
+                                return east.Tech;
+                            case "Tiedustelu":
+                                return east.Tiedustelu;
+                            case "Tehtävät":
+                                return east.Tehtavat;
+                            case "Tilanne":
+                                return east.Tilanne;
+                        }
+                        break;
+                    }
+                case "INDEPENDENT":
+                    {
+                        switch (Title)
+                        {
+                            case "Tech/Info":
+                                return independent.Tech;
+                            case "Tiedustelu":
+                                return independent.Tiedustelu;
+                            case "Tehtävät":
+                                return independent.Tehtavat;
+                            case "Tilanne":
+                                return independent.Tilanne;
+                        }
+                        break;
+                    }
+                case "CIVILIAN":
+                    {
+                        switch (Title)
+                        {
+                            case "Tech/Info":
+                                return Civilian.Tech;
+                            case "Tiedustelu":
+                                return Civilian.Tiedustelu;
+                            case "Tehtävät":
+                                return Civilian.Tehtavat;
+                            case "Tilanne":
+                                return Civilian.Tilanne;
+                        }
+                        break;
+                    }
+            }
+            return "ERROR " + Side + ", " + Title;
+        }
+
+        public String GenerateBriefing()
+        {
+            String returnText = "";
+
+            returnText = "switch (playerSide) do {\n" +
+                         "  case WEST: { \n" +
+                         generator.Generate(west) + "\n" +
+                         "  }; \n" +
+                         "  case EAST: { \n" +
+                         generator.Generate(east) + "\n" +
+                         "  }; \n" +
+                         "  case INDEPENDENT: { \n" +
+                         generator.Generate(independent) + "\n" +
+                         "  }; \n" +
+                         "  case CIVILIAN: { \n" +
+                         generator.Generate(Civilian) + "\n" +
+                         "  }; \n" +
+                         "};";
+
+            return returnText;
+        }
+
+        public void AddMarker(String Side, String Title, String Name, String Text)
+        {
+            this.setText(Side, Title, this.getText(Side, Title) + @" <marker name=""" + Name + @""">" + Text + @"<marker>");
+        }
+
+        public void AddPicture(String Side, String Title, String Location)
+        {
+            this.Images.Add(Location);
+            this.setText(Side, Title, this.getText(Side, Title) + @" <img image=""Muokattavat\Kuvat\" + new DirectoryInfo(Location).Name + @" ""/>");
+            
+        }
+
+        public String getExplanation(String Title)
+        {
+            switch (Title)
+            {
+                case "Tech/Info":
+                    return "Tietoa missionisi käyttämistäsi skripteistä esim Respawn, JIP jne.";
+                case "Tiedustelu":
+                    return "Mitä tietoa haluat antaa pelaajille ennen missionin aloitusta.";
+                case "Tehtävät":
+                    return "Mitä tehtäviä pelaajilla on missionissa.";
+                case "Tilanne":
+                    return "Missionisi tarina";
+            }
+            return "";
+        }
+
+        public String CopyImages(String basePath)
+        {
+            String Errors = "";
+            foreach(String Image in Images) 
+            {
+                try
+                {
+                    File.Copy(Image, basePath + @"\Muokattavat\Kuvat\" + new DirectoryInfo(Image).Name);
+                }
+                catch (IOException copyError)
+                {
+                    Errors += "ERROR: Latauskuvan kopiointi epäonnistui. Latausruudun kuva jätetään tyhjäksi! \n";
+                    Errors += "ERROR MESSAGE: " + copyError.ToString() + "\n";
+                }  
             }
 
-            return Titles;
+            return Errors;
         }
-
-        // Return picture locations
-        public List<string> GetPictureLocations()
-        {
-            List<string> PictureLocations = new List<string>();
-
-            foreach (PictureStruct pair in PictureData)
-            {
-                PictureLocations.Add(pair.Location);
-            }
-
-            return PictureLocations;
-        }
-
-        // Return picture names
-        public List<string> GetPictureNames()
-        {
-            List<string> PictureNames = new List<string>();
-
-            foreach (PictureStruct pair in PictureData)
-            {
-                PictureNames.Add(pair.FileName);
-            }
-
-            return PictureNames;
-        }
-
-        // Return Marker names
-        public List<string> GetMarkerNames()
-        {
-            List<string> MarkerNames = new List<string>();
-
-            foreach (MarkerStruct pair in MarkerData)
-            {
-                MarkerNames.Add(pair.MarkerName);
-            }
-
-            return MarkerNames;
-        }
-
-        // Get raw code (used in program)
-        public string GetRawCode(int BriefingIndex)
-        {
-            window.Briefing_Code_TextBox.Text = Briefings[BriefingIndex].Text;
-            return Briefings[BriefingIndex].Text;
-        }
-
-        // Get Processed code (when creating sqf)
-        /*
-        public string GetProcessedCode()
-        {
-            string ReturnCode = "";
-
-            foreach (PictureStruct picture in PictureData)
-            {
-                ReturnCode = Code.Replace(picture.ID,
-                                        @"<img image='Images\" + picture.FileName + "/>");
-            }
-
-            foreach (MarkerStruct marker in MarkerData)
-	        {
-                ReturnCode = Code.Replace(marker.ID,
-                                        "<marker name=" + marker.MarkerName + ">" + marker.MarkerText + "</marker>");
-	        }
-
-            return ReturnCode;
-        }
-        */
     }
 }

@@ -2,102 +2,149 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Kuikan Missupohjan Asennusohjelma" Height="679" Width="1145" Background="Black" ResizeMode="CanMinimize">
-    <Grid x:Name="Main" Background="Black" Margin="10,0,136,0">
+    <Grid x:Name="Main" Background="Black" Margin="0,0,4,0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20*"/>
             <ColumnDefinition Width="497*"/>
         </Grid.ColumnDefinitions>
-        <Canvas x:Name="Center_Control_Canvas" HorizontalAlignment="Left" Height="629" Margin="714,11,-127,0" VerticalAlignment="Top" Width="368" Grid.Column="1">
-            <Button x:Name="Center_Profile_Btn" Content="Profiili Asetukset" HorizontalAlignment="Left" VerticalAlignment="Top" Width="348" Canvas.Left="10" Canvas.Top="44" Height="33" Click="Center_Profile_Btn_Click" Background="#FFDA9513"/>
-            <Button x:Name="Center_AddMusic_Btn" Content="Lisää Omia Musiikkeja/Ääniä" HorizontalAlignment="Left" VerticalAlignment="Top" Width="348" RenderTransformOrigin="0.484,5.697" Canvas.Top="277" Canvas.Left="10" Height="28" Background="#FFDA9513"/>
-            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Valinnaiset Asetukset" VerticalAlignment="Top" Width="346" Foreground="#FFDA9513" TextAlignment="Center" Height="29" Canvas.Left="10" Canvas.Top="243"/>
-            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Pakolliset Asetukset" VerticalAlignment="Top" Width="348" Foreground="#FFDA9513" TextAlignment="Center" Height="29" Canvas.Left="10" Canvas.Top="10"/>
-            <Button x:Name="Center_Script_Btn" Content="Scriptien Asetukset" HorizontalAlignment="Left" VerticalAlignment="Top" Width="348" Canvas.Left="10" Canvas.Top="158" Height="31" Click="Center_Script_Btn_Click" Background="#FFDA9513"/>
-            <Button x:Name="Center_Loading_Btn" Content="Latausruudun Asetukset" HorizontalAlignment="Left" VerticalAlignment="Top" Width="348" Canvas.Left="10" Canvas.Top="120" Height="33" Click="Center_Loading_Btn_Click" Background="#FFDA9513"/>
-            <Button x:Name="Center_Mission_Btn" Content="Tehtävän Asetukset" HorizontalAlignment="Left" VerticalAlignment="Top" Width="348" Canvas.Left="10" Canvas.Top="82" Height="33" Click="Center_Mission_Btn_Click" Background="#FFDA9513"/>
-            <Button x:Name="Center_Install_Btn" Content="Asenna" HorizontalAlignment="Left" VerticalAlignment="Top" Width="348" RenderTransformOrigin="0.484,5.697" Canvas.Left="10" Canvas.Top="530" Height="89" Background="#FFDA9513"/>
-            <Button x:Name="Center_Briefing_Btn" Content="Briefing Asetukset" HorizontalAlignment="Left" VerticalAlignment="Top" Width="348" Canvas.Left="10" Canvas.Top="194" Height="31" Click="Center_Briefing_Btn_Click" Background="#FFDA9513"/>
-            <Button x:Name="Center_Loadout_Btn" Content="Loadout editori" HorizontalAlignment="Left" VerticalAlignment="Top" Width="348" RenderTransformOrigin="0.484,5.697" Canvas.Top="310" Canvas.Left="10" Height="28" Background="#FFDA9513"/>
-            <Button x:Name="Center_HandEdit_Btn" Content="Manuaalinen Koodinmuokkaus" HorizontalAlignment="Left" VerticalAlignment="Top" Width="348" RenderTransformOrigin="0.484,5.697" Canvas.Top="343" Height="28" Background="#FFDA9513" Canvas.Left="10" Click="Center_HandEdit_Btn_Click"/>
+        <Canvas x:Name="Center_Control_Canvas" HorizontalAlignment="Left" Height="629" Margin="705,10,0,0" VerticalAlignment="Top" Width="366" Grid.Column="1">
+            <Button x:Name="Button_Center_Profile" Content="Profiili Asetukset" HorizontalAlignment="Left" VerticalAlignment="Top" Width="348" Canvas.Left="10" Canvas.Top="10" Height="33" Background="#FFDA9513" Click="Button_Center_Profile_Click"/>
+            <Button x:Name="Button_Center_Loading" Content="Latausruudun Asetukset" HorizontalAlignment="Left" VerticalAlignment="Top" Width="348" Canvas.Left="10" Canvas.Top="86" Height="33" Background="#FFDA9513" Click="Button_Center_Loading_Click"/>
+            <Button x:Name="Button_Center_Mission" Content="Tehtävän Asetukset" HorizontalAlignment="Left" VerticalAlignment="Top" Width="348" Canvas.Left="10" Canvas.Top="48" Height="33" Background="#FFDA9513" Click="Button_Center_Mission_Click"/>
+            <Button x:Name="Center_Install_Btn" Content="Asenna" HorizontalAlignment="Left" VerticalAlignment="Top" Width="348" RenderTransformOrigin="0.484,5.697" Canvas.Left="10" Canvas.Top="517" Height="89" Background="#FFDA9513" Click="Center_Install_Btn_Click"/>
+            <Button x:Name="Center_Briefing_Btn" Content="Briefing Asetukset" HorizontalAlignment="Left" VerticalAlignment="Top" Width="348" Canvas.Left="10" Canvas.Top="124" Height="31" Background="#FFDA9513" Click="Center_Briefing_Btn_Click"/>
         </Canvas>
-        <Canvas x:Name="Code_Edit_Canvas" Height="629" Margin="10,11,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.514,0.46" HorizontalAlignment="Left" Width="737" Grid.ColumnSpan="2" Visibility="Hidden">
-            <Button x:Name="Code_Desc_Btn" Content="Description.ext" HorizontalAlignment="Left" VerticalAlignment="Top" Width="174" RenderTransformOrigin="0.484,5.697" Canvas.Left="197" Canvas.Top="45" Height="33" Click="Code_Desc_Btn_Click" Background="#FFDA9513"/>
-            <TextBox x:Name="Code_TextBox" Canvas.Left="10" TextWrapping="Wrap" Canvas.Top="83" Height="528" Width="717"/>
-            <Button x:Name="Code_Init_Btn" Content="Init.sqf" HorizontalAlignment="Left" VerticalAlignment="Top" Width="182" RenderTransformOrigin="0.484,5.697" Canvas.Left="10" Canvas.Top="45" Height="33" Click="Code_Init_Btn_Click" Background="#FFDA9513"/>
-            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Koodin Käsinmuokkaus" VerticalAlignment="Top" Width="717" Foreground="#FFDA9513" TextAlignment="Center" Height="30" Canvas.Left="10" Canvas.Top="10"/>
-            <Button x:Name="Code_Music_Btn" Content="Music.hpp" HorizontalAlignment="Left" VerticalAlignment="Top" Width="174" RenderTransformOrigin="0.484,5.697" Canvas.Left="553" Canvas.Top="45" Height="33" Click="Code_Music_Btn_Click" Background="#FFDA9513"/>
-            <Button x:Name="Code_Briefing_Btn" Content="Briefing.sqf" HorizontalAlignment="Left" VerticalAlignment="Top" Width="172" RenderTransformOrigin="0.484,5.697" Canvas.Left="376" Canvas.Top="45" Height="33" Click="Code_Briefing_Btn_Click" Background="#FFDA9513"/>
+        <Canvas x:Name="Canvas_Briefing" HorizontalAlignment="Left" Height="622" Margin="10,9,0,0" VerticalAlignment="Top" Width="745" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5" Visibility="Hidden">
+            <Canvas.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="-0.281"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="-0.745"/>
+                </TransformGroup>
+            </Canvas.RenderTransform>
+            <ComboBox x:Name="ComboBox_Briefing_Title" Canvas.Left="67" Canvas.Top="10" Width="120" Height="29" SelectionChanged="ComboBox_Briefing_Title_SelectionChanged">
+                <ComboBoxItem Content="Tech/Info"/>
+                <ComboBoxItem Content="Tiedustelu"/>
+                <ComboBoxItem Content="Tehtävät"/>
+                <ComboBoxItem Content="Tilanne"/>
+            </ComboBox>
+            <ComboBox x:Name="ComboBox_Briefing_Side" Canvas.Left="287" Canvas.Top="10" Width="120" Height="29" SelectionChanged="ComboBox_Briefing_Side_SelectionChanged">
+                <ComboBoxItem Content="WEST"/>
+                <ComboBoxItem Content="EAST"/>
+                <ComboBoxItem Content="INDEPENDENT"/>
+                <ComboBoxItem Content="CIVILIAN"/>
+            </ComboBox>
+            <Label Content="Puoli" Canvas.Left="246" Canvas.Top="10" Width="41" Background="Black" Foreground="#FFDA9512" Height="29"/>
+            <Label Content="Otsikko" Canvas.Left="12" Canvas.Top="10" Width="55" Background="Black" Foreground="#FFDA9512" Height="29"/>
+            <Button x:Name="Button_Briefing_Marker" Content="Lisää Markkeri" HorizontalAlignment="Left" VerticalAlignment="Top" Width="92" Canvas.Left="510" Canvas.Top="10" Height="29" Background="#FFDA9513" Click="Button_Briefing_Marker_Click"/>
+            <Button x:Name="Button_Briefing_Picture" Content="Lisää Kuva" HorizontalAlignment="Left" VerticalAlignment="Top" Width="92" Canvas.Left="607" Canvas.Top="10" Height="29" Background="#FFDA9513" Click="Button_Briefing_Picture_Click"/>
+            <TextBox x:Name="TextBox_Briefing_Text" Height="558" Canvas.Left="10" TextWrapping="Wrap" Canvas.Top="54" Width="689" TextChanged="TextBox_Briefing_Text_TextChanged"/>
+            <Canvas Height="100" Canvas.Left="136" Canvas.Top="172" Width="100"/>
         </Canvas>
-        <Canvas x:Name="Profile_Settings_Canvas" HorizontalAlignment="Left" Height="629" VerticalAlignment="Top" Width="741" Margin="6,11,0,0" Grid.ColumnSpan="2" Visibility="Hidden">
-            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Profiili Asetukset" VerticalAlignment="Top" Width="721" Foreground="#FFDA9513" TextAlignment="Center" Height="29" Canvas.Left="10" Canvas.Top="10" Background="Black"/>
-            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="ArmA 3 Profiili" VerticalAlignment="Top" Width="226" Foreground="#FFDA9513" TextAlignment="Center" Height="33" Canvas.Left="10" Canvas.Top="44"/>
-            <ComboBox x:Name="Profile_Arma_ComboBox" Canvas.Left="241" Canvas.Top="44" Width="490" Height="33"/>
-            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Ohjelma profiili" VerticalAlignment="Top" Width="226" Foreground="#FFDA9513" TextAlignment="Center" Height="33" Canvas.Left="10" Canvas.Top="82"/>
-            <ComboBox x:Name="Profile_Program_ComboBox" Canvas.Left="241" Canvas.Top="82" Width="490" Height="33"/>
+        <Canvas x:Name="Canvas_Profile" HorizontalAlignment="Left" Height="622" Margin="10,9,0,0" VerticalAlignment="Top" Width="745" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5" Visibility="Hidden">
+            <Canvas.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="-0.281"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="-0.745"/>
+                </TransformGroup>
+            </Canvas.RenderTransform>
+            <Canvas Height="100" Canvas.Left="136" Canvas.Top="172" Width="100"/>
+            <Label Content="Profiilinimi" Canvas.Left="10" Canvas.Top="10" Width="121" Background="Black" Foreground="#FFDA9512" Height="29"/>
+            <ComboBox x:Name="Combobox_Profile_Name" Canvas.Left="152" Canvas.Top="10" Width="312" Height="29" SelectionChanged="Combobox_Profile_Name_SelectionChanged"/>
         </Canvas>
-        <Canvas x:Name="Mission_Settings_Canvas" HorizontalAlignment="Left" Width="737" Margin="10,11,0,10" Grid.ColumnSpan="2" Visibility="Hidden">
-            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Kartta" VerticalAlignment="Top" Width="219" Foreground="#FFDA9513" TextAlignment="Center" Height="33" Canvas.Top="44" Canvas.Left="10"/>
-            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Tehtävä Asetukset" VerticalAlignment="Top" Width="717" Foreground="#FFDA9513" TextAlignment="Center" Height="29" Canvas.Left="10" Canvas.Top="10" Background="Black"/>
-            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Pelimuoto" VerticalAlignment="Top" Width="219" Foreground="#FFDA9513" TextAlignment="Center" Height="33" Canvas.Top="82" Canvas.Left="10"/>
-            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Maksimi pelaajamäärä" VerticalAlignment="Top" Width="219" Foreground="#FFDA9513" TextAlignment="Center" Height="32" Canvas.Top="120" Canvas.Left="10"/>
-            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Kansion Nimi" VerticalAlignment="Top" Width="219" Foreground="#FFDA9513" TextAlignment="Center" Height="32" Canvas.Top="157" Canvas.Left="10"/>
-            <ComboBox x:Name="Mission_Map_ComboBox" Canvas.Left="234" Canvas.Top="44" Width="493" Height="32"/>
-            <ComboBox x:Name="Mission_Gametype_ComboBox" Canvas.Left="234" Canvas.Top="81" Width="493" Height="32" SelectionChanged="Mission_Gametype_ComboBox_SelectionChanged"/>
-            <TextBox x:Name="Mission_PlayerAmount_TextBox" Canvas.Left="234" TextWrapping="Wrap" Canvas.Top="118" Width="493" Height="32" TextChanged="Mission_PlayerAmount_TextBox_TextChanged"/>
-            <TextBox x:Name="Mission_Folder_TextBox" Canvas.Left="234" TextWrapping="Wrap" Canvas.Top="155" Width="493" Height="32"/>
+        <Canvas x:Name="Canvas_Mission" HorizontalAlignment="Left" Height="622" Margin="10,13,0,0" VerticalAlignment="Top" Width="745" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5" Visibility="Hidden">
+            <Canvas.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="-0.281"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="-0.745"/>
+                </TransformGroup>
+            </Canvas.RenderTransform>
+            <Label Content="Tehtävätyyppi" Canvas.Left="10" Canvas.Top="79" Width="121" Background="Black" Foreground="#FFDA9512" Height="29"/>
+            <ComboBox x:Name="Combobox_Mission_Gametype" HorizontalAlignment="Left" VerticalAlignment="Top" Width="288" Canvas.Left="151" Canvas.Top="79" Height="29" SelectionChanged="Combobox_Mission_Gametype_SelectionChanged">
+                <ComboBoxItem Content="COOP"/>
+                <ComboBoxItem Content="DM"/>
+                <ComboBoxItem Content="TDM"/>
+                <ComboBoxItem Content="CTF"/>
+                <ComboBoxItem Content="SC"/>
+                <ComboBoxItem Content="CTI"/>
+                <ComboBoxItem Content="RPG"/>
+                <ComboBoxItem Content="SANDBOX"/>
+                <ComboBoxItem Content="SEIZE"/>
+                <ComboBoxItem Content="DEFEND"/>
+                <ComboBoxItem Content="ZDM"/>
+                <ComboBoxItem Content="ZCTF"/>
+                <ComboBoxItem Content="ZCOOP"/>
+                <ComboBoxItem Content="ZSC"/>
+                <ComboBoxItem Content="ZCTI"/>
+                <ComboBoxItem Content="ZRPG"/>
+                <ComboBoxItem Content="ZGM"/>
+                <ComboBoxItem Content="ZVZ"/>
+                <ComboBoxItem Content="ZVP"/>
+            </ComboBox>
+            <Label x:Name="Label_Mision_Gametype" Content="" Canvas.Left="455" Canvas.Top="79" Width="280" Background="Black" Foreground="#FFDA9512" Height="29"/>
+            <Label Content="Tehtävän nimi" Canvas.Left="10" Canvas.Top="10" Width="121" Background="Black" Foreground="#FFDA9512" Height="29"/>
+            <Label Content="Teksti, joka näkyy monipeli valikossa" Canvas.Left="455" Canvas.Top="10" Width="280" Background="Black" Foreground="#FFDA9512" Height="29"/>
+            <Label Content="Tehtävän kartta" Canvas.Left="10" Canvas.Top="44" Width="121" Background="Black" Foreground="#FFDA9512" Height="29"/>
+            <Label Content="Kartta, jota tehtäväsi käyttää" Canvas.Left="455" Canvas.Top="44" Width="280" Background="Black" Foreground="#FFDA9512" Height="29"/>
+            <ComboBox x:Name="Combobox_Mission_Map" HorizontalAlignment="Left" VerticalAlignment="Top" Width="288" Canvas.Left="151" Canvas.Top="44" Height="29" SelectionChanged="Combobox_Mission_Map_SelectionChanged">
+                <ComboBoxItem Content="Altis"/>
+                <ComboBoxItem Content="Stratis"/>
+                <ComboBoxItem Content="Chernarus"/>
+                <ComboBoxItem Content="Chernarus Summer"/>
+                <ComboBoxItem Content="Utes"/>
+                <ComboBoxItem Content="Takistan"/>
+            </ComboBox>
+            <TextBox x:Name="TextBox_Mission_Name" Height="29" Canvas.Left="151" TextWrapping="Wrap" Canvas.Top="10" Width="288" TextChanged="TextBox_Mission_Name_TextChanged"/>
+            <Label Content="Maksimi pelaajamäärä" Canvas.Left="10" Canvas.Top="113" Width="136" Background="Black" Foreground="#FFDA9512" Height="29"/>
+            <TextBox x:Name="TextBox_Mission_PlayerMax" Height="29" Canvas.Left="151" TextWrapping="Wrap" Canvas.Top="113" Width="288" TextChanged="TextBox_Mission_PlayerMax_TextChanged"/>
+            <Label Content="Maksimimäärä pelaajia, jota tehtäväsi tukee" Canvas.Left="455" Canvas.Top="113" Width="280" Background="Black" Foreground="#FFDA9512" Height="29"/>
         </Canvas>
-        <Canvas x:Name="Loading_Settings_Canvas" HorizontalAlignment="Left" Height="629" VerticalAlignment="Top" Width="741" Margin="6,11,0,0" Grid.ColumnSpan="2" Visibility="Hidden">
-            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Tekijän Nimi" VerticalAlignment="Top" Width="229" Foreground="#FFDA9513" TextAlignment="Center" Height="32" Canvas.Top="43" Canvas.Left="10"/>
-            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Latausruudun Asetukset" VerticalAlignment="Top" Width="721" Foreground="#FFDA9513" TextAlignment="Center" Height="28" Canvas.Left="10" Canvas.Top="10"/>
-            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Missionin Nimi" VerticalAlignment="Top" Width="229" Foreground="#FFDA9513" TextAlignment="Center" Height="32" Canvas.Top="80" Canvas.Left="10"/>
-            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Info Teksti" VerticalAlignment="Top" Width="229" Foreground="#FFDA9513" TextAlignment="Center" Height="32" Canvas.Top="117" Canvas.Left="10"/>
-            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Latausruudun Kuva" VerticalAlignment="Top" Width="229" Foreground="#FFDA9513" TextAlignment="Center" Height="32" Canvas.Top="154" Canvas.Left="10"/>
-            <TextBox x:Name="Loading_Author_TextBox" Canvas.Left="244" TextWrapping="Wrap" Canvas.Top="43" Width="487" Height="32" TextChanged="Loading_Author_TextBox_TextChanged"/>
-            <TextBox x:Name="Loading_Name_TextBox" Canvas.Left="244" TextWrapping="Wrap" Canvas.Top="80" Width="487" Height="32" TextChanged="Loading_Name_TextBox_TextChanged"/>
-            <TextBox x:Name="Loading_Info_TextBox" Canvas.Left="244" TextWrapping="Wrap" Canvas.Top="117" Width="487" Height="32" TextChanged="Loading_Info_TextBox_TextChanged"/>
-            <TextBox x:Name="Loading_Image_TextBox1" Canvas.Left="244" TextWrapping="Wrap" Canvas.Top="154" Width="443" Height="32" TextChanged="Loading_Image_TextBox1_TextChanged"/>
-            <Button x:Name="Loading_Image_Btn" Content="..." HorizontalAlignment="Left" VerticalAlignment="Top" Width="39" Canvas.Left="692" Canvas.Top="155" Height="32" Padding="12,0,12,4" Background="#FFDA9513" RenderTransformOrigin="0.462,0.5"/>
-            <CheckBox x:Name="Loading_Image_CheckBox" Content="Käytä Kuikan Kilpeä" Canvas.Left="244" Canvas.Top="186" Width="211" Foreground="#FFDA9513" Checked="Loading_Image_CheckBox_Checked" Unchecked="Loading_Image_CheckBox_Unchecked"/>
+        <Canvas x:Name="Canvas_Loading" HorizontalAlignment="Left" Height="622" Margin="10,9,0,0" VerticalAlignment="Top" Width="745" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5">
+            <Canvas.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="-0.281"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="-0.745"/>
+                </TransformGroup>
+            </Canvas.RenderTransform>
+            <Label Content="Lataus teksti" Canvas.Left="10" Canvas.Top="14" Width="121" Background="Black" Foreground="#FFDA9512" Height="29"/>
+            <TextBox x:Name="TextBox_Loading_Text" Height="29" Canvas.Left="152" TextWrapping="Wrap" Canvas.Top="14" Width="287" TextChanged="TextBox_Loading_Text_TextChanged"/>
+            <Label Content="Tehtävän tekijä" Canvas.Left="10" Canvas.Top="48" Width="121" Background="Black" Foreground="#FFDA9512" Height="29"/>
+            <TextBox x:Name="TextBox_Loading_Author" Height="29" Canvas.Left="152" TextWrapping="Wrap" Canvas.Top="48" Width="287" TextChanged="TextBox_Loading_Author_TextChanged"/>
+            <Label Content="Latausruudun alareunassa näkyvä teksti" Canvas.Left="455" Canvas.Top="14" Width="280" Background="Black" Foreground="#FFDA9512" Height="29"/>
+            <Label Content="Latausruudussa näkyvä tehtävän tekijä" Canvas.Left="455" Canvas.Top="48" Width="280" Background="Black" Foreground="#FFDA9512" Height="29"/>
+            <Label Content="Tehtävän kuva" Canvas.Left="10" Canvas.Top="82" Width="121" Background="Black" Foreground="#FFDA9512" Height="29"/>
+            <TextBox x:Name="TextBox_Loading_Image" Height="29" Canvas.Left="152" TextWrapping="Wrap" Canvas.Top="82" Width="287" TextChanged="TextBox_Loading_Image_TextChanged"/>
+            <Label Content="Latausruudussa näkyvä kuva (tyhjänä vakio kuva)" Canvas.Left="455" Canvas.Top="82" Width="280" Background="Black" Foreground="#FFDA9512" Height="29"/>
+            <Button x:Name="Button_Loading_Picture" Content="Etsi kuva" HorizontalAlignment="Left" VerticalAlignment="Top" Width="284" Canvas.Left="152" Canvas.Top="116" Height="25" Background="#FFDA9513" RenderTransformOrigin="0.5,0.5" Click="Button_Loading_Picture_Click">
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="0.133"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Button.RenderTransform>
+            </Button>
+
         </Canvas>
-        <Canvas x:Name="Script_Settings_Canvas" HorizontalAlignment="Left" Width="741" Margin="6,11,0,10" Grid.ColumnSpan="2" Visibility="Hidden">
-            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Respawn" VerticalAlignment="Top" Width="226" Foreground="#FFDA9513" TextAlignment="Center" Height="32" Canvas.Top="44" Canvas.Left="10"/>
-            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Scriptien Asetukset" VerticalAlignment="Top" Width="721" Foreground="#FFDA9513" TextAlignment="Center" Height="29" Canvas.Left="10" Canvas.Top="10"/>
-            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Lääkintä" VerticalAlignment="Top" Width="226" Foreground="#FFDA9513" TextAlignment="Center" Height="32" Canvas.Top="81" Canvas.Left="10"/>
-            <ComboBox x:Name="Script_Respawn_ComboBox" Canvas.Left="241" Canvas.Top="44" Width="490" Height="32" SelectionChanged="Script_Respawn_ComboBox_SelectionChanged"/>
-            <ComboBox x:Name="Script_Medic_ComboBox" Canvas.Left="241" Canvas.Top="81" Width="490" Height="32" SelectionChanged="Script_Medic_ComboBox_SelectionChanged"/>
-        </Canvas>
-        <Canvas x:Name="Briefing_Settings_Canvas" HorizontalAlignment="Right" Height="630" VerticalAlignment="Top" Width="741" Margin="0,10,246,0" Grid.ColumnSpan="2" Visibility="Hidden">
-            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Lista Brieffeistä" VerticalAlignment="Top" Width="223" Foreground="#FFDA9513" TextAlignment="Center" Height="30" Canvas.Top="44" Canvas.Left="14"/>
-            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Briefing Asetukset" VerticalAlignment="Top" Width="717" Foreground="#FFDA9513" TextAlignment="Center" Height="29" Canvas.Left="14" Canvas.Top="10"/>
-            <ComboBox x:Name="Briefing_Selection_ComboBox" Canvas.Left="242" Canvas.Top="44" Width="489" Height="30"/>
-            <Button x:Name="Briefing_Settings_New_Btn" Content="Uusi Briefing" HorizontalAlignment="Left" VerticalAlignment="Top" Width="237" Canvas.Top="79" Height="33" Click="Briefing_Settings_New_Btn_Click" Background="#FFDA9513" Canvas.Left="242"/>
-            <Button x:Name="Briefing_Settings_Edit_Btn" Content="Muokkaa Brieffiä" HorizontalAlignment="Left" VerticalAlignment="Top" Width="247" Canvas.Top="79" Height="33" Click="Briefing_Settings_Edit_Btn_Click" Background="#FFDA9513" Canvas.Left="484"/>
-        </Canvas>
-        <Canvas x:Name="Briefing_Edit_Canvas" HorizontalAlignment="Right" Height="629" VerticalAlignment="Top" Width="737" Margin="0,11,246,0" Grid.ColumnSpan="2" Visibility="Hidden">
-            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Briefing Asetukset" VerticalAlignment="Top" Width="717" Foreground="#FFDA9513" TextAlignment="Center" Height="27" Canvas.Left="10" Canvas.Top="10"/>
-            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Lista Markkereista" VerticalAlignment="Top" Width="223" Foreground="#FFDA9513" TextAlignment="Center" Height="30" Canvas.Top="77" Canvas.Left="10"/>
-            <ComboBox x:Name="Briefing_Marker_ComboBox" Canvas.Left="238" Canvas.Top="77" Width="489" Height="30"/>
-            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Lista Kuvista" VerticalAlignment="Top" Width="223" Foreground="#FFDA9513" TextAlignment="Center" Height="30" Canvas.Top="112" Canvas.Left="10" RenderTransformOrigin="0.5,0.5"/>
-            <ComboBox x:Name="Briefing_Picture_Combobox" Canvas.Left="238" Canvas.Top="112" Width="489" Height="30"/>
-            <Button x:Name="Briefing_Marker_New_Btn" Content="Uusi Markkeri" HorizontalAlignment="Left" VerticalAlignment="Top" Width="242" Canvas.Top="185" Height="33" Background="#FFDA9513" Canvas.Left="238" Click="Briefing_Marker_New_Btn_Click"/>
-            <Button x:Name="Briefing_Marker_Edit_Btn" Content="Muokkaa Markkeria" HorizontalAlignment="Left" VerticalAlignment="Top" Width="242" Canvas.Top="185" Height="33" Background="#FFDA9513" Canvas.Left="485" Click="Briefing_Marker_Edit_Btn_Click"/>
-            <Button x:Name="Briefing_Settings_New_Btn_Copy1" Content="Uusi Kuva" HorizontalAlignment="Left" VerticalAlignment="Top" Width="242" Canvas.Top="147" Height="33" Click="Center_Profile_Btn_Click" Background="#FFDA9513" Canvas.Left="238"/>
-            <Button x:Name="Briefing_Settings_New_Btn_Copy3" Content="Poista Kuva" HorizontalAlignment="Left" VerticalAlignment="Top" Width="242" Canvas.Top="147" Height="33" Click="Center_Profile_Btn_Click" Background="#FFDA9513" Canvas.Left="485"/>
-            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Otsikko" VerticalAlignment="Top" Width="223" Foreground="#FFDA9513" TextAlignment="Center" Height="30" Canvas.Top="42" Canvas.Left="10"/>
-            <TextBox x:Name="Briefing_Title_TextBox" Height="30" Canvas.Left="238" TextWrapping="Wrap" Canvas.Top="42" Width="489"/>
-        </Canvas>
-        <Canvas x:Name="Briefing_Code_Canvas" HorizontalAlignment="Right" Height="395" VerticalAlignment="Top" Width="737" Margin="0,245,246,0" Grid.ColumnSpan="2" Visibility="Hidden">
-            <TextBox x:Name="Briefing_Code_TextBox" Canvas.Left="10" TextWrapping="Wrap" Canvas.Top="24" Height="313" Width="717"/>
-            <Button x:Name="Briefing_Save_Btn" Content="Tallenna" HorizontalAlignment="Left" VerticalAlignment="Top" Width="717" RenderTransformOrigin="0.484,5.697" Canvas.Left="10" Canvas.Top="342" Height="43" Background="#FFDA9513" Click="Briefing_Save_Btn_Click"/>
-            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Briefing Teksti" VerticalAlignment="Top" Width="717" Foreground="#FFDA9513" TextAlignment="Center" Height="18" Canvas.Top="1" Canvas.Left="10"/>
-        </Canvas>
-        <Canvas x:Name="Briefing_Marker_Canvas" HorizontalAlignment="Right" Height="629" VerticalAlignment="Top" Width="747" Margin="0,11,246,0" Grid.ColumnSpan="2" Visibility="Hidden">
-            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Briefing Asetukset" VerticalAlignment="Top" Width="727" Foreground="#FFDA9513" TextAlignment="Center" Height="26" Canvas.Left="10" Canvas.Top="10"/>
-            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Markerin Nimi" VerticalAlignment="Top" Width="233" Foreground="#FFDA9513" TextAlignment="Center" Height="30" Canvas.Top="41" Canvas.Left="10"/>
-            <TextBox x:Name="Briefing_MarkerName_TextBox" Height="30" Canvas.Left="248" TextWrapping="Wrap" Canvas.Top="41" Width="489"/>
-            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Markerin Teksti" VerticalAlignment="Top" Width="233" Foreground="#FFDA9513" TextAlignment="Center" Height="30" Canvas.Top="76" Canvas.Left="10"/>
-            <TextBox x:Name="Briefing_MarkerText_TextBox" Height="30" Canvas.Left="248" TextWrapping="Wrap" Canvas.Top="76" Width="489"/>
-            <Button x:Name="Briefing_MarkerSave_Btn" Content="Tallenna" HorizontalAlignment="Left" VerticalAlignment="Top" Width="727" Canvas.Top="589" Height="33" Background="#FFDA9513" Click="Briefing_MarkerSave_Btn_Click" Canvas.Left="10"/>
+        <Canvas x:Name="Canvas_Setup" HorizontalAlignment="Left" Height="622" Margin="10,9,0,0" VerticalAlignment="Top" Width="745" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5" Visibility="Hidden">
+            <Canvas.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="-0.281"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="-0.745"/>
+                </TransformGroup>
+            </Canvas.RenderTransform>
+            <Canvas Height="100" Canvas.Left="136" Canvas.Top="172" Width="100"/>
+            <TextBox x:Name="TextBox_Setup_Text" Height="602" Canvas.Left="10" TextWrapping="Wrap" Canvas.Top="10" Width="725"/>
         </Canvas>
     </Grid>
 </Window>
