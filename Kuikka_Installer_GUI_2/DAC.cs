@@ -39,7 +39,7 @@ namespace Kuikka_Installer_GUI_2
 
         public DAC()
         {
-            ID = "";
+            ID = 0;
             InfGroupAmount = "";
             InfGroupSize = "";
             InfWaypointAmount = "";
