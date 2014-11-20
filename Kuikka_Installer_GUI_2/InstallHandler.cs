@@ -120,6 +120,8 @@ namespace Kuikka_Installer_GUI_2
                 GUIUpdate("INFO: Muokattavat kansio luotu! \n");
                 Directory.CreateDirectory(basePath + @"\Muokattavat\Kuvat");
                 GUIUpdate("INFO: Kuvat kansio luotu! \n");
+                Directory.CreateDirectory(basePath + @"\HC");
+                GUIUpdate("INFO: HC kansio luotu! \n");
 
                 using (WebClient wb = new WebClient())
                 {
@@ -161,7 +163,8 @@ namespace Kuikka_Installer_GUI_2
                 GUIUpdate("INFO: DAC.zip purettu tehtävä kansioon! \n");
 
                 // Create init.sqf
-                CreateFile(basePath + @"\init.sqf", "/***************************************************************************************************************************** \n" +
+                CreateFile(basePath + @"\init.sqf", 
+                        "/***************************************************************************************************************************** \n" +
                         "* Älä muokkaa tätä tiedostoa ellet tiedä varmasti mitä olet tekemässä \n" +
                         "*****************************************************************************************************************************/ \n" +
                         "\n" +
@@ -175,32 +178,46 @@ namespace Kuikka_Installer_GUI_2
                         "if(paramsArray select 0 == 1) then{\n" +
                         "    if(isServer) then{\n" +
                         "        HCPresent = true;\n" +
-                        "        publicVariable 'HCPresent';\n" +
+                        @"        publicVariable ""HCPresent"";" + "\n" +
                         "    };\n" +
                         "    if (!hasInterface && !isServer) then{\n" +
                         "        HCName = name player; \n" +
-                        "        publicVariable 'HCName';\n" +
+                        @"        publicVariable ""HCName"";" + "\n" +
                         "    };\n" +
                         "} else{\n" +
                         "    if(isServer) then{\n" +
                         "        HCPresent = false;\n" +
-                        "        HCName = 'NOONE';\n" +
-                        "        publicVariable 'HCPresent';\n" +
-                        "        publicVariable 'HCName';\n" +
+                        @"        HCName = ""NOONE"";" + "\n" +
+                        @"        publicVariable ""HCPresent"";" + "\n" +
+                        @"        publicVariable ""HCName"";" + "\n" +
                         "    };\n" +
                         "};\n" +
                         "\n" +
                         "//DAC Init\n" +
                         "DAC_Basic_Value = 0;\n" +
-                        @"execVM 'DAC\DAC_Config_Creator.sqf';" + "\n" +
+                        @"execVM ""DAC\DAC_Config_Creator.sqf"";" + "\n" +
                         "\n" +
-                        @"[] execVM 'Muokattavat\Briefing.sqf';" + "\n" +
+                        @"[] execVM ""Muokattavat\Briefing.sqf"";" + "\n" +
                         "\n" +
-                        @"[] execVM 'Muokattavat\OmaInit.sqf';");
+                        @"[] execVM ""Muokattavat\OmaInit.sqf"";" +
+                        "\n" +
+                        "// Poista väsymys (väliaikainen ennekuin löydetään toimiva väsymys systeemi)\n" +
+	                    "player enableFatigue false;\n" +
+                        @"player addEventhandler [""Respawn"", {player enableFatigue false}];" + "\n" +
+                        "\n" +
+                        "//Aja scriptit HC:lla tai Serverilla" + "\n" +
+                        "if (!hasInterface && !isServer && HCPresent) then{ //HEADLESS CLIENT" + "\n" +
+                        @"        execVM ""HC\DACSpawn.sqf"";" + "\n" +
+                        @"} else {" + "\n" +
+                        "    if (isServer) then { //SERVER" + "\n" +
+                        @"        execVM ""HC\DACSpawn.sqf"";" + "\n" +
+                        "    };" + "\n" +
+                        "};");
                 GUIUpdate("INFO: init.sqf luotu! \n");
 
                 // Create Description.ext
-                CreateFile(basePath + @"\Description.ext", "/*****************************************************************************************************************************\n" +
+                CreateFile(basePath + @"\Description.ext", 
+                        "/*****************************************************************************************************************************\n" +
                         "* Älä muokkaa tätä tiedostoa ellet tiedä varmaksi mitä olet tekemässä\n" +
                         "*****************************************************************************************************************************/\n" +
                         "\n" +
@@ -286,12 +303,22 @@ namespace Kuikka_Installer_GUI_2
                 GUIUpdate("INFO: MissionSettings.ext luotu! \n");
 
 
-                CreateFile(basePath + @"\Muokattavat\OmaInit.sqf", "");
+                CreateFile(basePath + @"\Muokattavat\OmaInit.sqf", 
+                        "/***************************************************************************************************************************\n" +
+                        "* Täällä voit ajaa haluamasi omat skriptit\n" +
+                        "***************************************************************************************************************************/\n");
                 GUIUpdate("INFO: OmaInit.sqf luotu! \n");
+
+                // Create DACSpawn.sqf
+                CreateFile(basePath + @"\HC\DACSpawn.sqf", 
+                        "/***************************************************************************************************************************\n" +
+                        "* Täällä luodaan triggerit DAC:n käynnistystä HC:ta varten\n" +
+                        "***************************************************************************************************************************/\n");
+                GUIUpdate("INFO: DACSpawn.sqf luotu! \n");
 
                 GUIUpdate(briefing.CopyImages(basePath));
                 GUIUpdate("INFO: Briefing kuvat kopioitu!");
-
+                
                 MessageBox.Show("Tehtävä kansio on nyt luotu. Aloittaaksesi tehtävän editoinnin käynnistä ArmA 3 ja luo local serveri multiplayer valikosta.\n\nSieltä löydät luodun tehtävän ja voit alkaa muokkaamaan sitä.");
             }
         }

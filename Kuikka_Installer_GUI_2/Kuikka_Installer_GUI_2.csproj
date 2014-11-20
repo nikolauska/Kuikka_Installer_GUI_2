@@ -81,6 +81,7 @@
     </Compile>
     <Compile Include="DAC.cs" />
     <Compile Include="DACGenerator.cs" />
+    <Compile Include="DACHandler.cs" />
     <Compile Include="InstallHandler.cs" />
     <Compile Include="Side.cs" />
     <Compile Include="VisibilityHandler.cs" />

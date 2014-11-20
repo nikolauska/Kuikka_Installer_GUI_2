@@ -8,10 +8,9 @@ namespace Kuikka_Installer_GUI_2
 {
     class DAC
     {
-        public String Marker { get; set; }
         /***********Init*******************/
-        public String Name { get; set; }
-        public String ID { get; set; }
+        public int ID { get; set; }
+        // Default: 0
         // Default: 0
         /***********Infantry***************/
         public String InfGroupAmount { get; set; }
@@ -40,8 +39,6 @@ namespace Kuikka_Installer_GUI_2
 
         public DAC()
         {
-            Marker = "";
-            Name = "";
             ID = "";
             InfGroupAmount = "";
             InfGroupSize = "";
@@ -65,8 +62,6 @@ namespace Kuikka_Installer_GUI_2
 
         public DAC(DAC dac)
         {
-            Marker = dac.Marker;
-            Name = dac.Name;
             ID = dac.ID;
             InfGroupAmount = dac.InfGroupAmount;
             InfGroupSize = dac.InfGroupSize;
