@@ -8,10 +8,7 @@ namespace Kuikka_Installer_GUI_2
 {
     class DAC
     {
-        /***********Init*******************/
-        public int ID { get; set; }
-        // Default: 0
-        // Default: 0
+        public String ID { get; set; } 
         /***********Infantry***************/
         public String InfGroupAmount { get; set; }
         public String InfGroupSize { get; set; }
@@ -39,7 +36,7 @@ namespace Kuikka_Installer_GUI_2
 
         public DAC()
         {
-            ID = 0;
+            ID = "";
             InfGroupAmount = "";
             InfGroupSize = "";
             InfWaypointAmount = "";
@@ -56,8 +53,8 @@ namespace Kuikka_Installer_GUI_2
             AirGroupSize = "";
             AirWaypointAmount = "";
             AirGroupWaypointAmount = "";
-            Side = "";
-            Faction = "";
+            Side = "0";
+            Faction = "0";
         }
 
         public DAC(DAC dac)

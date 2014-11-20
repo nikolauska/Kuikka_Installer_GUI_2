@@ -25,11 +25,13 @@ namespace Kuikka_Installer_GUI_2
 
         private MainWindow window { get; set; }
         private Briefing briefing { get; set; }
+        private DACHandler dacHandler { get; set; }
 
-        public InstallHandler(MainWindow window, Briefing briefing) 
+        public InstallHandler(MainWindow window, Briefing briefing, DACHandler dacHandler) 
         {
             this.window = window;
             this.briefing = briefing;
+            this.dacHandler = dacHandler;
 
             NameIndex = 0;
             profileName = "";
@@ -240,7 +242,12 @@ namespace Kuikka_Installer_GUI_2
                 GUIUpdate("INFO: Description.ext luotu! \n");
 
                 // Create Briefing.sqf
-                CreateFile(basePath + @"\Muokattavat\Briefing.sqf", briefing.GenerateBriefing());
+                CreateFile(basePath + @"\Muokattavat\Briefing.sqf",
+                        "/***************************************************************************************************************************** \n" +
+                        "* Tämä tiedosto sisältää luomais briefing tekstin \n" +
+                        "*****************************************************************************************************************************/ \n" +
+                        "\n" +
+                        briefing.GenerateBriefing());
                 GUIUpdate("INFO: Briefing.sqf luotu! \n");
 
                 // Create MissionSettings.ext
@@ -313,13 +320,19 @@ namespace Kuikka_Installer_GUI_2
                 CreateFile(basePath + @"\HC\DACSpawn.sqf", 
                         "/***************************************************************************************************************************\n" +
                         "* Täällä luodaan triggerit DAC:n käynnistystä HC:ta varten\n" +
-                        "***************************************************************************************************************************/\n");
+                        "***************************************************************************************************************************/\n" +
+                        "\n" +
+                        dacHandler.GenerateCode());
                 GUIUpdate("INFO: DACSpawn.sqf luotu! \n");
 
                 GUIUpdate(briefing.CopyImages(basePath));
                 GUIUpdate("INFO: Briefing kuvat kopioitu!");
+
+                GUIUpdate("INFO: Valmis!");
                 
-                MessageBox.Show("Tehtävä kansio on nyt luotu. Aloittaaksesi tehtävän editoinnin käynnistä ArmA 3 ja luo local serveri multiplayer valikosta.\n\nSieltä löydät luodun tehtävän ja voit alkaa muokkaamaan sitä.");
+                MessageBox.Show("Tehtävä kansio on nyt luotu. \n\n" +
+                                "Aloittaaksesi tehtävän editoinnin käynnistä ArmA 3 ja luo local serveri multiplayer valikosta. Sieltä löydät luodun tehtävän ja voit alkaa muokkaamaan sitä. \n\n" +
+                                "HUOM! Jos olat luonut DAC unitteja muista luoda triggerit editorissa niiden ID nimillä esim. z1, z2 jne. riippuen mitä olet tässä ohjelmassa luonut.");
             }
         }
 
@@ -363,7 +376,21 @@ namespace Kuikka_Installer_GUI_2
                 DeleteDirectory(dir);
             }
 
-            Directory.Delete(target_dir, false);
+            try
+            {
+                Directory.Delete(target_dir, false);
+            }
+            catch (DirectoryNotFoundException)
+            {
+                return;  // good!
+            }
+            catch (IOException)
+            {
+                
+                MessageBox.Show("Kansiota " + Path.GetDirectoryName(target_dir) + " ei voitu poistaa! \n\nVarmista, että muut prosessit eivät käytä kansiota");
+                DeleteDirectory(target_dir);
+            }
+            
         }
     }
 }

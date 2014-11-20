@@ -16,18 +16,29 @@ namespace Kuikka_Installer_GUI_2
 
             String returnString = "";
 
+            int index = 1;
             foreach(DAC dac in dacList)
             {
-                String DacArray = @"0 = [""z" + dac.ID.ToString() + @""", [" + GetInfString(dac) + ", " + GetVehString(dac) + GetArmString(dac) + GetAirString(dac) + GetParamString(dac) + "]] spawn DAC_Zone";
-                returnString += @"_trg1=createTrigger[""EmptyDetector"",getmarkerpos ""z" + dac.ID.ToString() + @"""];" + "\n" +
-                                @"_shape = if (markershape ""z" + dac.ID.ToString() + @""" == ""Rectangle"") then {true} else {false};" + "\n" +
-                                @"_trg1 setTriggerArea [ getMarkerSize ""z" + dac.ID.ToString() + @""" select 0, getMarkerSize ""z" + dac.ID.ToString() + @""" select 1,markerdir ""z" + dac.ID.ToString() + @""",_shape];" + "\n" +
-                                @"_trg1 setTriggerActivation[""WEST"",""NOT PRESENT"",FALSE];" + "\n" +
-                                @"_trg1 setTriggerStatements[""time > 0"",""" + DacArray + @"""];";
-                                
+                String DacArray = @"0 = [""z" + index + @""", [[" + index + ", 0, 0], " + GetInfString(dac) + ", " + GetVehString(dac) + GetArmString(dac) + GetAirString(dac) + GetParamString(dac) + "]] spawn DAC_Zone";
+                
+                returnString += "if(!isNull " + "z" + index + ") then {" + "\n" +
+                                "   z" + index + @" setTriggerStatements[""time > 0"",""" + DacArray + @"""];" + "\n" +
+                                "} else {" + "\n" +
+                                @"   titleText[""z" + index + @" triggeriä ei löydetty!"", ""PLAIN""];" + "\n" +
+                                "};" + "\n" +
+                                "\n";
+                ++index;               
             }
 
             return returnString;
+        }
+
+        private String EmptyCheck(String value) 
+        {
+            if(value.Equals(""))
+                return "0";
+
+            return value;
         }
 
         private String GetInfString(DAC dac)
@@ -36,8 +47,8 @@ namespace Kuikka_Installer_GUI_2
                 return "[]";
             else
                 return "[" + dac.InfGroupAmount + ", " + dac.InfGroupSize + ", " + dac.InfWaypointAmount + ", " + dac.InfGroupWaypointAmount + "]";
-
         }
+
 
         private String GetVehString(DAC dac)
         {

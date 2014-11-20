@@ -28,15 +28,20 @@ namespace Kuikka_Installer_GUI_2
         Briefing briefing;
         VisibilityHandler VisibilityHandler;
         InstallHandler installHandler;
+        DACHandler dacHandler;
+        bool AddingInProgress, dacIdEmpty;
 
         public MainWindow()
         {
             InitializeComponent();
 
             briefing = new Briefing();
-            VisibilityHandler = new VisibilityHandler(this);
-            installHandler = new InstallHandler(this, briefing);
+            dacHandler = new DACHandler();
+            installHandler = new InstallHandler(this, briefing, dacHandler);
+            VisibilityHandler = new VisibilityHandler(this);            
             VisibilityHandler.showProfileSettings();
+            AddingInProgress = true;
+            dacIdEmpty = true;
 
             TextBox_Briefing_Text.IsReadOnly = false;
             TextBox_Briefing_Text.AcceptsReturn = true;
@@ -69,7 +74,10 @@ namespace Kuikka_Installer_GUI_2
             Combobox_Mission_Gametype.SelectedIndex = 0;
             Combobox_Profile_Name.SelectedIndex = 0;
             Combobox_Mission_Map.SelectedIndex = 0;
-            
+            ComboBox_DAC_Faction.SelectedIndex = 0;
+            ComboBox_DAC_Side.SelectedIndex = 0;
+
+            AddingInProgress = false;
         }
 
         private void Button_Center_Profile_Click(object sender, RoutedEventArgs e)
@@ -311,6 +319,127 @@ namespace Kuikka_Installer_GUI_2
         private void TextBox_Loading_Image_TextChanged(object sender, TextChangedEventArgs e)
         {
             installHandler.LoadingImage = TextBox_Loading_Image.Text;
+        }
+
+        private void DAC_TextEdited(object sender, TextChangedEventArgs e)
+        {
+            UpdateDAC();
+        }
+
+        private String CheckInt(String value)
+        {
+            if(value.Equals(""))
+                return "0";
+
+            try
+            {
+                Convert.ToInt32(value);
+                return value;
+            }
+            catch (FormatException eror)
+            {
+                MessageBox.Show("Sinun pitää antaa numero!");
+                return "0";
+            }
+        }
+
+        private void Button_Center_DAC_Click(object sender, RoutedEventArgs e)
+        {
+            VisibilityHandler.ShowDAC();
+        }
+
+        private void Button_DAC_New_Click(object sender, RoutedEventArgs e)
+        {
+            DAC dac = new DAC();
+            int count = ComboBox_DAC_ID.Items.Count + 1;
+            dac.ID = "z" + count.ToString();
+            
+            dacHandler.AddDac(dac);
+
+            dacIdEmpty = false;
+
+            ComboBox_DAC_ID.Items.Add(dac.ID);
+
+            ComboBox_DAC_ID.SelectedIndex = ComboBox_DAC_ID.Items.Count - 1;
+
+
+        }
+
+        private void ComboBox_DAC_ID_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            UpdateDAC();
+        }
+
+        private void ComboBox_DAC_Param_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            UpdateDAC();
+        }
+
+        private void UpdateDAC()
+        {
+            if (AddingInProgress)
+                return;
+
+            if (!dacIdEmpty)
+            {
+                DAC dac = dacHandler.getSelected(ComboBox_DAC_ID.SelectedIndex);
+
+                TextBox_DAC_InfGrpAmount.Text = dac.InfGroupAmount;
+                TextBox_DAC_InfGrpSize.Text = dac.InfGroupSize;
+                TextBox_DAC_InfWPAmount.Text = dac.InfGroupWaypointAmount;
+                TextBox_DAC_InfGrpWp.Text = dac.InfWaypointAmount;
+
+                TextBox_DAC_VehGrpAmount.Text = dac.VehGroupAmount;
+                TextBox_DAC_VehGrpSize.Text = dac.VehGroupSize;
+                TextBox_DAC_VehWPAmount.Text = dac.VehGroupWaypointAmount;
+                TextBox_DAC_VehGrpWp.Text = dac.VehWaypointAmount;
+
+                TextBox_DAC_ArmGrpAmount.Text = dac.ArmGroupAmount;
+                TextBox_DAC_ArmGrpSize.Text = dac.ArmGroupSize;
+                TextBox_DAC_ArmWPAmount.Text = dac.ArmGroupWaypointAmount;
+                TextBox_DAC_ArmGrpWp.Text = dac.ArmWaypointAmount;
+
+                TextBox_DAC_AirGrpAmount.Text = dac.AirGroupAmount;
+                TextBox_DAC_AirGrpSize.Text = dac.AirGroupSize;
+                TextBox_DAC_AirWPAmount.Text = dac.AirGroupWaypointAmount;
+                TextBox_DAC_AirGrpWp.Text = dac.AirWaypointAmount;
+
+                ComboBox_DAC_Side.SelectedIndex = Convert.ToInt32(dac.Side);
+                ComboBox_DAC_Faction.SelectedIndex = Convert.ToInt32(dac.Faction);
+            }
+            else
+            {
+                MessageBox.Show("Sinun täytyy lisätä uusi DAC ennekuin voit muokata arvoja!");
+            }         
+        }
+
+        private void Button_DAC_Remove_Click(object sender, RoutedEventArgs e)
+        {
+            /*
+            if (ComboBox_DAC_ID.Items.Count != 0)
+            {
+                dacHandler.removeSelected(ComboBox_DAC_ID.SelectedItem.ToString());
+
+                ComboBox_DAC_ID.Items.Clear();
+
+                AddingInProgress = true;
+                foreach (DAC dac in dacHandler.getList())
+                {
+                    ComboBox_DAC_ID.Items.Add(dac.ID);
+                }
+                AddingInProgress = false;
+
+                if (dacHandler.getList().Count != 0)
+                    ComboBox_DAC_ID.SelectedIndex = ComboBox_DAC_ID.Items.Count - 1;
+                else
+                {
+                    dacIdEmpty = true;
+                }
+
+            }
+            */
+
+            MessageBox.Show("Tämä ominaisuus on WIP!");
         }
     }
 }

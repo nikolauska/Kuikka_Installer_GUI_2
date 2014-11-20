@@ -46,6 +46,12 @@ namespace Kuikka_Installer_GUI_2
             window.Canvas_Setup.Visibility = Visibility.Visible;
         }
 
+        public void ShowDAC()
+        {
+            this.hideAll();
+            window.Canvas_DAC.Visibility = Visibility.Visible;
+        }
+
         private void hideAll()
         {
             window.Canvas_Profile.Visibility = Visibility.Hidden;
@@ -53,6 +59,7 @@ namespace Kuikka_Installer_GUI_2
             window.Canvas_Loading.Visibility = Visibility.Hidden;
             window.Canvas_Briefing.Visibility = Visibility.Hidden;
             window.Canvas_Setup.Visibility = Visibility.Hidden;
+            window.Canvas_DAC.Visibility = Visibility.Hidden;
         }
     }
 }
