@@ -125,6 +125,7 @@ namespace Kuikka_Installer_GUI_2
                 Directory.CreateDirectory(basePath + @"\HC");
                 GUIUpdate("INFO: HC kansio luotu! \n");
 
+                GUIUpdate("INFO: Ladataan mission.sqm tiedostoa! \n");
                 using (WebClient wb = new WebClient())
                 {
                     try
@@ -143,6 +144,7 @@ namespace Kuikka_Installer_GUI_2
 
                 GUIUpdate("INFO: mission.sqm ladattu! \n");
 
+                GUIUpdate("INFO: Ladataan DAC.zip tiedostoa! \n");
                 using (WebClient wb = new WebClient())
                 {
                     try
@@ -256,6 +258,7 @@ namespace Kuikka_Installer_GUI_2
                 {
                     picture = @"Muokattavat\Kuvat\kuikka.jpg";
 
+                    GUIUpdate("INFO: Ladataan Kuikka.jpg tiedostoa! \n");
                     using (WebClient wb = new WebClient())
                     {
                         try
@@ -326,7 +329,7 @@ namespace Kuikka_Installer_GUI_2
                 GUIUpdate("INFO: DACSpawn.sqf luotu! \n");
 
                 GUIUpdate(briefing.CopyImages(basePath));
-                GUIUpdate("INFO: Briefing kuvat kopioitu!");
+                GUIUpdate("INFO: Briefing kuvat kopioitu! \n");
 
                 GUIUpdate("INFO: Valmis!");
                 

@@ -227,6 +227,7 @@ namespace Kuikka_Installer_GUI_2
             if (type.Equals("GET"))
             {
                 TextBox_Briefing_Text.Text = briefing.getText(sideCombo.Content.ToString(), briefingCombo.Content.ToString());
+                Label_Briefing_Explanation.Content = briefing.getExplanation(briefingCombo.Content.ToString());
             }
             else
             {
@@ -323,7 +324,7 @@ namespace Kuikka_Installer_GUI_2
 
         private void DAC_TextEdited(object sender, TextChangedEventArgs e)
         {
-            UpdateDAC();
+            UpdateDAC("SET");
         }
 
         private String CheckInt(String value)
@@ -367,15 +368,15 @@ namespace Kuikka_Installer_GUI_2
 
         private void ComboBox_DAC_ID_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            UpdateDAC();
+            UpdateDAC("GET");
         }
 
         private void ComboBox_DAC_Param_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            UpdateDAC();
+            UpdateDAC("SET");
         }
 
-        private void UpdateDAC()
+        private void UpdateDAC(String value)
         {
             if (AddingInProgress)
                 return;
@@ -384,28 +385,56 @@ namespace Kuikka_Installer_GUI_2
             {
                 DAC dac = dacHandler.getSelected(ComboBox_DAC_ID.SelectedIndex);
 
-                TextBox_DAC_InfGrpAmount.Text = dac.InfGroupAmount;
-                TextBox_DAC_InfGrpSize.Text = dac.InfGroupSize;
-                TextBox_DAC_InfWPAmount.Text = dac.InfGroupWaypointAmount;
-                TextBox_DAC_InfGrpWp.Text = dac.InfWaypointAmount;
+                if (value.Equals("GET"))
+                {
+                    TextBox_DAC_InfGrpAmount.Text = dac.InfGroupAmount;
+                    TextBox_DAC_InfGrpSize.Text = dac.InfGroupSize;
+                    TextBox_DAC_InfWPAmount.Text = dac.InfGroupWaypointAmount;
+                    TextBox_DAC_InfGrpWp.Text = dac.InfWaypointAmount;
 
-                TextBox_DAC_VehGrpAmount.Text = dac.VehGroupAmount;
-                TextBox_DAC_VehGrpSize.Text = dac.VehGroupSize;
-                TextBox_DAC_VehWPAmount.Text = dac.VehGroupWaypointAmount;
-                TextBox_DAC_VehGrpWp.Text = dac.VehWaypointAmount;
+                    TextBox_DAC_VehGrpAmount.Text = dac.VehGroupAmount;
+                    TextBox_DAC_VehGrpSize.Text = dac.VehGroupSize;
+                    TextBox_DAC_VehWPAmount.Text = dac.VehGroupWaypointAmount;
+                    TextBox_DAC_VehGrpWp.Text = dac.VehWaypointAmount;
 
-                TextBox_DAC_ArmGrpAmount.Text = dac.ArmGroupAmount;
-                TextBox_DAC_ArmGrpSize.Text = dac.ArmGroupSize;
-                TextBox_DAC_ArmWPAmount.Text = dac.ArmGroupWaypointAmount;
-                TextBox_DAC_ArmGrpWp.Text = dac.ArmWaypointAmount;
+                    TextBox_DAC_ArmGrpAmount.Text = dac.ArmGroupAmount;
+                    TextBox_DAC_ArmGrpSize.Text = dac.ArmGroupSize;
+                    TextBox_DAC_ArmWPAmount.Text = dac.ArmGroupWaypointAmount;
+                    TextBox_DAC_ArmGrpWp.Text = dac.ArmWaypointAmount;
 
-                TextBox_DAC_AirGrpAmount.Text = dac.AirGroupAmount;
-                TextBox_DAC_AirGrpSize.Text = dac.AirGroupSize;
-                TextBox_DAC_AirWPAmount.Text = dac.AirGroupWaypointAmount;
-                TextBox_DAC_AirGrpWp.Text = dac.AirWaypointAmount;
+                    TextBox_DAC_AirGrpAmount.Text = dac.AirGroupAmount;
+                    TextBox_DAC_AirGrpSize.Text = dac.AirGroupSize;
+                    TextBox_DAC_AirWPAmount.Text = dac.AirGroupWaypointAmount;
+                    TextBox_DAC_AirGrpWp.Text = dac.AirWaypointAmount;
 
-                ComboBox_DAC_Side.SelectedIndex = Convert.ToInt32(dac.Side);
-                ComboBox_DAC_Faction.SelectedIndex = Convert.ToInt32(dac.Faction);
+                    ComboBox_DAC_Side.SelectedIndex = Convert.ToInt32(dac.Side);
+                    ComboBox_DAC_Faction.SelectedIndex = Convert.ToInt32(dac.Faction);
+                }
+                else
+                {
+                    dac.InfGroupAmount = TextBox_DAC_InfGrpAmount.Text;
+                    dac.InfGroupSize = TextBox_DAC_InfGrpSize.Text;
+                    dac.InfGroupWaypointAmount = TextBox_DAC_InfWPAmount.Text;
+                    dac.InfWaypointAmount = TextBox_DAC_InfGrpWp.Text;
+
+                    dac.VehGroupAmount = TextBox_DAC_VehGrpAmount.Text;
+                    dac.VehGroupSize = TextBox_DAC_VehGrpSize.Text;
+                    dac.VehGroupWaypointAmount = TextBox_DAC_VehWPAmount.Text;
+                    dac.VehWaypointAmount = TextBox_DAC_VehGrpWp.Text;
+
+                    dac.ArmGroupAmount = TextBox_DAC_ArmGrpAmount.Text;
+                    dac.ArmGroupSize = TextBox_DAC_ArmGrpSize.Text;
+                    dac.ArmGroupWaypointAmount = TextBox_DAC_ArmWPAmount.Text;
+                    dac.ArmWaypointAmount = TextBox_DAC_ArmGrpWp.Text;
+
+                    dac.AirGroupAmount = TextBox_DAC_AirGrpAmount.Text;
+                    dac.AirGroupSize = TextBox_DAC_AirGrpSize.Text;
+                    dac.AirGroupWaypointAmount = TextBox_DAC_AirWPAmount.Text;
+                    dac.AirWaypointAmount = TextBox_DAC_AirGrpWp.Text;
+
+                    dac.Side = ComboBox_DAC_Side.SelectedIndex.ToString();
+                    dac.Faction = ComboBox_DAC_Faction.SelectedIndex.ToString();
+                }
             }
             else
             {

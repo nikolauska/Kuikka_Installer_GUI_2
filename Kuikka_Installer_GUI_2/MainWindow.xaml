@@ -41,10 +41,11 @@
             <Label Content="Otsikko" Canvas.Left="12" Canvas.Top="10" Width="55" Background="Black" Foreground="#FFDA9512" Height="29"/>
             <Button x:Name="Button_Briefing_Marker" Content="Lisää Markkeri" HorizontalAlignment="Left" VerticalAlignment="Top" Width="92" Canvas.Left="510" Canvas.Top="10" Height="29" Background="#FFDA9513" Click="Button_Briefing_Marker_Click"/>
             <Button x:Name="Button_Briefing_Picture" Content="Lisää Kuva" HorizontalAlignment="Left" VerticalAlignment="Top" Width="92" Canvas.Left="607" Canvas.Top="10" Height="29" Background="#FFDA9513" Click="Button_Briefing_Picture_Click"/>
-            <TextBox x:Name="TextBox_Briefing_Text" Height="558" Canvas.Left="10" TextWrapping="Wrap" Canvas.Top="54" Width="689" TextChanged="TextBox_Briefing_Text_TextChanged"/>
+            <TextBox x:Name="TextBox_Briefing_Text" Height="531" Canvas.Left="10" TextWrapping="Wrap" Canvas.Top="81" Width="689" TextChanged="TextBox_Briefing_Text_TextChanged"/>
             <Canvas Height="100" Canvas.Left="136" Canvas.Top="172" Width="100"/>
+            <Label x:Name="Label_Briefing_Explanation" Content="" Canvas.Left="12" Canvas.Top="47" Width="687" Background="Black" Foreground="#FFDA9512" Height="29"/>
         </Canvas>
-        <Canvas x:Name="Canvas_Profile" HorizontalAlignment="Left" Height="622" Margin="10,9,0,0" VerticalAlignment="Top" Width="745" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5" Visibility="Hidden">
+        <Canvas x:Name="Canvas_Profile" HorizontalAlignment="Left" Height="622" Margin="10,9,0,0" VerticalAlignment="Top" Width="745" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5">
             <Canvas.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -56,6 +57,7 @@
             <Canvas Height="100" Canvas.Left="136" Canvas.Top="172" Width="100"/>
             <Label Content="Profiilinimi" Canvas.Left="10" Canvas.Top="10" Width="121" Background="Black" Foreground="#FFDA9512" Height="29"/>
             <ComboBox x:Name="Combobox_Profile_Name" Canvas.Left="152" Canvas.Top="10" Width="312" Height="29" SelectionChanged="Combobox_Profile_Name_SelectionChanged"/>
+            <Label Content="Valitse profiili, jota käytät armaa pelatessassi" Canvas.Left="10" Canvas.Top="59" Width="725" Background="Black" Foreground="#FFDA9512" Height="29"/>
         </Canvas>
         <Canvas x:Name="Canvas_Mission" HorizontalAlignment="Left" Height="622" Margin="10,13,0,0" VerticalAlignment="Top" Width="745" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5" Visibility="Hidden">
             <Canvas.RenderTransform>
@@ -148,7 +150,7 @@
             <Canvas Height="100" Canvas.Left="136" Canvas.Top="172" Width="100"/>
             <TextBox x:Name="TextBox_Setup_Text" Height="602" Canvas.Left="10" TextWrapping="Wrap" Canvas.Top="10" Width="725"/>
         </Canvas>
-        <Canvas x:Name="Canvas_DAC" HorizontalAlignment="Left" Height="622" Margin="10,9,0,0" VerticalAlignment="Top" Width="745" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5">
+        <Canvas x:Name="Canvas_DAC" HorizontalAlignment="Left" Height="622" Margin="10,9,0,0" VerticalAlignment="Top" Width="745" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5" Visibility="Hidden">
             <Canvas.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>

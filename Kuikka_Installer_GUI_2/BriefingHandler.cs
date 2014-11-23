@@ -207,8 +207,7 @@ namespace Kuikka_Installer_GUI_2
         public void AddPicture(String Side, String Title, String Location)
         {
             this.Images.Add(Location);
-            this.setText(Side, Title, this.getText(Side, Title) + @" <img image=""Muokattavat\Kuvat\" + new DirectoryInfo(Location).Name + @" ""/>");
-            
+            this.setText(Side, Title, this.getText(Side, Title) + @" <img image=""Muokattavat\Kuvat\" + new DirectoryInfo(Location).Name + @"""/>");          
         }
 
         public String getExplanation(String Title)
