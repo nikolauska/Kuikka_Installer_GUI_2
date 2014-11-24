@@ -205,13 +205,52 @@ namespace Kuikka_Installer_GUI_2
                     Map = "Chernarus";
                     break;
                 case "Chernarus Summer":
-                    Map = "Chernarus Summer";
+                    Map = "Chernarus_Summer";
                     break;
                 case "Utes":
                     Map = "Utes";
                     break;
                 case "Takistan":
                     Map = "Takistan";
+                    break;
+                case "Takistan Mountains":
+                    Map = "Mountains_ACR";
+                    break;
+                case "Shapur":
+                    Map = "Shapur_BAF";
+                    break;
+                case "Proving Grounds":
+                    Map = "ProvingGrounds_PMC";
+                    break;
+                case "Desert":
+                    Map = "Desert_E";
+                    break;
+                case "Bukovina":
+                    Map = "Bootcamp_ACR";
+                    break;
+                case "Bystrica":
+                    Map = "Woodland_ACR";
+                    break;           
+                case "Zargabad":
+                    Map = "Zargabad";
+                    break;
+                case "Rahmadi":
+                    Map = "Intro";
+                    break;
+                case "Porto":
+                    Map = "Porto";
+                    break;
+                case "United Sahrani":
+                    Map = "Sara_dbe1";
+                    break;
+                case "Southern Sahrani":
+                    Map = "SaraLite";
+                    break;
+                case "Sahrani":
+                    Map = "Sara";
+                    break;
+                case "Virtual Reality":
+                    Map = "VR";
                     break;
             }
 
@@ -468,7 +507,7 @@ namespace Kuikka_Installer_GUI_2
             }
             */
 
-            MessageBox.Show("Tämä ominaisuus on WIP!");
+            MessageBox.Show("Valitettavasti DAC poistamista ei saatu toimintaan ennen julkaisua. Yritän saada sen toimimaan mahdollisimman pian!");
         }
     }
 }

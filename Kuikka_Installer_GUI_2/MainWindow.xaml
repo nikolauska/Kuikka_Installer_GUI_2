@@ -45,7 +45,7 @@
             <Canvas Height="100" Canvas.Left="136" Canvas.Top="172" Width="100"/>
             <Label x:Name="Label_Briefing_Explanation" Content="" Canvas.Left="12" Canvas.Top="47" Width="687" Background="Black" Foreground="#FFDA9512" Height="29"/>
         </Canvas>
-        <Canvas x:Name="Canvas_Profile" HorizontalAlignment="Left" Height="622" Margin="10,9,0,0" VerticalAlignment="Top" Width="745" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5">
+        <Canvas x:Name="Canvas_Profile" HorizontalAlignment="Left" Height="622" Margin="10,9,0,0" VerticalAlignment="Top" Width="745" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5" Visibility="Hidden">
             <Canvas.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -102,6 +102,19 @@
                 <ComboBoxItem Content="Chernarus Summer"/>
                 <ComboBoxItem Content="Utes"/>
                 <ComboBoxItem Content="Takistan"/>
+                <ComboBoxItem Content="Takistan Mountains"/>
+                <ComboBoxItem Content="Shapur"/>
+                <ComboBoxItem Content="Proving Grounds"/>
+                <ComboBoxItem Content="Desert"/>
+                <ComboBoxItem Content="Bukovina"/>
+                <ComboBoxItem Content="Bystrica"/>
+                <ComboBoxItem Content="Zargabad"/>
+                <ComboBoxItem Content="Rahmadi"/>
+                <ComboBoxItem Content="Porto"/>
+                <ComboBoxItem Content="United Sahrani"/>
+                <ComboBoxItem Content="Southern Sahrani"/>
+                <ComboBoxItem Content="Sahrani"/>
+                <ComboBoxItem Content="Virtual Reality"/>
             </ComboBox>
             <TextBox x:Name="TextBox_Mission_Name" Height="29" Canvas.Left="151" TextWrapping="Wrap" Canvas.Top="10" Width="288" TextChanged="TextBox_Mission_Name_TextChanged"/>
             <Label Content="Maksimi pelaajamäärä" Canvas.Left="10" Canvas.Top="113" Width="136" Background="Black" Foreground="#FFDA9512" Height="29"/>
@@ -150,7 +163,7 @@
             <Canvas Height="100" Canvas.Left="136" Canvas.Top="172" Width="100"/>
             <TextBox x:Name="TextBox_Setup_Text" Height="602" Canvas.Left="10" TextWrapping="Wrap" Canvas.Top="10" Width="725"/>
         </Canvas>
-        <Canvas x:Name="Canvas_DAC" HorizontalAlignment="Left" Height="622" Margin="10,9,0,0" VerticalAlignment="Top" Width="745" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5" Visibility="Hidden">
+        <Canvas x:Name="Canvas_DAC" HorizontalAlignment="Left" Height="622" Margin="10,9,0,0" VerticalAlignment="Top" Width="745" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5">
             <Canvas.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -218,6 +231,7 @@
                 <ComboBoxItem Content="VDV RHS UNITS"/>
             </ComboBox>
             <Label Content="Yritä pitää faction samalla puolella kuin olet valinnut. esim WEST - REDFOR ei toimi" Canvas.Left="131" Canvas.Top="529" Width="447" Background="Black" Foreground="#FFDA9512" Height="29"/>
+            <Label Content="Poisto ei toiminnassa!" Canvas.Left="615" Canvas.Top="11" Width="130" Background="Black" Foreground="#FFDA9512" Height="29"/>
         </Canvas>
     </Grid>
 </Window>
