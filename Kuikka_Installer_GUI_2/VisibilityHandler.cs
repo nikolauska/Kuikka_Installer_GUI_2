@@ -48,8 +48,9 @@ namespace Kuikka_Installer_GUI_2
 
         public void ShowDAC()
         {
-            this.hideAll();
-            window.Canvas_DAC.Visibility = Visibility.Visible;
+            MessageBox.Show("DAC ominaisuus ei ole käytössä testeissä löytyneiden ongelmien johdosta! Yritämme korjata asian mahdollisimman pian.");
+           // this.hideAll();
+           // window.Canvas_DAC.Visibility = Visibility.Visible;
         }
 
         private void hideAll()

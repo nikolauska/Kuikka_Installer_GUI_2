@@ -22,7 +22,7 @@ namespace Kuikka_Installer_GUI_2
                 String DacArray = @"0 = ['z" + index + @"', [[" + index + ", 0, 0], " + GetInfString(dac) + ", " + GetVehString(dac) + ", " + GetArmString(dac) + ", " + GetAirString(dac) + ", " + GetParamString(dac) + "]] spawn DAC_Zone";
                 
                 returnString += "if(!isNull " + "z" + index + ") then {" + "\n" +
-                                "   z" + index + @" setTriggerStatements[""time > 0"",""" + DacArray + @"""];" + "\n" +
+                                "   z" + index + @" setTriggerStatements[""time > 0"",""" + DacArray + @""", """"];" + "\n" +
                                 "} else {" + "\n" +
                                 @"   titleText[""z" + index + @" triggeriä ei löydetty!"", ""PLAIN""];" + "\n" +
                                 "};" + "\n" +
