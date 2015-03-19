@@ -26,6 +26,7 @@ namespace Kuikka_Installer_GUI_2
             Images = new List<String>();
         }
 
+        // Save text to specific side and title 
         public void setText(String Side, String Title, String Text)
         {
             switch (Side)
@@ -109,6 +110,7 @@ namespace Kuikka_Installer_GUI_2
             }
         }
 
+        // Get text from specific side and title 
         public String getText(String Side, String Title)
         {
             switch (Side)
@@ -177,6 +179,7 @@ namespace Kuikka_Installer_GUI_2
             return "ERROR " + Side + ", " + Title;
         }
 
+        // Turn briefing to sqf
         public String GenerateBriefing()
         {
             String returnText = "";
@@ -199,17 +202,20 @@ namespace Kuikka_Installer_GUI_2
             return returnText;
         }
 
+        // Add marker to briefing
         public void AddMarker(String Side, String Title, String Name, String Text)
         {
             this.setText(Side, Title, this.getText(Side, Title) + @" <marker name=""" + Name + @""">" + Text + @"<marker>");
         }
 
+        // Add picture to briefing
         public void AddPicture(String Side, String Title, String Location)
         {
             this.Images.Add(Location);
             this.setText(Side, Title, this.getText(Side, Title) + @" <img image=""Muokattavat\Kuvat\" + new DirectoryInfo(Location).Name + @"""/>");          
         }
 
+        // Info on what type briefing is needed
         public String getExplanation(String Title)
         {
             switch (Title)
@@ -226,6 +232,7 @@ namespace Kuikka_Installer_GUI_2
             return "";
         }
 
+        // Copy images used in briefing
         public String CopyImages(String basePath)
         {
             String Errors = "";

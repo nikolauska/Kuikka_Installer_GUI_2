@@ -44,10 +44,10 @@ namespace Kuikka_Installer_GUI_2
 
         private void AddBeginningEmpty()
         {
-            this.EditedSide.Tech = "     " + this.EditedSide.Tech;
-            this.EditedSide.Tehtavat = "     " + this.EditedSide.Tehtavat;
-            this.EditedSide.Tiedustelu = "     " + this.EditedSide.Tiedustelu;
-            this.EditedSide.Tilanne = "     " + this.EditedSide.Tilanne;
+            this.EditedSide.Tech        = "     " + this.EditedSide.Tech;
+            this.EditedSide.Tehtavat    = "     " + this.EditedSide.Tehtavat;
+            this.EditedSide.Tiedustelu  = "     " + this.EditedSide.Tiedustelu;
+            this.EditedSide.Tilanne     = "     " + this.EditedSide.Tilanne;
         }
     }
 }

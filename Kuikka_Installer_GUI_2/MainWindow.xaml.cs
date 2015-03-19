@@ -28,27 +28,24 @@ namespace Kuikka_Installer_GUI_2
         Briefing briefing;
         VisibilityHandler VisibilityHandler;
         InstallHandler installHandler;
-        DACHandler dacHandler;
-        bool AddingInProgress, dacIdEmpty;
 
         public MainWindow()
         {
             InitializeComponent();
 
             briefing = new Briefing();
-            dacHandler = new DACHandler();
-            installHandler = new InstallHandler(this, briefing, dacHandler);
+            installHandler = new InstallHandler(this, briefing);
             VisibilityHandler = new VisibilityHandler(this);            
             VisibilityHandler.showProfileSettings();
-            AddingInProgress = true;
-            dacIdEmpty = true;
 
             TextBox_Briefing_Text.IsReadOnly = false;
             TextBox_Briefing_Text.AcceptsReturn = true;
 
+            // Get arma profilefolders
             String arma3Folder = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\Arma 3";
             String arma3OtherFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\Arma 3 - Other Profiles";
 
+            // Find default arma profilename
             if (Directory.Exists(arma3Folder))
             {
                 string[] files = Directory.GetFiles(arma3Folder, "*.Arma3Profile");
@@ -59,6 +56,7 @@ namespace Kuikka_Installer_GUI_2
                 Combobox_Profile_Name.Items.Add(names[0]);
             }
 
+            // Find all custom arma profilenames
             if (Directory.Exists(arma3OtherFolder))
             {
                 string[] subdirectoryEntries = Directory.GetDirectories(arma3OtherFolder);
@@ -69,17 +67,17 @@ namespace Kuikka_Installer_GUI_2
 
             }
 
+            // Set all combobox to first value
             ComboBox_Briefing_Side.SelectedIndex = 0;
             ComboBox_Briefing_Title.SelectedIndex = 0;
             Combobox_Mission_Gametype.SelectedIndex = 0;
             Combobox_Profile_Name.SelectedIndex = 0;
             Combobox_Mission_Map.SelectedIndex = 0;
-            ComboBox_DAC_Faction.SelectedIndex = 0;
-            ComboBox_DAC_Side.SelectedIndex = 0;
-
-            AddingInProgress = false;
+            Combobox_Profile_Editor.SelectedIndex = 0;
         }
 
+        /***************************************************************************************************/
+        // Menu buttons
         private void Button_Center_Profile_Click(object sender, RoutedEventArgs e)
         {
             VisibilityHandler.showProfileSettings();
@@ -100,23 +98,29 @@ namespace Kuikka_Installer_GUI_2
             VisibilityHandler.showBriefingSettings();
         }
 
-        private void TextBox_Briefing_Text_TextChanged(object sender, TextChangedEventArgs e)
+        private void Center_Install_Btn_Click(object sender, RoutedEventArgs e)
         {
-            this.BriefingTextEdit("SET"); 
+            VisibilityHandler.showSetup();
+            TextBox_Setup_Text.Text = "";
+
+            installHandler.StartInstall();
         }
 
-        private void ComboBox_Briefing_Title_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        /***************************************************************************************************/
+        // Profile settings
+        private void Combobox_Profile_Editor_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (ComboBox_Briefing_Title.SelectedValue != null && ComboBox_Briefing_Side.SelectedValue != null)
-                this.BriefingTextEdit("GET");
+            installHandler.EditorIndex = Combobox_Profile_Editor.SelectedIndex;
         }
 
-        private void ComboBox_Briefing_Side_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void Combobox_Profile_Name_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (ComboBox_Briefing_Title.SelectedValue != null && ComboBox_Briefing_Side.SelectedValue != null)
-                this.BriefingTextEdit("GET"); 
+            installHandler.NameIndex = Combobox_Profile_Name.SelectedIndex;
+            installHandler.profileName = Combobox_Profile_Name.SelectedItem.ToString();
         }
 
+        /***************************************************************************************************/
+        // Missions settings
         private void Combobox_Mission_Gametype_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ComboBoxItem typeCombo = (ComboBoxItem)Combobox_Mission_Gametype.SelectedItem;
@@ -134,7 +138,7 @@ namespace Kuikka_Installer_GUI_2
                     break;
                 case "CTF":
                     Label_Mision_Gametype.Content = "Capture The Flag";
-                    break;              
+                    break;
                 case "SC":
                     Label_Mision_Gametype.Content = "Sector Control";
                     break;
@@ -230,7 +234,7 @@ namespace Kuikka_Installer_GUI_2
                     break;
                 case "Bystrica":
                     Map = "Woodland_ACR";
-                    break;           
+                    break;
                 case "Zargabad":
                     Map = "Zargabad";
                     break;
@@ -249,12 +253,92 @@ namespace Kuikka_Installer_GUI_2
                 case "Sahrani":
                     Map = "Sara";
                     break;
+                case "Thirsk":
+                    Map = "Thirsk";
+                    break;
+                case "Thirsk Winter":
+                    Map = "ThirskW";
+                    break;
                 case "Virtual Reality":
                     Map = "VR";
                     break;
             }
 
             installHandler.MissionMap = Map;
+        }
+
+        private void TextBox_Mission_Name_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            installHandler.missionName = TextBox_Mission_Name.Text;
+        }
+
+        private void TextBox_Mission_PlayerMax_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            installHandler.MaxPlayers = TextBox_Mission_PlayerMax.Text;
+        }
+
+        /***************************************************************************************************/
+        // Loadscreen settings
+        private void TextBox_Loading_Text_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            installHandler.LoadingText = TextBox_Loading_Text.Text;
+        }
+
+        private void TextBox_Loading_Author_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            installHandler.LoadingAuthor = TextBox_Loading_Author.Text;
+        }
+
+        private void TextBox_Loading_Image_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            installHandler.LoadingImage = TextBox_Loading_Image.Text;
+        }
+
+        private void Button_Loading_Picture_Click(object sender, RoutedEventArgs e)
+        {
+            var ofd = new Microsoft.Win32.OpenFileDialog() { Filter = "JPG Files (*.jpg)|*.jpg|PNG Files (*.png)|*.png" };
+            var result = ofd.ShowDialog();
+            if (result == false) return;
+
+            BitmapImage img = new BitmapImage(new Uri(ofd.FileName));
+
+            var imageHeight = img.Height;
+            var imageWidth = img.Width;
+
+            if (imageHeight == imageWidth)
+            {
+                if (imageHeight % 2 == 0 && imageWidth % 2 == 0)
+                {
+                    TextBox_Loading_Image.Text = ofd.FileName;
+                }
+                else
+                {
+                    MessageBox.Show("Kuvan korkeus ja leveys pitää olla kahdella jaollinen! Esim 128x128, 256x256, 512x512");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Kuvan korkeus ja leveys pitää olla sama! Esim 128x128, 256x256, 512x512");
+            }
+        }
+
+        /***************************************************************************************************/
+        // Briefing settings
+        private void TextBox_Briefing_Text_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            this.BriefingTextEdit("SET"); 
+        }
+
+        private void ComboBox_Briefing_Title_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (ComboBox_Briefing_Title.SelectedValue != null && ComboBox_Briefing_Side.SelectedValue != null)
+                this.BriefingTextEdit("GET");
+        }
+
+        private void ComboBox_Briefing_Side_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (ComboBox_Briefing_Title.SelectedValue != null && ComboBox_Briefing_Side.SelectedValue != null)
+                this.BriefingTextEdit("GET"); 
         }
 
         private void BriefingTextEdit(String type)
@@ -294,78 +378,8 @@ namespace Kuikka_Installer_GUI_2
             }
         }
 
-        private void Center_Install_Btn_Click(object sender, RoutedEventArgs e)
-        {
-            VisibilityHandler.showSetup();
-            TextBox_Setup_Text.Text = "";
-
-            installHandler.StartInstall();
-        }
-
-        private void Button_Loading_Picture_Click(object sender, RoutedEventArgs e)
-        {
-            var ofd = new Microsoft.Win32.OpenFileDialog() { Filter = "JPG Files (*.jpg)|*.jpg|PNG Files (*.png)|*.png" };
-            var result = ofd.ShowDialog();
-            if (result == false) return;
-
-            BitmapImage img = new BitmapImage(new Uri(ofd.FileName));
-
-            var imageHeight = img.Height;
-            var imageWidth = img.Width;
-
-            if (imageHeight == imageWidth)
-            {
-                if (imageHeight % 2 == 0 && imageWidth % 2 == 0)
-                {
-                    TextBox_Loading_Image.Text = ofd.FileName;
-                }
-                else
-                {
-                    MessageBox.Show("Kuvan korkeus ja leveys pitää olla kahdella jaollinen! Esim 128x128, 256x256, 512x512");
-                }
-            }
-            else
-            {
-                MessageBox.Show("Kuvan korkeus ja leveys pitää olla sama! Esim 128x128, 256x256, 512x512");
-            }
-        }
-
-        private void TextBox_Mission_Name_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            installHandler.missionName = TextBox_Mission_Name.Text;
-        }
-
-        private void Combobox_Profile_Name_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            installHandler.NameIndex = Combobox_Profile_Name.SelectedIndex;
-            installHandler.profileName = Combobox_Profile_Name.SelectedItem.ToString();
-        }
-
-        private void TextBox_Mission_PlayerMax_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            installHandler.MaxPlayers = TextBox_Mission_PlayerMax.Text;
-        }
-
-        private void TextBox_Loading_Text_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            installHandler.LoadingText = TextBox_Loading_Text.Text;
-        }
-
-        private void TextBox_Loading_Author_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            installHandler.LoadingAuthor = TextBox_Loading_Author.Text;
-        }
-
-        private void TextBox_Loading_Image_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            installHandler.LoadingImage = TextBox_Loading_Image.Text;
-        }
-
-        private void DAC_TextEdited(object sender, TextChangedEventArgs e)
-        {
-            UpdateDAC("SET");
-        }
-
+        /***************************************************************************************************/
+        // Misc functions
         private String CheckInt(String value)
         {
             if(value.Equals(""))
@@ -381,133 +395,6 @@ namespace Kuikka_Installer_GUI_2
                 MessageBox.Show("Sinun pitää antaa numero!");
                 return "0";
             }
-        }
-
-        private void Button_Center_DAC_Click(object sender, RoutedEventArgs e)
-        {
-            VisibilityHandler.ShowDAC();
-        }
-
-        private void Button_DAC_New_Click(object sender, RoutedEventArgs e)
-        {
-            DAC dac = new DAC();
-            int count = ComboBox_DAC_ID.Items.Count + 1;
-            dac.ID = "z" + count.ToString();
-            
-            dacHandler.AddDac(dac);
-
-            dacIdEmpty = false;
-
-            ComboBox_DAC_ID.Items.Add(dac.ID);
-
-            ComboBox_DAC_ID.SelectedIndex = ComboBox_DAC_ID.Items.Count - 1;
-
-
-        }
-
-        private void ComboBox_DAC_ID_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            UpdateDAC("GET");
-        }
-
-        private void ComboBox_DAC_Param_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            UpdateDAC("SET");
-        }
-
-        private void UpdateDAC(String value)
-        {
-            if (AddingInProgress)
-                return;
-
-            if (!dacIdEmpty)
-            {
-                DAC dac = dacHandler.getSelected(ComboBox_DAC_ID.SelectedIndex);
-
-                if (value.Equals("GET"))
-                {
-                    TextBox_DAC_InfGrpAmount.Text = dac.InfGroupAmount;
-                    TextBox_DAC_InfGrpSize.Text = dac.InfGroupSize;
-                    TextBox_DAC_InfWPAmount.Text = dac.InfGroupWaypointAmount;
-                    TextBox_DAC_InfGrpWp.Text = dac.InfWaypointAmount;
-
-                    TextBox_DAC_VehGrpAmount.Text = dac.VehGroupAmount;
-                    TextBox_DAC_VehGrpSize.Text = dac.VehGroupSize;
-                    TextBox_DAC_VehWPAmount.Text = dac.VehGroupWaypointAmount;
-                    TextBox_DAC_VehGrpWp.Text = dac.VehWaypointAmount;
-
-                    TextBox_DAC_ArmGrpAmount.Text = dac.ArmGroupAmount;
-                    TextBox_DAC_ArmGrpSize.Text = dac.ArmGroupSize;
-                    TextBox_DAC_ArmWPAmount.Text = dac.ArmGroupWaypointAmount;
-                    TextBox_DAC_ArmGrpWp.Text = dac.ArmWaypointAmount;
-
-                    TextBox_DAC_AirGrpAmount.Text = dac.AirGroupAmount;
-                    TextBox_DAC_AirGrpSize.Text = dac.AirGroupSize;
-                    TextBox_DAC_AirWPAmount.Text = dac.AirGroupWaypointAmount;
-                    TextBox_DAC_AirGrpWp.Text = dac.AirWaypointAmount;
-
-                    ComboBox_DAC_Side.SelectedIndex = Convert.ToInt32(dac.Side);
-                    ComboBox_DAC_Faction.SelectedIndex = Convert.ToInt32(dac.Faction);
-                }
-                else
-                {
-                    dac.InfGroupAmount = TextBox_DAC_InfGrpAmount.Text;
-                    dac.InfGroupSize = TextBox_DAC_InfGrpSize.Text;
-                    dac.InfGroupWaypointAmount = TextBox_DAC_InfWPAmount.Text;
-                    dac.InfWaypointAmount = TextBox_DAC_InfGrpWp.Text;
-
-                    dac.VehGroupAmount = TextBox_DAC_VehGrpAmount.Text;
-                    dac.VehGroupSize = TextBox_DAC_VehGrpSize.Text;
-                    dac.VehGroupWaypointAmount = TextBox_DAC_VehWPAmount.Text;
-                    dac.VehWaypointAmount = TextBox_DAC_VehGrpWp.Text;
-
-                    dac.ArmGroupAmount = TextBox_DAC_ArmGrpAmount.Text;
-                    dac.ArmGroupSize = TextBox_DAC_ArmGrpSize.Text;
-                    dac.ArmGroupWaypointAmount = TextBox_DAC_ArmWPAmount.Text;
-                    dac.ArmWaypointAmount = TextBox_DAC_ArmGrpWp.Text;
-
-                    dac.AirGroupAmount = TextBox_DAC_AirGrpAmount.Text;
-                    dac.AirGroupSize = TextBox_DAC_AirGrpSize.Text;
-                    dac.AirGroupWaypointAmount = TextBox_DAC_AirWPAmount.Text;
-                    dac.AirWaypointAmount = TextBox_DAC_AirGrpWp.Text;
-
-                    dac.Side = ComboBox_DAC_Side.SelectedIndex.ToString();
-                    dac.Faction = ComboBox_DAC_Faction.SelectedIndex.ToString();
-                }
-            }
-            else
-            {
-                MessageBox.Show("Sinun täytyy lisätä uusi DAC ennekuin voit muokata arvoja!");
-            }         
-        }
-
-        private void Button_DAC_Remove_Click(object sender, RoutedEventArgs e)
-        {
-            /*
-            if (ComboBox_DAC_ID.Items.Count != 0)
-            {
-                dacHandler.removeSelected(ComboBox_DAC_ID.SelectedItem.ToString());
-
-                ComboBox_DAC_ID.Items.Clear();
-
-                AddingInProgress = true;
-                foreach (DAC dac in dacHandler.getList())
-                {
-                    ComboBox_DAC_ID.Items.Add(dac.ID);
-                }
-                AddingInProgress = false;
-
-                if (dacHandler.getList().Count != 0)
-                    ComboBox_DAC_ID.SelectedIndex = ComboBox_DAC_ID.Items.Count - 1;
-                else
-                {
-                    dacIdEmpty = true;
-                }
-
-            }
-            */
-
-            MessageBox.Show("Valitettavasti DAC poistamista ei saatu toimintaan ennen julkaisua. Yritän saada sen toimimaan mahdollisimman pian!");
         }
     }
 }

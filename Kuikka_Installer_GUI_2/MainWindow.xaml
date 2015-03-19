@@ -13,8 +13,6 @@
             <Button x:Name="Button_Center_Mission" Content="Tehtävän Asetukset" HorizontalAlignment="Left" VerticalAlignment="Top" Width="348" Canvas.Left="10" Canvas.Top="48" Height="33" Background="#FFDA9513" Click="Button_Center_Mission_Click" FontFamily="Times New Roman" FontSize="14"/>
             <Button x:Name="Button_Center_Install" Content="Asenna" HorizontalAlignment="Left" VerticalAlignment="Top" Width="348" RenderTransformOrigin="0.484,5.697" Canvas.Left="10" Canvas.Top="517" Height="89" Background="#FFDA9513" Click="Center_Install_Btn_Click" FontFamily="Times New Roman" FontSize="14"/>
             <Button x:Name="Button_Center_Briefing" Content="Briefing Asetukset" HorizontalAlignment="Left" VerticalAlignment="Top" Width="348" Canvas.Left="10" Canvas.Top="124" Height="31" Background="#FFDA9513" Click="Center_Briefing_Btn_Click" FontFamily="Times New Roman" FontSize="14"/>
-            <Label Content="Optionaaliset" Canvas.Left="141" Canvas.Top="214" Width="93" Background="Black" Foreground="#FFDA9512" Height="29" FontFamily="Times New Roman" FontSize="14"/>
-            <Button x:Name="Button_Center_DAC" Content="DAC asetukset" HorizontalAlignment="Left" VerticalAlignment="Top" Width="348" Canvas.Left="10" Canvas.Top="243" Height="31" Background="#FFDA9513" Click="Button_Center_DAC_Click" FontFamily="Times New Roman" FontSize="14"/>
         </Canvas>
         <Canvas x:Name="Canvas_Briefing" HorizontalAlignment="Left" Height="622" Margin="10,9,0,0" VerticalAlignment="Top" Width="745" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5" Visibility="Hidden">
             <Canvas.RenderTransform>
@@ -45,7 +43,7 @@
             <Canvas Height="100" Canvas.Left="136" Canvas.Top="172" Width="100"/>
             <Label x:Name="Label_Briefing_Explanation" Content="" Canvas.Left="12" Canvas.Top="47" Width="687" Background="Black" Foreground="#FFDA9512" Height="29" FontFamily="Times New Roman" FontSize="14"/>
         </Canvas>
-        <Canvas x:Name="Canvas_Profile" HorizontalAlignment="Left" Height="622" Margin="10,9,0,0" VerticalAlignment="Top" Width="745" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5" Visibility="Hidden">
+        <Canvas x:Name="Canvas_Profile" HorizontalAlignment="Left" Height="622" Margin="10,9,0,0" VerticalAlignment="Top" Width="745" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5">
             <Canvas.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -55,9 +53,15 @@
                 </TransformGroup>
             </Canvas.RenderTransform>
             <Canvas Height="100" Canvas.Left="136" Canvas.Top="172" Width="100"/>
-            <Label Content="Profiilinimi" Canvas.Left="10" Canvas.Top="10" Width="121" Background="Black" Foreground="#FFDA9512" Height="29" FontFamily="Times New Roman" FontSize="14"/>
-            <ComboBox x:Name="Combobox_Profile_Name" Canvas.Left="152" Canvas.Top="10" Width="312" Height="29" SelectionChanged="Combobox_Profile_Name_SelectionChanged" FontFamily="Times New Roman" FontSize="14"/>
-            <Label Content="Valitse profiili, jota käytät armaa pelatessassi" Canvas.Left="10" Canvas.Top="59" Width="725" Background="Black" Foreground="#FFDA9512" Height="29" FontFamily="Times New Roman" FontSize="14"/>
+            <Label Content="Profiilinimi" Canvas.Left="10" Canvas.Top="19" Width="121" Background="Black" Foreground="#FFDA9512" Height="29" FontFamily="Times New Roman" FontSize="14"/>
+            <ComboBox x:Name="Combobox_Profile_Name" Canvas.Left="131" Canvas.Top="19" Width="312" Height="29" SelectionChanged="Combobox_Profile_Name_SelectionChanged" FontFamily="Times New Roman" FontSize="14"/>
+            <Label Content="Valitse profiili, jota käytät armaa pelatessassi" Canvas.Left="453" Canvas.Top="19" Width="282" Background="Black" Foreground="#FFDA9512" Height="29" FontFamily="Times New Roman" FontSize="14"/>
+            <Label Content="Käytettävä editori" Canvas.Left="10" Canvas.Top="53" Width="121" Background="Black" Foreground="#FFDA9512" Height="29" FontFamily="Times New Roman" FontSize="14"/>
+            <ComboBox x:Name="Combobox_Profile_Editor" Canvas.Left="131" Canvas.Top="53" Width="312" Height="29" FontFamily="Times New Roman" FontSize="14" SelectionChanged="Combobox_Profile_Editor_SelectionChanged">
+                <ComboBoxItem Content="Moninpeli editori"/>
+                <ComboBoxItem Content="Yksinpeli editori"/>
+           </ComboBox>
+           <Label Content="Valitse kumpaa editoria käytät" Canvas.Left="453" Canvas.Top="53" Width="282" Background="Black" Foreground="#FFDA9512" Height="29" FontFamily="Times New Roman" FontSize="14"/>
         </Canvas>
         <Canvas x:Name="Canvas_Mission" HorizontalAlignment="Left" Height="622" Margin="10,13,0,0" VerticalAlignment="Top" Width="745" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5" Visibility="Hidden">
             <Canvas.RenderTransform>
@@ -114,6 +118,8 @@
                 <ComboBoxItem Content="United Sahrani"/>
                 <ComboBoxItem Content="Southern Sahrani"/>
                 <ComboBoxItem Content="Sahrani"/>
+                <ComboBoxItem Content="Thirsk"/>
+                <ComboBoxItem Content="Thirsk Winter"/>
                 <ComboBoxItem Content="Virtual Reality"/>
             </ComboBox>
             <TextBox x:Name="TextBox_Mission_Name" Height="29" Canvas.Left="151" TextWrapping="Wrap" Canvas.Top="10" Width="288" TextChanged="TextBox_Mission_Name_TextChanged" FontFamily="Times New Roman" FontSize="14"/>
@@ -131,15 +137,15 @@
                 </TransformGroup>
             </Canvas.RenderTransform>
             <Label Content="Lataus teksti" Canvas.Left="10" Canvas.Top="14" Width="121" Background="Black" Foreground="#FFDA9512" Height="29" FontFamily="Times New Roman" FontSize="14"/>
-            <TextBox x:Name="TextBox_Loading_Text" Height="29" Canvas.Left="152" TextWrapping="Wrap" Canvas.Top="14" Width="287" TextChanged="TextBox_Loading_Text_TextChanged" FontFamily="Times New Roman" FontSize="14"/>
-            <Label Content="Tehtävän tekijä" Canvas.Left="10" Canvas.Top="48" Width="121" Background="Black" Foreground="#FFDA9512" Height="29" FontFamily="Times New Roman" FontSize="14"/>
-            <TextBox x:Name="TextBox_Loading_Author" Height="29" Canvas.Left="152" TextWrapping="Wrap" Canvas.Top="48" Width="287" TextChanged="TextBox_Loading_Author_TextChanged" FontFamily="Times New Roman" FontSize="14"/>
-            <Label Content="Latausruudun alareunassa näkyvä teksti" Canvas.Left="444" Canvas.Top="14" Width="280" Background="Black" Foreground="#FFDA9512" Height="29" FontFamily="Times New Roman" FontSize="14"/>
-            <Label Content="Latausruudussa näkyvä tehtävän tekijä" Canvas.Left="444" Canvas.Top="48" Width="280" Background="Black" Foreground="#FFDA9512" Height="29" FontFamily="Times New Roman" FontSize="14"/>
-            <Label Content="Tehtävän kuva" Canvas.Left="10" Canvas.Top="82" Width="121" Background="Black" Foreground="#FFDA9512" Height="29" FontFamily="Times New Roman" FontSize="14"/>
-            <TextBox x:Name="TextBox_Loading_Image" Height="29" Canvas.Left="152" TextWrapping="Wrap" Canvas.Top="82" Width="287" TextChanged="TextBox_Loading_Image_TextChanged" FontFamily="Times New Roman" FontSize="14"/>
-            <Label Content="Latausruudussa näkyvä kuva (tyhjänä vakio kuva)" Canvas.Left="444" Canvas.Top="82" Width="291" Background="Black" Foreground="#FFDA9512" Height="29" FontFamily="Times New Roman" FontSize="14"/>
-            <Button x:Name="Button_Loading_Picture" Content="Etsi kuva" HorizontalAlignment="Left" VerticalAlignment="Top" Width="287" Canvas.Left="152" Canvas.Top="116" Height="25" Background="#FFDA9513" RenderTransformOrigin="0.5,0.5" Click="Button_Loading_Picture_Click" FontFamily="Times New Roman" FontSize="14">
+            <TextBox x:Name="TextBox_Loading_Text" Height="92" Canvas.Left="149" TextWrapping="Wrap" Canvas.Top="14" Width="287" TextChanged="TextBox_Loading_Text_TextChanged" FontFamily="Times New Roman" FontSize="14"/>
+            <Label Content="Tehtävän tekijä" Canvas.Left="7" Canvas.Top="111" Width="121" Background="Black" Foreground="#FFDA9512" Height="29" FontFamily="Times New Roman" FontSize="14"/>
+            <TextBox x:Name="TextBox_Loading_Author" Height="29" Canvas.Left="149" TextWrapping="Wrap" Canvas.Top="111" Width="287" TextChanged="TextBox_Loading_Author_TextChanged" FontFamily="Times New Roman" FontSize="14"/>
+            <Label Content="Latausruudun alareunassa näkyvä teksti" Canvas.Left="441" Canvas.Top="14" Width="280" Background="Black" Foreground="#FFDA9512" Height="29" FontFamily="Times New Roman" FontSize="14"/>
+            <Label Content="Latausruudussa näkyvä tehtävän tekijä" Canvas.Left="441" Canvas.Top="111" Width="280" Background="Black" Foreground="#FFDA9512" Height="29" FontFamily="Times New Roman" FontSize="14"/>
+            <Label Content="Tehtävän kuva" Canvas.Left="7" Canvas.Top="145" Width="121" Background="Black" Foreground="#FFDA9512" Height="29" FontFamily="Times New Roman" FontSize="14"/>
+            <TextBox x:Name="TextBox_Loading_Image" Height="29" Canvas.Left="149" TextWrapping="Wrap" Canvas.Top="145" Width="287" TextChanged="TextBox_Loading_Image_TextChanged" FontFamily="Times New Roman" FontSize="14"/>
+            <Label Content="Latausruudussa näkyvä kuva (tyhjänä vakio kuva)" Canvas.Left="441" Canvas.Top="145" Width="291" Background="Black" Foreground="#FFDA9512" Height="29" FontFamily="Times New Roman" FontSize="14"/>
+            <Button x:Name="Button_Loading_Picture" Content="Etsi kuva" HorizontalAlignment="Left" VerticalAlignment="Top" Width="287" Canvas.Left="149" Canvas.Top="179" Height="25" Background="#FFDA9513" RenderTransformOrigin="0.5,0.5" Click="Button_Loading_Picture_Click" FontFamily="Times New Roman" FontSize="14">
                 <Button.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -162,75 +168,6 @@
             </Canvas.RenderTransform>
             <Canvas Height="100" Canvas.Left="136" Canvas.Top="172" Width="100"/>
             <TextBox x:Name="TextBox_Setup_Text" Height="602" Canvas.Left="10" TextWrapping="Wrap" Canvas.Top="10" Width="725" FontFamily="Times New Roman" FontSize="14"/>
-        </Canvas>
-        <Canvas x:Name="Canvas_DAC" HorizontalAlignment="Left" Height="622" Margin="10,9,0,0" VerticalAlignment="Top" Width="745" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5" Visibility="Hidden">
-            <Canvas.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform AngleY="-0.281"/>
-                    <RotateTransform/>
-                    <TranslateTransform Y="-0.745"/>
-                </TransformGroup>
-            </Canvas.RenderTransform>
-            <TextBox x:Name="TextBox_DAC_InfGrpAmount" Height="29" Canvas.Left="194" TextWrapping="Wrap" Canvas.Top="96" Width="107" TextChanged="DAC_TextEdited" FontFamily="Times New Roman" FontSize="14"/>
-            <Label Content="Valittu DAC ID" Canvas.Left="240" Canvas.Top="10" Width="120" Background="Black" Foreground="#FFDA9512" Height="29" FontFamily="Times New Roman" FontSize="14"/>
-            <Button x:Name="Button_DAC_New" Content="Luo uusi" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Canvas.Left="10" Canvas.Top="10" Height="29" Background="#FFDA9513" RenderTransformOrigin="0.5,0.5" Click="Button_DAC_New_Click" FontFamily="Times New Roman" FontSize="14"/>
-            <Button x:Name="Button_DAC_Remove" Content="Poista" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Canvas.Left="490" Canvas.Top="10" Height="29" Background="#FFDA9513" RenderTransformOrigin="0.5,0.5" Click="Button_DAC_Remove_Click" FontFamily="Times New Roman" FontSize="14"/>
-            <ComboBox x:Name="ComboBox_DAC_ID" Canvas.Left="365" Canvas.Top="10" Width="120" Height="29" SelectionChanged="ComboBox_DAC_ID_SelectionChanged" FontFamily="Times New Roman" FontSize="14"/>
-            <Label Content="Ryhmien määrä" Canvas.Left="54" Canvas.Top="96" Width="135" Background="Black" Foreground="#FFDA9512" Height="29" FontFamily="Times New Roman" FontSize="14"/>
-            <Label Content="Jalkaväki" Canvas.Left="146" Canvas.Top="62" Width="68" Background="Black" Foreground="#FFDA9512" Height="29" FontFamily="Times New Roman" FontSize="14"/>
-            <TextBox x:Name="TextBox_DAC_InfGrpSize" Height="29" Canvas.Left="194" TextWrapping="Wrap" Canvas.Top="128" Width="107" TextChanged="DAC_TextEdited" FontFamily="Times New Roman" FontSize="14"/>
-            <Label Content="Ryhmien koko" Canvas.Left="54" Canvas.Top="128" Width="135" Background="Black" Foreground="#FFDA9512" Height="29" FontFamily="Times New Roman" FontSize="14"/>
-            <TextBox x:Name="TextBox_DAC_InfWPAmount" Height="30" Canvas.Left="194" TextWrapping="Wrap" Canvas.Top="161" Width="107" TextChanged="DAC_TextEdited" FontFamily="Times New Roman" FontSize="14"/>
-            <Label Content="Waypointtien määrä" Canvas.Left="54" Canvas.Top="161" Width="135" Background="Black" Foreground="#FFDA9512" Height="30" FontFamily="Times New Roman" FontSize="14"/>
-            <TextBox x:Name="TextBox_DAC_InfGrpWp" Height="30" Canvas.Left="194" TextWrapping="Wrap" Canvas.Top="196" Width="107" TextChanged="DAC_TextEdited" FontFamily="Times New Roman" FontSize="14"/>
-            <Label Content="Waypointtia per ryhmä" Canvas.Left="54" Canvas.Top="196" Width="135" Background="Black" Foreground="#FFDA9512" Height="30" FontFamily="Times New Roman" FontSize="14"/>
-            <TextBox x:Name="TextBox_DAC_VehGrpAmount" Height="29" Canvas.Left="503" TextWrapping="Wrap" Canvas.Top="96" Width="107" TextChanged="DAC_TextEdited" FontFamily="Times New Roman" FontSize="14"/>
-            <Label Content="Ryhmien määrä" Canvas.Left="363" Canvas.Top="96" Width="135" Background="Black" Foreground="#FFDA9512" Height="29" FontFamily="Times New Roman" FontSize="14"/>
-            <Label Content="Ajoneuvot" Canvas.Left="455" Canvas.Top="62" Width="69" Background="Black" Foreground="#FFDA9512" Height="29" FontFamily="Times New Roman" FontSize="14"/>
-            <TextBox x:Name="TextBox_DAC_VehGrpSize" Height="29" Canvas.Left="503" TextWrapping="Wrap" Canvas.Top="128" Width="107" TextChanged="DAC_TextEdited" FontFamily="Times New Roman" FontSize="14"/>
-            <Label Content="Ryhmien koko" Canvas.Left="363" Canvas.Top="128" Width="135" Background="Black" Foreground="#FFDA9512" Height="29" FontFamily="Times New Roman" FontSize="14"/>
-            <TextBox x:Name="TextBox_DAC_VehWPAmount" Height="30" Canvas.Left="503" TextWrapping="Wrap" Canvas.Top="161" Width="107" TextChanged="DAC_TextEdited" FontFamily="Times New Roman" FontSize="14"/>
-            <Label Content="Waypointtien määrä" Canvas.Left="363" Canvas.Top="161" Width="135" Background="Black" Foreground="#FFDA9512" Height="30" FontFamily="Times New Roman" FontSize="14"/>
-            <TextBox x:Name="TextBox_DAC_VehGrpWp" Height="30" Canvas.Left="503" TextWrapping="Wrap" Canvas.Top="196" Width="107" TextChanged="DAC_TextEdited" FontFamily="Times New Roman" FontSize="14"/>
-            <Label Content="Waypointtia per ryhmä" Canvas.Left="363" Canvas.Top="196" Width="135" Background="Black" Foreground="#FFDA9512" Height="30" FontFamily="Times New Roman" FontSize="14"/>
-            <TextBox x:Name="TextBox_DAC_ArmGrpAmount" Height="29" Canvas.Left="194" TextWrapping="Wrap" Canvas.Top="296" Width="106" TextChanged="DAC_TextEdited" FontFamily="Times New Roman" FontSize="14"/>
-            <Label Content="Ryhmien määrä" Canvas.Left="54" Canvas.Top="296" Width="134" Background="Black" Foreground="#FFDA9512" Height="29" FontFamily="Times New Roman" FontSize="14"/>
-            <Label Content="Armoroidut" Canvas.Left="146" Canvas.Top="262" Width="77" Background="Black" Foreground="#FFDA9512" Height="29" FontFamily="Times New Roman" FontSize="14"/>
-            <TextBox x:Name="TextBox_DAC_ArmGrpSize" Height="29" Canvas.Left="194" TextWrapping="Wrap" Canvas.Top="328" Width="106" TextChanged="DAC_TextEdited" FontFamily="Times New Roman" FontSize="14"/>
-            <Label Content="Ryhmien koko" Canvas.Left="54" Canvas.Top="328" Width="134" Background="Black" Foreground="#FFDA9512" Height="29" FontFamily="Times New Roman" FontSize="14"/>
-            <TextBox x:Name="TextBox_DAC_ArmWPAmount" Height="30" Canvas.Left="194" TextWrapping="Wrap" Canvas.Top="361" Width="106" TextChanged="DAC_TextEdited" FontFamily="Times New Roman" FontSize="14"/>
-            <Label Content="Waypointtien määrä" Canvas.Left="54" Canvas.Top="361" Width="134" Background="Black" Foreground="#FFDA9512" Height="30" FontFamily="Times New Roman" FontSize="14"/>
-            <TextBox x:Name="TextBox_DAC_ArmGrpWp" Height="30" Canvas.Left="194" TextWrapping="Wrap" Canvas.Top="396" Width="106" TextChanged="DAC_TextEdited" FontFamily="Times New Roman" FontSize="14"/>
-            <Label Content="Waypointtia per ryhmä" Canvas.Left="54" Canvas.Top="396" Width="134" Background="Black" Foreground="#FFDA9512" Height="30" FontFamily="Times New Roman" FontSize="14"/>
-            <TextBox x:Name="TextBox_DAC_AirGrpAmount" Height="29" Canvas.Left="505" TextWrapping="Wrap" Canvas.Top="296" Width="107" TextChanged="DAC_TextEdited" FontFamily="Times New Roman" FontSize="14"/>
-            <Label Content="Ryhmien määrä" Canvas.Left="365" Canvas.Top="296" Width="135" Background="Black" Foreground="#FFDA9512" Height="29" FontFamily="Times New Roman" FontSize="14"/>
-            <Label Content="Ilmavoimat" Canvas.Left="457" Canvas.Top="262" Width="81" Background="Black" Foreground="#FFDA9512" Height="29" FontFamily="Times New Roman" FontSize="14"/>
-            <TextBox x:Name="TextBox_DAC_AirGrpSize" Height="29" Canvas.Left="505" TextWrapping="Wrap" Canvas.Top="328" Width="107" TextChanged="DAC_TextEdited" FontFamily="Times New Roman" FontSize="14"/>
-            <Label Content="Ryhmien koko" Canvas.Left="365" Canvas.Top="328" Width="135" Background="Black" Foreground="#FFDA9512" Height="29"/>
-            <TextBox x:Name="TextBox_DAC_AirWPAmount" Height="30" Canvas.Left="505" TextWrapping="Wrap" Canvas.Top="361" Width="107" TextChanged="DAC_TextEdited" FontFamily="Times New Roman" FontSize="14"/>
-            <Label Content="Waypointtien määrä" Canvas.Left="365" Canvas.Top="361" Width="135" Background="Black" Foreground="#FFDA9512" Height="30" FontFamily="Times New Roman" FontSize="14"/>
-            <TextBox x:Name="TextBox_DAC_AirGrpWp" Height="30" Canvas.Left="505" TextWrapping="Wrap" Canvas.Top="396" Width="107" TextChanged="DAC_TextEdited" FontFamily="Times New Roman" FontSize="14"/>
-            <Label Content="Waypointtia per ryhmä" Canvas.Left="365" Canvas.Top="396" Width="135" Background="Black" Foreground="#FFDA9512" Height="30" FontFamily="Times New Roman" FontSize="14"/>
-            <Label Content="Puoli" Canvas.Left="131" Canvas.Top="495" Width="58" Background="Black" Foreground="#FFDA9512" Height="29" FontFamily="Times New Roman" FontSize="14"/>
-            <Label Content="Parametrit" Canvas.Left="313" Canvas.Top="461" Width="71" Background="Black" Foreground="#FFDA9512" Height="29" FontFamily="Times New Roman" FontSize="14"/>
-            <Label Content="Faction" Canvas.Left="373" Canvas.Top="495" Width="64" Background="Black" Foreground="#FFDA9512" Height="29" FontFamily="Times New Roman" FontSize="14"/>
-            <ComboBox x:Name="ComboBox_DAC_Side" Canvas.Left="194" Canvas.Top="495" Width="120" Height="29" SelectionChanged="ComboBox_DAC_Param_SelectionChanged" FontFamily="Times New Roman" FontSize="14">
-                <ComboBoxItem Content="WEST"/>
-                <ComboBoxItem Content="EAST"/>
-                <ComboBoxItem Content="INDEPENDENT"/>
-                <ComboBoxItem Content="CIVILIAN"/>
-            </ComboBox>
-            <ComboBox x:Name="ComboBox_DAC_Faction" Canvas.Left="442" Canvas.Top="495" Width="120" Height="29" SelectionChanged="ComboBox_DAC_Param_SelectionChanged" FontFamily="Times New Roman" FontSize="14">
-                <ComboBoxItem Content="REDFOR"/>
-                <ComboBoxItem Content="BLUFOR"/>
-                <ComboBoxItem Content="INDEPENDENT"/>
-                <ComboBoxItem Content="CIVILIAN"/>
-                <ComboBoxItem Content="AAS OPFOR"/>
-                <ComboBoxItem Content="OPFOR EAST REBELS"/>
-                <ComboBoxItem Content="VDV RHS UNITS"/>
-            </ComboBox>
-            <Label Content="Yritä pitää faction samalla puolella kuin olet valinnut. esim WEST - REDFOR ei toimi" Canvas.Left="131" Canvas.Top="529" Width="447" Background="Black" Foreground="#FFDA9512" Height="29" FontFamily="Times New Roman" FontSize="14"/>
         </Canvas>
     </Grid>
 </Window>

@@ -76,9 +76,6 @@
     <Compile Include="Briefing_Picture.xaml.cs">
       <DependentUpon>Briefing_Picture.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DAC.cs" />
-    <Compile Include="DACGenerator.cs" />
-    <Compile Include="DACHandler.cs" />
     <Compile Include="InstallHandler.cs" />
     <Compile Include="Side.cs" />
     <Compile Include="VisibilityHandler.cs" />

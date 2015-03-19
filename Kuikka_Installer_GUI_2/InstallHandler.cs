@@ -14,6 +14,7 @@ namespace Kuikka_Installer_GUI_2
     class InstallHandler
     {
         public int NameIndex { get; set; }
+        public int EditorIndex { get; set; }
         public String profileName { get; set; }
         public String missionName { get; set; }
         public String MaxPlayers { get; set; }
@@ -25,13 +26,11 @@ namespace Kuikka_Installer_GUI_2
 
         private MainWindow window { get; set; }
         private Briefing briefing { get; set; }
-        private DACHandler dacHandler { get; set; }
 
-        public InstallHandler(MainWindow window, Briefing briefing, DACHandler dacHandler) 
+        public InstallHandler(MainWindow window, Briefing briefing) 
         {
             this.window = window;
             this.briefing = briefing;
-            this.dacHandler = dacHandler;
 
             NameIndex = 0;
             profileName = "";
@@ -46,28 +45,41 @@ namespace Kuikka_Installer_GUI_2
 
         private delegate void UpdateTextCallback(string message);
 
+        // Update text on main window
         private void UpdateText(string message)
         {
             window.TextBox_Setup_Text.AppendText(message);
         }     
 
+        // Start install thread
         public void StartInstall() 
         {
             Thread installThread = new Thread(() => Installer());
             installThread.Start();
         }
 
+        // Main installer method
         private void Installer()
         {
             String basePath = "";
             // Get base folder 
             if (NameIndex == 0)
             {
-                basePath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\Arma 3\MPmissions\";
+                basePath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\Arma 3\";
             }
             else
             {
-                basePath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\Arma 3 - Other Profiles\" + profileName + @"\MPmissions\";
+                basePath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\Arma 3 - Other Profiles\" + profileName + @"\";
+            }
+
+            // Set base folder to editor type
+            if (EditorIndex == 0)
+            {
+                basePath += @"MPmissions\";
+            }
+            else
+            {
+                basePath += @"missions\";
             }
 
             // Check if mission name exists
@@ -114,17 +126,22 @@ namespace Kuikka_Installer_GUI_2
                 }
             }
 
+            // Main install function (should be run on different thread than GUI)
             if (startInstall)
             {
+                // Create mission folder
                 Directory.CreateDirectory(basePath);
                 GUIUpdate("INFO: Tehtävä kansio luotu! \n");
+
+                // Create editable folder
                 Directory.CreateDirectory(basePath + @"\Muokattavat");
                 GUIUpdate("INFO: Muokattavat kansio luotu! \n");
+
+                // Create pictures folder
                 Directory.CreateDirectory(basePath + @"\Muokattavat\Kuvat");
                 GUIUpdate("INFO: Kuvat kansio luotu! \n");
-                Directory.CreateDirectory(basePath + @"\HC");
-                GUIUpdate("INFO: HC kansio luotu! \n");
 
+                // Load mission.sqm
                 GUIUpdate("INFO: Ladataan mission.sqm tiedostoa! \n");
                 using (WebClient wb = new WebClient())
                 {
@@ -137,34 +154,36 @@ namespace Kuikka_Installer_GUI_2
                         GUIUpdate("ERROR: mission.sqm tiedoston lataus epäonnistui. Asennus keskeytettiin!\n");
                         GUIUpdate("ERROR MESSGAGE: " + webEx.ToString() + "\n");
 
+                        // Download failed on needed file so remove whole mission folder and try again
                         DeleteDirectory(basePath);
                         return;
                     }
                 }
-
                 GUIUpdate("INFO: mission.sqm ladattu! \n");
 
-                GUIUpdate("INFO: Ladataan DAC.zip tiedostoa! \n");
+                // Download scripts file
+                GUIUpdate("INFO: Ladataan scripts.zip tiedostoa! \n");
                 using (WebClient wb = new WebClient())
                 {
                     try
                     {
-                        wb.DownloadFile("https://dl.dropboxusercontent.com/u/43689307/DAC.zip", System.IO.Path.GetTempPath() + @"\DAC.zip");
+                        wb.DownloadFile("https://dl.dropboxusercontent.com/u/43689307/scripts.zip", System.IO.Path.GetTempPath() + @"\scripts.zip");
                     }
                     catch (WebException webEx)
-                    {
-                        GUIUpdate("ERROR: DAC modin lataus epäonnistui. Asennus keskeytettiin! \n");
+                    {                  
+                        GUIUpdate("ERROR: scripts.zip tiedoston lataus epäonnistui. Asennus keskeytettiin! \n");
                         GUIUpdate("ERROR MESSGAGE: " + webEx.ToString() + "\n");
 
+                        // Download failed on needed folder so remove whole mission folder and try again
                         DeleteDirectory(basePath);
                         return;
                     }
                 }
+                GUIUpdate("INFO: scripts.zip ladattu! \n");
 
-                GUIUpdate("INFO: DAC.zip ladattu! \n");
-
-                ZipFile.ExtractToDirectory(System.IO.Path.GetTempPath() + @"\DAC.zip", basePath + @"\");
-                GUIUpdate("INFO: DAC.zip purettu tehtävä kansioon! \n");
+                // Extract zip file
+                ZipFile.ExtractToDirectory(System.IO.Path.GetTempPath() + @"\scripts.zip", basePath + @"\");
+                GUIUpdate("INFO: scripts.zip purettu tehtävä kansioon! \n");
 
                 // Create init.sqf
                 CreateFile(basePath + @"\init.sqf", 
@@ -179,44 +198,18 @@ namespace Kuikka_Installer_GUI_2
                         "    waitUntil {time > 10}; \n" +
                         "}; \n" +
                         "\n" +
-                        "if(paramsArray select 0 == 1) then{\n" +
-                        "    if(isServer) then{\n" +
-                        "        HCPresent = true;\n" +
-                        @"        publicVariable ""HCPresent"";" + "\n" +
-                        "    };\n" +
-                        "    if (!hasInterface && !isServer) then{\n" +
-                        "        HCName = name player; \n" +
-                        @"        publicVariable ""HCName"";" + "\n" +
-                        "    };\n" +
-                        "} else{\n" +
-                        "    if(isServer) then{\n" +
-                        "        HCPresent = false;\n" +
-                        @"        HCName = ""NOONE"";" + "\n" +
-                        @"        publicVariable ""HCPresent"";" + "\n" +
-                        @"        publicVariable ""HCName"";" + "\n" +
-                        "    };\n" +
-                        "};\n" +
-                        "\n" +
-                        "//DAC Init\n" +
-                        "DAC_Basic_Value = 0;\n" +
-                        @"execVM ""DAC\DAC_Config_Creator.sqf"";" + "\n" +
-                        "\n" +
                         @"[] execVM ""Muokattavat\Briefing.sqf"";" + "\n" +
                         "\n" +
-                        @"[] execVM ""Muokattavat\OmaInit.sqf"";" +
+                        @"[] execVM ""Muokattavat\OmaInit.sqf"";" + "\n" +
                         "\n" +
-                        "// Poista väsymys (väliaikainen ennekuin löydetään toimiva väsymys systeemi)\n" +
-	                    "player enableFatigue false;\n" +
-                        @"player addEventhandler [""Respawn"", {player enableFatigue false}];" + "\n" +
+                        "//TASK FORCE ASETUKSET" + "\n" +
+                        "tf_same_sw_frequencies_for_side = true;" + "\n" +
+                        "tf_no_auto_long_range_radio = true;" + "\n" +
+                        "tf_same_lr_frequencies_for_side = true;" + "\n" +
+                        "TF_give_personal_radio_to_regular_soldier = false;" + "\n" +
                         "\n" +
-                        "//Aja scriptit HC:lla tai Serverilla" + "\n" +
-                        "if (!hasInterface && !isServer && HCPresent) then{ //HEADLESS CLIENT" + "\n" +
-                        @"        execVM ""HC\DACSpawn.sqf"";" + "\n" +
-                        @"} else {" + "\n" +
-                        "    if (isServer) then { //SERVER" + "\n" +
-                        @"        execVM ""HC\DACSpawn.sqf"";" + "\n" +
-                        "    };" + "\n" +
-                        "};");
+                        "//Init UPSMON script" + "\n" +
+                        @"call compile preprocessFileLineNumbers ""scripts\Init_UPSMON.sqf"";");
                 GUIUpdate("INFO: init.sqf luotu! \n");
 
                 // Create Description.ext
@@ -227,18 +220,6 @@ namespace Kuikka_Installer_GUI_2
                         "\n" +
                         @"#include ""Muokattavat\MissionSettings.ext""" + "\n" +
                         "\n" +
-                        "//CLASS PARAMS HC CLIENTILLE\n" +
-                        "class Params\n" +
-                        "{\n" +
-                        "    class HeadlessClient\n" +
-                        "    {\n" +
-                        @"        title = ""Headless Client""" + "\n" +
-                        "        values[]= {0,1};\n" +
-                        @"        texts[] = {""OFF"",""ON""};" + "\n" +
-                        "        default = 0;\n" +
-                        "    };\n" +
-                        "};\n" +
-                        "\n" +
                         "Respawn = 3;\n" +
                         "enableDebugConsole = 1;");
                 GUIUpdate("INFO: Description.ext luotu! \n");
@@ -246,16 +227,17 @@ namespace Kuikka_Installer_GUI_2
                 // Create Briefing.sqf
                 CreateFile(basePath + @"\Muokattavat\Briefing.sqf",
                         "/***************************************************************************************************************************** \n" +
-                        "* Tämä tiedosto sisältää luomais briefing tekstin \n" +
+                        "* Tämä tiedosto sisältää briefing tekstin \n" +
                         "*****************************************************************************************************************************/ \n" +
                         "\n" +
                         briefing.GenerateBriefing());
                 GUIUpdate("INFO: Briefing.sqf luotu! \n");
 
-                // Create MissionSettings.ext
+                // Loading screen picture
                 string picture = "";
                 if (LoadingImage.Equals(""))
                 {
+                    // Download default if loadscreen image is not set
                     picture = @"Muokattavat\Kuvat\kuikka.jpg";
 
                     GUIUpdate("INFO: Ladataan Kuikka.jpg tiedostoa! \n");
@@ -274,6 +256,7 @@ namespace Kuikka_Installer_GUI_2
                 }
                 else
                 {
+                    // Copy set loading screen image to mission folder
                     try
                     {
                         File.Copy(LoadingImage, basePath + @"\Muokattavat\Kuvat\" + new DirectoryInfo(LoadingImage).Name);
@@ -285,6 +268,8 @@ namespace Kuikka_Installer_GUI_2
                         GUIUpdate("ERROR MESSGAGE: " + copyError.ToString() + "\n");
                     }
                 }
+
+                // Create MissionSettings.ext
                 CreateFile(basePath + @"\Muokattavat\MissionSettings.ext", 
                         "/***************************************************************************************************************************\n" +
                         "* Tehtävän asetukset esim latausruudun tekstit/kuvat, pelimuoto, tehtävän nimi\n" +
@@ -292,7 +277,6 @@ namespace Kuikka_Installer_GUI_2
                         "\n" +
                         "// Monipelivalikko\n" +
                         @"overviewText = """ + replaceAO(missionName) + @"""; // Teksti moninpelivalikossa" + "\n" +
-                        @"overviewPicture = """ + picture + @"""; // Kuva moninpelivalikossa" + "\n" +
                         "\n" +
                         "// Latausruutu\n" +
                         @"onLoadName = """ + replaceAO(missionName) + @"""; // Missun nimi latausruudussa" + "\n" +
@@ -312,33 +296,36 @@ namespace Kuikka_Installer_GUI_2
                         "RespawnDelay = 5; 	// Kuinka pitkään kunnes pelaaja respawnaa");
                 GUIUpdate("INFO: MissionSettings.ext luotu! \n");
 
-
+                // Create omaInit file
                 CreateFile(basePath + @"\Muokattavat\OmaInit.sqf", 
                         "/***************************************************************************************************************************\n" +
                         "* Täällä voit ajaa haluamasi omat skriptit\n" +
                         "***************************************************************************************************************************/\n");
                 GUIUpdate("INFO: OmaInit.sqf luotu! \n");
 
-                // Create DACSpawn.sqf
-                CreateFile(basePath + @"\HC\DACSpawn.sqf", 
-                        "/***************************************************************************************************************************\n" +
-                        "* Täällä luodaan triggerit DAC:n käynnistystä HC:ta varten\n" +
-                        "***************************************************************************************************************************/\n" +
-                        "\n" +
-                        dacHandler.GenerateCode());
-                GUIUpdate("INFO: DACSpawn.sqf luotu! \n");
-
+                // Copy briefing images
                 GUIUpdate(briefing.CopyImages(basePath));
                 GUIUpdate("INFO: Briefing kuvat kopioitu! \n");
 
                 GUIUpdate("INFO: Valmis!");
+
+                // Set base folder to editor type
+                if (EditorIndex == 0)
+                {
+                    MessageBox.Show("Tehtävä kansio on nyt luotu. \n\n" +
+                                "Aloittaaksesi tehtävän editoinnin käynnistä ArmA 3 ja luo local serveri multiplayer valikosta ja valitse kartta johon loit tehtäväsi.\n\n" + 
+                                "Oikealla puolella olevassa tehtävä valikossa pitäisi nyt näkyä luomasi tehtävä sinisellä. Valitse se ja avaa alhaalla olevasta edit napista");
+                }
+                else
+                {
+                    MessageBox.Show("Tehtävä kansio on nyt luotu. \n\n" +
+                                "Aloittaaksesi tehtävän editoinnin valitse vain päävalikosta Editor ja kartta johon loit tehtäväsi. Load napin alta pitäisi löytyä luomasi tehtävä.");
+                }
                 
-                MessageBox.Show("Tehtävä kansio on nyt luotu. \n\n" +
-                                "Aloittaaksesi tehtävän editoinnin käynnistä ArmA 3 ja luo local serveri multiplayer valikosta. Sieltä löydät luodun tehtävän ja voit alkaa muokkaamaan sitä. \n\n" +
-                                "HUOM! Jos olat luonut DAC unitteja muista luoda triggerit editorissa niiden ID nimillä esim. z1, z2 jne. riippuen mitä olet tässä ohjelmassa luonut.");
             }
         }
 
+        // Create file function
         private void CreateFile(String FileLoc, String text)
         {
             // Create Briefing.sqf
@@ -350,11 +337,13 @@ namespace Kuikka_Installer_GUI_2
             }
         }
 
+        // Update text on main window invoker
         private void GUIUpdate(String message) 
         {
             window.TextBox_Setup_Text.Dispatcher.Invoke(new UpdateTextCallback(this.UpdateText), new object[] { message });
         }
 
+        // Replaces ä and ö with a and o 
         private String replaceAO(String text)
         {
             text = text.Replace('ä', 'a');
@@ -363,17 +352,20 @@ namespace Kuikka_Installer_GUI_2
             return text;
         }
 
+        // Delete folder and everything in it
         private static void DeleteDirectory(string target_dir)
         {
             string[] files = Directory.GetFiles(target_dir);
             string[] dirs = Directory.GetDirectories(target_dir);
 
+            // Delete all files inside 
             foreach (string file in files)
             {
                 File.SetAttributes(file, FileAttributes.Normal);
                 File.Delete(file);
             }
 
+            // Delete every folder recursively 
             foreach (string dir in dirs)
             {
                 DeleteDirectory(dir);
@@ -385,11 +377,11 @@ namespace Kuikka_Installer_GUI_2
             }
             catch (DirectoryNotFoundException)
             {
-                return;  // good!
+                return; // Exit when everything is deleted
             }
             catch (IOException)
-            {
-                
+            {  
+                // Folder could not be deleted
                 MessageBox.Show("Kansiota " + Path.GetDirectoryName(target_dir) + " ei voitu poistaa! \n\nVarmista, että muut prosessit eivät käytä kansiota");
                 DeleteDirectory(target_dir);
             }
